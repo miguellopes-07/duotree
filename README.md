@@ -1,0 +1,2 @@
+# duotree
+O DuoTree é uma plataforma de educação ambiental gamificada, inspirada no ODS 15 — Vida Terrestre. Nosso objetivo é incentivar as pessoas a aprenderem mais sobre árvores, biodiversidade e preservação por meio de missões, quizzes, conteúdos educativos e ações práticas. Conforme o usuário participa e mantém sua constância, sua árvore e sua floresta evoluem, tornando o aprendizado mais divertido, visual e conectado ao cuidado com a natureza.
