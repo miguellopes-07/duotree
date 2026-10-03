@@ -3,13 +3,17 @@
 body{
     margin: 0px;
 }
+.bodywiki{
+    margin: 0px;
+    background-color: #dde5b3;
+}
 
 .navegacaoFooter {
     
     background-color: #fef8e7;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
-    padding: 30px;
+    padding: 60px;
     padding-top: 20px;
     margin: 0px;
     justify-content: center;
@@ -30,4 +34,40 @@ body{
 .listaNavegacaoFooter>li>a:hover{
     color: #4c7b47;
     
+}
+hr{
+    background-color: #9bae69 ;
+    height: 6px;
+    border: none;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.containerArvoresWiki{
+    display: flex;
+    flex-direction: row;
+    background-color: #4c7b47;
+    border-radius: 37px;
+    width: calc(50vw);
+    padding: 20px;
+    justify-content: space-around;
+    margin-bottom: 2%;
+}
+.containerArvoresWiki>img{
+    border-radius: 16px;
+}
+.containerArvoresWiki>div{
+    text-align: center;
+    width: calc(50%);
+}
+.containerArvoresWiki>div>p,h3,h4{
+    color: white;
+    margin: 0px;
+}
+.containerArvoresWiki>div>h4{
+    font-style: italic;
 }
