@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+body{
+    margin: 0px;
+}
+
+.navegacaoFooter {
+    
+    background-color: #fef8e7;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    padding: 30px;
+    padding-top: 20px;
+    margin: 0px;
+    justify-content: center;
+    align-items: center;
+}
+.listaNavegacaoFooter{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-evenly;
+    padding: 0px;
+    margin: 0px;
+}
+.listaNavegacaoFooter>li>a{
+    color:#938a8a;
+    
+}
+.listaNavegacaoFooter>li>a:hover{
+    color: #4c7b47;
+    
+}
