@@ -1,15 +1,18 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-body{
+body {
     margin: 0px;
+    font-family: "Nunito", sans-serif;
 }
-.bodywiki{
+
+.bodywiki {
     margin: 0px;
     background-color: #dde5b3;
 }
 
 .navegacaoFooter {
-    
+
     background-color: #fef8e7;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
@@ -19,7 +22,8 @@ body{
     justify-content: center;
     align-items: center;
 }
-.listaNavegacaoFooter{
+
+.listaNavegacaoFooter {
     display: flex;
     flex-direction: row;
     list-style: none;
@@ -27,27 +31,33 @@ body{
     padding: 0px;
     margin: 0px;
 }
-.listaNavegacaoFooter>li>a{
-    color:#938a8a;
-    
+
+.listaNavegacaoFooter>li>a {
+    color: #938a8a;
+
 }
-.listaNavegacaoFooter>li>a:hover{
+
+.listaNavegacaoFooter>li>a:hover {
     color: #4c7b47;
-    
+
 }
-hr{
-    background-color: #9bae69 ;
+
+hr {
+    background-color: #9bae69;
     height: 6px;
     border: none;
 }
-main{
+
+.mainwiki {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    row-gap: 20px;
 
 }
-.containerArvoresWiki{
+
+.containerArvoresWiki {
     display: flex;
     flex-direction: row;
     background-color: #4c7b47;
@@ -55,19 +65,75 @@ main{
     width: calc(50vw);
     padding: 20px;
     justify-content: space-around;
-    margin-bottom: 2%;
 }
-.containerArvoresWiki>img{
+
+.containerArvoresWiki>img {
     border-radius: 16px;
 }
-.containerArvoresWiki>div{
+
+.containerArvoresWiki>div {
     text-align: center;
     width: calc(50%);
 }
-.containerArvoresWiki>div>p,h3,h4{
+
+.containerArvoresWiki>div>p,
+h3,
+h4 {
     color: white;
     margin: 0px;
 }
-.containerArvoresWiki>div>h4{
+
+.containerArvoresWiki>div>h4 {
     font-style: italic;
+}
+
+.listfilterwiki {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+    padding: 0px;
+    margin: 0px;
+
+}
+
+.listfilterwiki>li {
+    background-color: #fef8e7;
+    margin: 1%;
+    padding: 0.3%;
+    border-radius: 7px;
+}
+
+.headerwiki {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+}
+
+.barrapesquisawiki {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fef8e7;
+    border-radius: 20px;
+    padding: 2%;
+}
+
+.barrapesquisawiki>button,
+input {
+    border: none;
+    background-color: transparent;
+    margin: 0px;
+    margin-right: 20px;
+    padding: 0px;
+}
+
+.barrapesquisawiki>input::placeholder,
+input:focus {
+    color: #68a85b;
+    font-weight: 500;
+    font-size: medium;
+    outline: none;
+    box-shadow: none
 }
