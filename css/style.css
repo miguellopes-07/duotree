@@ -54,6 +54,7 @@ hr {
     justify-content: space-between;
     align-items: center;
     row-gap: 20px;
+    width: 100vw;
 
 }
 
@@ -62,9 +63,9 @@ hr {
     flex-direction: row;
     background-color: #4c7b47;
     border-radius: 37px;
-    width: calc(50vw);
-    padding: 20px;
-    justify-content: space-around;
+    width: calc(35vw);
+    padding: 10px;
+    justify-content: space-evenly;
 }
 
 .containerArvoresWiki>img {
