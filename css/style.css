@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 body {
     margin: 0px;
     font-family: "Nunito", sans-serif;
@@ -136,4 +136,26 @@ input:focus {
     font-size: medium;
     outline: none;
     box-shadow: none
+}
+.logowiki {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100vw;
+    max-width: 50vw; 
+}
+
+
+.logowiki2 {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    column-gap: 10px; 
+}
+.logowiki2>h1{
+    color: white;
+    font-variant-caps: all-petite-caps;
+    font-size: 100px;
+    margin: 0px;
 }
