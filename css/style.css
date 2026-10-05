@@ -63,7 +63,7 @@ hr {
     flex-direction: row;
     background-color: #4c7b47;
     border-radius: 37px;
-    width: calc(35vw);
+    width: 35vw;
     padding: 10px;
     justify-content: space-evenly;
 }
