@@ -133,7 +133,8 @@ margin: 0;
 }
 
 .listfilterloja > li {
-background-color: #211b0a;
+background-color: white;
+border: 1px solid #bfbbbb;
 
 padding: 6px 12px;
 
