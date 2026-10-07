@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+
+*{
+box-sizing: border-box;
+}
+
+html {
+width: 100%;
+overflow-x: hidden;
+}
+
+body {
+margin: 0;
+font-family: "Nunito", sans-serif;
+width: 100%;
+overflow-x: hidden;
+}
+
+.navegacaoFooterLoja {
+background-color: #ebe6e6;
+
+border-top-left-radius: 50px;
+border-top-right-radius: 50px;
+
+padding: 20px;
+
+margin: 0;
+
+display: flex;
+
+justify-content: center;
+align-items: center;
+}
+
+.tituloloja{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.headerregiao{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color:white;
+    padding: 10px;
+    border: 3px solid #bfbbbb ;
+    border-radius: 16px;
+   
+
+}
+
+.headerregiao>h5{
+  margin: 0px;
+}
+
+
+
+.bodyloja {
+background-color: #fef8e7;
+}
+
+.headerloja {
+display: flex;
+flex-direction: column;
+align-items: start;
+flex-wrap: wrap;
+gap: 15px;
+padding: 20px;
+}
+
+.listaNavegacaoFooter {
+display: flex;
+
+flex-direction: row;
+
+flex-wrap: wrap;
+
+list-style: none;
+
+justify-content: center;
+
+align-items: center;
+
+gap: 25px;
+
+padding: 0;
+margin: 0;
+
+
+}
+
+.listaNavegacaoFooter > li > a {
+color: #938a8a;
+
+text-decoration: none;
+
+font-size: 16px;
+
+transition: 0.2s;
+
+
+}
+
+.listaNavegacaoFooter > li > a:hover {
+color: #4c7b47;
+}
+
+.listfilterloja {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+
+list-style: none;
+
+justify-content: center;
+align-items: center;
+
+gap: 8px;
+
+padding: 0;
+margin: 0;
+
+
+}
+
+.listfilterloja > li {
+background-color: #211b0a;
+
+padding: 6px 12px;
+
+border-radius: 7px;
+
+cursor: pointer;
+
+transition: 0.2s;
+
+
+}
+
+.listfilterloja > li:hover {
+background-color: #4c7b47;
+color: white;
+}
