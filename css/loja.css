@@ -142,10 +142,12 @@ overflow-x: hidden;
     color: white;
 }
 
-
+main{
+    display: flex;
+    flex-direction: row;
+}
 .listaarvore{
     display: flex;
-    list-style: none;
     justify-content: center;
     padding: 0px;
     margin: 0px;
@@ -172,7 +174,6 @@ overflow-x: hidden;
     border: 2px solid;
     border-color: #938a8a;
     border-radius: 50px;
-    
 }
 
 .imgarvore{
