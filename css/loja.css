@@ -21,6 +21,16 @@ width: 100%;
 overflow-x: hidden;
 }
 
+.headerloja {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+}
+
 .imagensheader{
     display: flex;
     align-items: center;
@@ -37,9 +47,11 @@ overflow-x: hidden;
 }
 
 .headerregiao{
+   
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
     background-color:white;
     padding: 10px;
     border: 3px solid #bfbbbb ;
@@ -56,15 +68,6 @@ overflow-x: hidden;
 
 .bodyloja {
     background-color: #fef8e7;
-}
-
-.headerloja {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 20px;
 }
 
 .listaNavegacaoFooter {
@@ -142,59 +145,145 @@ overflow-x: hidden;
     color: white;
 }
 
-main{
+
+.barrapesquisawiki {
+    width: 95%;
+
+    padding: 8px 12px;
+}
+
+.barrapesquisawiki > input {
+    font-size: 14px;
+}
+
+.barrapesquisawiki {
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+width: min(90vw, 500px);
+border: 1px solid grey;
+background-color: #ffffff;
+border-radius: 20px;
+
+padding: 10px 15px;
+
+
+}
+
+.barrapesquisawiki > input {
+border: none;
+outline: none;
+background-color: transparent;
+color: #436d3e;
+width: 100%;
+font-family: "Nunito", sans-serif;
+font-size: 16px;
+font-weight: bolder;
+margin: 0;
+padding: 8px;
+}
+
+.barrapesquisawiki > button {
+border: none;
+background-color: transparent;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+cursor: pointer;
+
+padding: 5px;
+margin: 0;
+
+
+}
+
+.barrapesquisawiki > button svg {
+width: 22px;
+height: 22px;
+}
+
+hr{
+    background-color: burlywood;
+    height: 6px;
+    border: none;
+}
+
+section{
     display: flex;
     flex-direction: row;
-}
-.listaarvore{
-    display: flex;
+    align-items: stretch;
     justify-content: center;
-    padding: 0px;
-    margin: 0px;
-    flex-direction: row;
     flex-wrap: wrap;
-    width: 100%;
-   
+
 }
 
-.listaarvore>li{
-    margin: 6px;
-    padding: 10px;
-    height: 300px;
-    width: calc(50% - 12px);
-}
-
-
-.listaarvores>li{
+.listaarvore{
+    width: 45%;
     display: flex;
-    align-items: center;
     flex-direction: row;
     background-color: white;
-    margin: 20px;
-    border: 2px solid;
-    border-color: #938a8a;
+    margin: 10px;
     border-radius: 50px;
+    border: 2px solid gray ;
+    margin: 20px;
 }
 
 .imgarvore{
-    
+    width: 50%;
+
     display: flex;
-    border: 1px solid;
+    border: 3px solid;
     border-color: #938a8a;
-     border-radius: 50px;
+    border-radius: 50px;
 }
 .imgarvore>img{
+    width: 100%;
+    height: 100%;
     border-radius: 50px;
    
 }
 
 .textoarvore{
     display: flex;
-    align-items: center;
+    padding-left: 20px;
+    align-items: start;
     flex-direction: column;
-    justify-content: space-around;
     width: 50%;
 
+}
+
+.textoarvore>h3{
+    font-size: 50px;
+    margin: 10px;
+}
+
+.textoarvore>h6{
+    font-size: 30px;
+    font-style: italic;
+    margin: 0px;
+   
+}
+
+.textoarvore>h5{
+    background-color: burlywood;
+    padding: 5px;
+    border: 3px solid greenyellow;
+    border-radius: 50px;
+    font-size: 20px;
+    margin-top: 120px;
+    
+}
+
+.textoarvore>h4{
+    margin: 0px;
+    font-size: 50px;
+    background-color: #4c7b47;
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 50px;
 }
 
 .navegacaoFooterLoja {
