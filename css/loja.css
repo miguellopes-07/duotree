@@ -160,16 +160,13 @@ overflow-x: hidden;
     padding: 10px;
     height: 300px;
     width: calc(50% - 12px);
-    box-sizing: border-box;
-    position: relative;
 }
 
 
-.especie{
+.listaarvores>li{
     display: flex;
     align-items: center;
-    
-    align-items: collum;
+    flex-direction: row;
     background-color: white;
     margin: 20px;
     border: 2px solid;
@@ -195,21 +192,17 @@ overflow-x: hidden;
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
+    width: 50%;
 
 }
 
 .navegacaoFooterLoja {
 background-color: #ebe6e6;
-
 border-top-left-radius: 50px;
 border-top-right-radius: 50px;
-
 padding: 20px;
-
 margin: 0;
-
 display: flex;
-
 justify-content: center;
 align-items: center;
 }
