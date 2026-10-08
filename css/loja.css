@@ -217,11 +217,15 @@ section{
     align-items: stretch;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 20px;
 
 }
 
 .listaarvore{
-    width: 45%;
+    max-width: 100%;
+    width: 580px;
+    height: 400px;
+    min-height: 0;
     display: flex;
     flex-direction: row;
     background-color: white;
@@ -229,11 +233,17 @@ section{
     border-radius: 50px;
     border: 2px solid gray ;
     margin: 20px;
+    overflow: hidden;
 }
+.listaarvore h2 { font-size: 1.2rem; }
+.listaarvore h3 { font-size: 0.85rem; }
+.listaarvore .custo { font-size: 1.3rem; }
 
 .imgarvore{
-    width: 50%;
-
+    width: 45%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 3 / 4;
     display: flex;
     border: 3px solid;
     border-color: #938a8a;
@@ -248,20 +258,23 @@ section{
 
 .textoarvore{
     display: flex;
-    padding-left: 20px;
+    justify-content: space-between;
+    padding-left: 10px 14px;
+    gap: 8px;
     align-items: start;
+    margin-left: 20px;
     flex-direction: column;
     width: 50%;
 
 }
 
 .textoarvore>h3{
-    font-size: 50px;
+    font-size: 30px;
     margin: 10px;
 }
 
 .textoarvore>h6{
-    font-size: 30px;
+    font-size: 20px;
     font-style: italic;
     margin: 0px;
    
@@ -273,7 +286,7 @@ section{
     border: 3px solid greenyellow;
     border-radius: 50px;
     font-size: 20px;
-    margin-top: 120px;
+    margin-top: 60px;
     
 }
 
@@ -285,6 +298,24 @@ section{
     border: 1px solid grey;
     border-radius: 50px;
 }
+
+.custo{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+   
+}
+
+.custo>img{
+    width: 30%;
+    height: 20%;
+}
+
+.custo>h4{
+    font-size: 50px;
+}
+
+
 
 .navegacaoFooterLoja {
 background-color: #ebe6e6;
