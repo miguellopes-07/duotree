@@ -70,26 +70,6 @@ overflow-x: hidden;
     background-color: #fef8e7;
 }
 
-.listaNavegacaoFooter {
-    display: flex;
-    
-    flex-direction: row;
-    
-    flex-wrap: wrap;
-    
-    list-style: none;
-    
-    justify-content: center;
-    
-    align-items: center;
-    
-    gap: 25px;
-    
-    padding: 0;
-    margin: 0;
-    
-    
-}
 
 .listaNavegacaoFooter > li > a {
     color: #938a8a;
@@ -148,7 +128,7 @@ overflow-x: hidden;
 
 .barrapesquisawiki {
     width: 95%;
-
+    
     padding: 8px 12px;
 }
 
@@ -157,52 +137,52 @@ overflow-x: hidden;
 }
 
 .barrapesquisawiki {
-display: flex;
-justify-content: space-between;
-align-items: center;
-
-width: min(90vw, 500px);
-border: 1px solid grey;
-background-color: #ffffff;
-border-radius: 20px;
-
-padding: 10px 15px;
-
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: min(90vw, 500px);
+    border: 1px solid grey;
+    background-color: #ffffff;
+    border-radius: 20px;
+    
+    padding: 10px 15px;
+    
+    
 }
 
 .barrapesquisawiki > input {
-border: none;
-outline: none;
-background-color: transparent;
-color: #436d3e;
-width: 100%;
-font-family: "Nunito", sans-serif;
-font-size: 16px;
-font-weight: bolder;
-margin: 0;
-padding: 8px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #436d3e;
+    width: 100%;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    margin: 0;
+    padding: 8px;
 }
 
 .barrapesquisawiki > button {
-border: none;
-background-color: transparent;
-
-display: flex;
-align-items: center;
-justify-content: center;
-
-cursor: pointer;
-
-padding: 5px;
-margin: 0;
-
-
+    border: none;
+    background-color: transparent;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    cursor: pointer;
+    
+    padding: 5px;
+    margin: 0;
+    
+    
 }
 
 .barrapesquisawiki > button svg {
-width: 22px;
-height: 22px;
+    width: 22px;
+    height: 22px;
 }
 
 hr{
@@ -218,7 +198,7 @@ section{
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-
+    
 }
 
 .listaarvore{
@@ -253,7 +233,7 @@ section{
     width: 100%;
     height: 100%;
     border-radius: 50px;
-   
+    
 }
 
 .textoarvore{
@@ -265,7 +245,7 @@ section{
     margin-left: 20px;
     flex-direction: column;
     width: 50%;
-
+    
 }
 
 .textoarvore>h3{
@@ -277,7 +257,7 @@ section{
     font-size: 20px;
     font-style: italic;
     margin: 0px;
-   
+    
 }
 
 .textoarvore>h5{
@@ -308,7 +288,7 @@ section{
     margin-bottom: 10px;
     flex-direction: row;
     align-items: center;
-     
+    
 }
 
 .custo>img{
@@ -323,22 +303,42 @@ section{
     margin: 0;
     padding: 0;
     line-height: 1;
-   
+    
 }
 
 
 
 .navegacaoFooterLoja {
-background-color: #dce8d2;
-border-top-left-radius: 50px;
-border-top-right-radius: 50px;
-padding: 20px;
-margin: 0;
-display: flex;
-justify-content: center;
-align-items: center;
+    background-color: #dce8d2;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.listaNavegacaoFooter {
+    display: flex;
+    
+    flex-direction: row;
+    
+    flex-wrap: wrap;
+    
+    list-style: none;
+    
+    justify-content: center;
+    
+    align-items: center;
+    
+    gap: 25px;
+    
+    padding: 0;
+    margin: 0;
+    
+    
+}
 
 /* ---------- Notebook pequeno / tablet na horizontal (até 1024px) ---------- */
 @media (max-width: 1024px) {
