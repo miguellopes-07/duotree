@@ -206,7 +206,7 @@ height: 22px;
 }
 
 hr{
-    background-color: burlywood;
+    background-color: #a9c5a0;
     height: 6px;
     border: none;
 }
@@ -300,10 +300,12 @@ section{
 }
 
 .custo{
+    background-color: #a9c5a0;
+    border-radius: 50px;
     display:flex;
-    border: 0px;
-    padding: 0px;
-    margin: 0px;
+    border: 1px solid #4c7b47 ;
+    padding: 10px;
+    margin-bottom: 10px;
     flex-direction: row;
     align-items: center;
      
@@ -313,7 +315,7 @@ section{
     width: 35px;
     height: 38px;
     object-fit: contain;
-    margin-bottom: 10px;
+    
 }
 
 .custo>h4{
@@ -321,13 +323,13 @@ section{
     margin: 0;
     padding: 0;
     line-height: 1;
-    margin-bottom: 10px;
+   
 }
 
 
 
 .navegacaoFooterLoja {
-background-color: #ebe6e6;
+background-color: #dce8d2;
 border-top-left-radius: 50px;
 border-top-right-radius: 50px;
 padding: 20px;
@@ -335,4 +337,260 @@ margin: 0;
 display: flex;
 justify-content: center;
 align-items: center;
+}
+
+
+/* ---------- Notebook pequeno / tablet na horizontal (até 1024px) ---------- */
+@media (max-width: 1024px) {
+    .listaarvore {
+        width: 460px;
+        height: 340px;
+        margin: 10px;
+        border-radius: 40px;
+    }
+ 
+    .imgarvore,
+    .imgarvore > img {
+        border-radius: 40px;
+    }
+ 
+    .textoarvore {
+        margin-left: 12px;
+    }
+ 
+    .textoarvore > h3 {
+        font-size: 24px;
+        margin: 6px 0;
+    }
+ 
+    .textoarvore > h6 {
+        font-size: 16px;
+    }
+ 
+    .textoarvore > h5 {
+        font-size: 16px;
+        margin-top: 30px;
+    }
+ 
+    .custo > h4 {
+        font-size: 38px;
+    }
+ 
+    .custo > img {
+        width: 28px;
+        height: 30px;
+    }
+}
+ 
+/* ---------- Tablet na vertical (até 768px) ---------- */
+@media (max-width: 768px) {
+    .headerloja {
+        padding: 15px;
+        gap: 12px;
+    }
+ 
+    .tituloloja h1 {
+        font-size: 1.8rem;
+    }
+ 
+    .tituloloja h2 {
+        font-size: 1.4rem;
+    }
+ 
+    .imagensheader {
+        gap: 8px;
+    }
+ 
+    .imagensheader img {
+        max-height: 45px;
+        width: auto;
+    }
+ 
+    .headerregiao {
+        width: 100%;
+        text-align: center;
+    }
+ 
+    .headerregiao h5 {
+        font-size: 0.9rem;
+    }
+ 
+    section {
+        gap: 10px;
+    }
+ 
+    .listaarvore {
+        width: 100%;
+        max-width: 520px;
+        height: 320px;
+        margin: 10px 15px;
+    }
+ 
+    .listaNavegacaoFooter {
+        gap: 18px;
+    }
+}
+ 
+/* ---------- Celular (até 600px): card vira vertical ---------- */
+@media (max-width: 600px) {
+    .tituloloja h1 {
+        font-size: 1.5rem;
+    }
+ 
+    .tituloloja h2 {
+        font-size: 1.2rem;
+    }
+ 
+    .imagensheader img {
+        max-height: 36px;
+    }
+ 
+    .select {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        width: 100%;
+    }
+ 
+    .select select {
+        width: 100%;
+        padding: 6px;
+        font-family: "Nunito", sans-serif;
+    }
+ 
+    .headerregiao h5 {
+        font-size: 0.8rem;
+    }
+ 
+    .listfilterloja > li {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+ 
+    .barrapesquisawiki {
+        width: 100%;
+        padding: 6px 12px;
+    }
+ 
+    .barrapesquisawiki > input {
+        font-size: 14px;
+        padding: 6px;
+    }
+ 
+    /* Card empilhado: imagem em cima, texto embaixo */
+    .listaarvore {
+        flex-direction: column;
+        width: 100%;
+        max-width: 380px;
+        height: auto;
+        margin: 10px auto;
+        border-radius: 30px;
+    }
+ 
+    .imgarvore {
+        width: 100%;
+        height: 220px;
+        aspect-ratio: auto;
+        border-radius: 30px;
+    }
+ 
+    .imgarvore > img {
+        border-radius: 27px;
+        object-fit: cover;
+    }
+ 
+    .textoarvore {
+        width: 100%;
+        margin-left: 0;
+        padding: 12px 16px 16px;
+        gap: 6px;
+    }
+ 
+    .textoarvore > h3 {
+        font-size: 22px;
+        margin: 0;
+    }
+ 
+    .textoarvore > h6 {
+        font-size: 15px;
+    }
+ 
+    .textoarvore > h5 {
+        font-size: 15px;
+        margin: 6px 0;
+    }
+ 
+    .custo > h4 {
+        font-size: 32px;
+        margin-bottom: 0;
+    }
+ 
+    .custo > img {
+        width: 26px;
+        height: 28px;
+        margin-bottom: 0;
+    }
+ 
+    /* Footer */
+    .navegacaoFooterLoja {
+        padding: 15px 10px;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+    }
+ 
+    .listaNavegacaoFooter {
+        gap: 12px 16px;
+    }
+ 
+    .listaNavegacaoFooter > li > a {
+        font-size: 14px;
+    }
+}
+ 
+/* ---------- Celulares pequenos (até 380px) ---------- */
+@media (max-width: 380px) {
+    .headerloja {
+        padding: 10px;
+    }
+ 
+    .tituloloja h1 {
+        font-size: 1.3rem;
+    }
+ 
+    .tituloloja h2 {
+        font-size: 1.05rem;
+    }
+ 
+    .listaarvore {
+        border-radius: 24px;
+    }
+ 
+    .imgarvore {
+        height: 190px;
+        border-radius: 24px;
+    }
+ 
+    .imgarvore > img {
+        border-radius: 21px;
+    }
+ 
+    .textoarvore > h3 {
+        font-size: 20px;
+    }
+ 
+    .custo > h4 {
+        font-size: 28px;
+    }
+ 
+    .listaNavegacaoFooter > li > a {
+        font-size: 13px;
+    }
+}
+ 
+/* ---------- Celular deitado (pouca altura) ---------- */
+@media (max-height: 500px) and (orientation: landscape) {
+    .listaarvore {
+        height: 300px;
+    }
 }
