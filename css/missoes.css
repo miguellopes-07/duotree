@@ -81,7 +81,11 @@ h3{
     padding: 0;
     margin: 0;
     
-    
+}
+
+.navquest>a{
+    text-decoration: none;
+    color: black;
 }
 
 .navquest > a {
@@ -117,23 +121,19 @@ h3{
 
 .listaNavegacaoFooter {
     display: flex;
-    
     flex-direction: row;
-    
     flex-wrap: wrap;
-    
     list-style: none;
-    
     justify-content: center;
-    
     align-items: center;
-    
     gap: 25px;
-    
     padding: 0;
     margin: 0;
     
-    
+}
+.listaNavegacaoFooter>li>a{
+    text-decoration: none;
+    color: #555;
 }
 
 .pontos{
@@ -195,10 +195,6 @@ h3{
     font-size: 15px;
 }
 
-.textoquest>h4{
-    
-}
-
 .feito {
   display: flex;
   flex-direction: row;
@@ -244,4 +240,83 @@ h3{
     margin: 0px;
     padding: 0px;
     height: 20px;
+}
+
+
+@media (max-width: 768px) {
+  .headerquest {
+    padding: 12px;
+  }
+
+  .listaquest {
+    padding: 0;                
+  }
+
+  .listaquest > li {
+    margin: 10px;
+  }
+
+  .listaNavegacaoFooter {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tituloquest {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .navquest > a {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+  }
+
+  .listaquest > li {
+    width: calc(100% - 20px);   
+    height: auto;              
+    min-height: 200px;          
+    margin: 10px;
+    padding: 10px 14px;
+    border-radius: 30px;
+  }
+
+  .imgquest {
+    flex-shrink: 0;
+  }
+
+  .imgquest > img {
+    width: 70px;
+  }
+
+  .textoquest {
+    min-width: 0;
+  }
+
+  .textoquest > h5 {
+    font-size: 18px;
+  }
+
+  .textoquest p {
+    font-size: 0.9rem;
+  }
+
+  .recompensa {
+    flex-wrap: wrap;
+  }
+
+  .progresso {
+    margin-left: 0;           
+  }
+
+  .feito > h4 {
+    font-size: 1.5rem;
+  }
+
+  .navegacaoFooterquest {
+    padding: 15px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
 }
