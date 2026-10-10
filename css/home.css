@@ -10,7 +10,7 @@
 
 html {
     width: 100%;
-    
+
 }
 
 body {
@@ -26,17 +26,21 @@ body {
     background-repeat: no-repeat;
     background-color: #b9d89b;
 }
+
 main {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
 }
-.arvoretablet,.arvorecelular{
+
+.arvoretablet,
+.arvorecelular {
     display: none;
 }
+
 .cabecalhoHome {
     display: flex;
     width: 100%;
@@ -44,13 +48,19 @@ main {
     justify-content: space-evenly;
     padding: 50px;
 }
-.cabecalhoHome>.logohome>img{
+
+.cabecalhoHome>.logohome>.logopc {
     background-color: #f6c685;
     border-radius: 25px;
     padding: 8px;
     padding-top: 0px;
 }
-.logohome>.qtdfolhas{
+
+.logocelular {
+    display: none;
+}
+
+.logohome>.qtdfolhas {
     display: flex;
     background-color: #27552a;
     color: #b9d89b;
@@ -61,10 +71,16 @@ main {
     width: 50%;
     border-radius: 25px;
 }
-.cabecalhoHome>.mascote_notificacao{
+
+.cabecalhoHome>.mascote_notificacao {
     display: flex;
     gap: 15px;
 }
+
+.cabecalhoHome>.mascote_notificacaocelular {
+    display: none;
+}
+
 .navegacaoFooter {
     background-color: #fef8e7;
     border-top-left-radius: 50px;
@@ -100,17 +116,22 @@ main {
 .listaNavegacaoFooter>li>a:hover {
     color: #4c7b47;
 }
+
 @media (max-width: 1200px) {
-    body{
+    body {
         background-image: url(../assets/images/home/fundo-home-tablet.png);
         background-repeat: no-repeat;
     }
-    main>.arvorecelular,.arvorepc{
+
+    main>.arvorecelular,
+    .arvorepc {
         display: none;
     }
-    main>.arvoretablet{
+
+    main>.arvoretablet {
         display: block;
     }
+
     .navegacaoFooter {
         position: fixed;
         bottom: 0px;
@@ -122,14 +143,7 @@ main {
 }
 
 @media (max-width: 600px) {
-    main>.arvoretablet,.arvorepc{
-        display: none;
-    }
-    
-    main>.arvorecelular{
-        display: block;
-    }
-    
+
     .navegacaoFooter {
         border-top-left-radius: 30px;
         border-top-right-radius: 30px;
@@ -139,17 +153,57 @@ main {
         right: 0px;
         left: 0px;
     }
-    
+
 }
 
 @media (max-width: 500px) {
+    .cabecalhoHome>.logohome>.logocelular {
+        display: block;
+        background-color: #f6c685;
+        border-radius: 25px;
+        padding: 8px;
+        padding-top: 0px;
+        margin-bottom: 10px;
+    }
+
+    .logopc{
+        display: none;
+    }
+    .logohome>.qtdfolhas {
+        width: 70%;
+    }
+
+    .cabecalhoHome>.mascote_notificacao {
+        display: none;
+    }
+
+    .cabecalhoHome>.mascote_notificacaocelular {
+        display: block;
+        gap: 0px;
+    }
+
+    main>.arvoretablet,
+    .arvorepc {
+        display: none;
+    }
+
+    main>.arvorecelular {
+        display: block;
+    }
+
+    .cabecalhoHome {
+        justify-content: space-around;
+        padding: 30px;
+    }
+
     .navegacaoFooter {
         position: fixed;
         bottom: 0px;
         right: 0px;
         left: 0px;
     }
-    body{
+
+    body {
         background-image: url(../assets/images/home/fundo-home-celular.png);
         background-repeat: no-repeat;
     }
