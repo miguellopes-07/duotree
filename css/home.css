@@ -10,6 +10,7 @@
 
 html {
     width: 100%;
+    
 }
 
 body {
@@ -20,6 +21,8 @@ body {
     display: flex;
     flex-direction: column;
     background-image: url(../assets/images/home/fundo-home-pc.png);
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
 }
 main {
@@ -28,6 +31,9 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.arvoretablet,.arvorecelular{
+    display: none;
 }
 .cabecalhoHome {
     display: flex;
@@ -91,4 +97,52 @@ main {
 
 .listaNavegacaoFooter>li>a:hover {
     color: #4c7b47;
+}
+@media (max-width: 1200px) {
+    body{
+        background-image: url(../assets/images/home/fundo-home-tablet.png);
+        background-repeat: no-repeat;
+    }
+    main>.arvorecelular,.arvorepc{
+        display: none;
+    }
+    main>.arvoretablet{
+        display: block;
+    }
+    .navegacaoFooter {
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+    }
+
+
+}
+
+@media (max-width: 600px) {
+    
+    
+    .navegacaoFooter {
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        padding: 20px 10px;
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+    }
+    
+}
+
+@media (max-width: 500px) {
+    .navegacaoFooter {
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+    }
+    body{
+        background-image: url(../assets/images/home/fundo-home-celular.png);
+        background-repeat: no-repeat;
+    }
 }
