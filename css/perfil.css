@@ -18,8 +18,223 @@ body {
     font-family: "Nunito", sans-serif;
     width: 100%;
     overflow-x: hidden;
-
-    background-color: green; /*só pra logo aparecer no html*/
+}
+body{
+background-color: #4c7b47;
+color: white;
+padding: 15px;
 }
 
-/*VOU COMEÇAR A MEXER EM BREVE!!!*/
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.logo{
+    width: 140px;
+}
+
+.nivel-xp{
+    width: 55%;
+    text-align: center;
+}
+.nivel-xp h1{
+    margin: 0 0 5px 0;
+    font-size: 1.5rem;
+}
+
+.barra-xp{
+    background-color: #f5f1e6;
+    border-radius: 20px;
+}
+
+.xp-preenchido{
+    background-color: #4c9a1f;
+    width: 84%;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+main{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.card-perfil{
+    position: relative;
+    background-color: #fdf6e3;
+    color: #222;
+    border-radius: 40px;
+    padding: 15px;
+    margin-top: 25px;
+    text-align: center;
+}
+.card-perfil h2{
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
+
+.dino{
+    width: 40%;
+}
+
+.botao-redondo{
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background-color: #9ab972;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.botao-amigo{
+    top: 12px;
+    right: 12px;
+}
+
+.botao-editar{
+    bottom: 12px;
+    right: 12px;
+}
+
+.estatisticas{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+    margin: 20px 0 0 0;
+    padding: 12px 0;
+    background-color: #fdf6e3;
+    color: #054c17;
+    border-radius: 40px;
+    text-align: center;
+}
+.estatisticas h3{
+    margin: 0;
+    font-size: 1.1rem;
+}
+.estatisticas p{
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+section h2{
+    margin-bottom: 8px;
+}
+
+input{
+    width: 100%;
+    height: 80px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 30px;
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+}
+
+.contador{
+    margin: 5px 10px 0 0;
+    text-align: right;
+}
+
+.titulo-conquistas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.titulo-conquistas a{
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.conquistas{
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.nomes-conquistas{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+}
+.nomes-conquistas li{
+    flex: 1;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+footer{
+    max-width: 600px;
+    border-top: 1px solid#ccc;
+    padding: 20px 0;
+    margin: 40px auto 0 auto;
+}
+footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+footer a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+}
+
+@media only screen and (min-width: 768px) {
+    header,
+    main,
+    footer{
+        max-width: 700px;
+    }
+.logo{
+    width: 180px;
+}
+.dino{
+    width: 40%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    header,
+    main,
+    footer {
+        max-width: 1100px;
+    }
+
+    main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .coluna-esquerda {
+        width: 45%;
+    }
+
+    .coluna-direita {
+        width: 50%;
+    }
+
+    .dino {
+        width: 45%;
+    }
+}
