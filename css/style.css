@@ -4,528 +4,430 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-
-*{
-box-sizing: border-box;
+* {
+    box-sizing: border-box;
 }
 
 html {
-width: 100%;
-overflow-x: hidden;
+    width: 100%;
 }
 
 body {
-margin: 0;
-font-family: "Nunito", sans-serif;
-width: 100%;
-overflow-x: hidden;
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    width: 100%;
 }
 
 .bodywiki {
-background-color: #dde5b3;
+    background-color: #dde5b3;
 }
 
 .headerwiki {
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 15px;
-padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
 }
 
 .logowiki {
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
-width: 90%;
-max-width: 900px;
+    width: 90%;
+    max-width: 900px;
 
 
 }
 
 .logowiki img {
-max-width: 180px;
-height: auto;
+    max-width: 180px;
+    height: auto;
 }
 
 .logowiki2 {
-display: flex;
-flex-direction: row;
-align-items: center;
-gap: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
 }
 
 .logowiki2 img {
-width: 100px;
-height: 100px;
-object-fit: contain;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
 }
 
-.logowiki2 > h1 {
-color: white;
-font-variant-caps: all-petite-caps;
-font-size: clamp(50px, 8vw, 100px);
-margin: 0;
+.logowiki2>h1 {
+    color: white;
+    font-variant-caps: all-petite-caps;
+    font-size: clamp(50px, 8vw, 100px);
+    margin: 0;
 }
+
 .barrapesquisawiki {
-display: flex;
-justify-content: space-between;
-align-items: center;
-
-width: min(90vw, 500px);
-
-background-color: #fef8e7;
-border-radius: 20px;
-
-padding: 10px 15px;
-
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: min(90vw, 500px);
+    background-color: #fef8e7;
+    border-radius: 20px;
+    padding: 10px 15px;
 }
 
-.barrapesquisawiki > input {
-border: none;
-outline: none;
-background-color: transparent;
-color: #436d3e;
-width: 100%;
-font-family: "Nunito", sans-serif;
-font-size: 16px;
-font-weight: bolder;
-margin: 0;
-padding: 8px;
-
-
+.barrapesquisawiki>input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #436d3e;
+    width: 100%;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    margin: 0;
+    padding: 8px;
 }
 
-.barrapesquisawiki > input::placeholder {
-color: #68a85b;
-font-weight: 500;
+.barrapesquisawiki>input::placeholder {
+    color: #68a85b;
+    font-weight: 500;
 }
 
-.barrapesquisawiki > input:focus {
-outline: none;
-box-shadow: none;
+.barrapesquisawiki>input:focus {
+    outline: none;
+    box-shadow: none;
 }
 
-.barrapesquisawiki > button {
-border: none;
-background-color: transparent;
-
-display: flex;
-align-items: center;
-justify-content: center;
-
-cursor: pointer;
-
-padding: 5px;
-margin: 0;
-
-
+.barrapesquisawiki>button {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0;
 }
 
-.barrapesquisawiki > button svg {
-width: 22px;
-height: 22px;
+.barrapesquisawiki>button svg {
+    width: 22px;
+    height: 22px;
 }
+
 .listfilterwiki {
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-
-list-style: none;
-
-justify-content: center;
-align-items: center;
-
-gap: 8px;
-
-padding: 0;
-margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
 
 
 }
 
-.listfilterwiki > li {
-background-color: #fef8e7;
-
-padding: 6px 12px;
-
-border-radius: 7px;
-
-cursor: pointer;
-
-transition: 0.2s;
-
-
+.listfilterwiki>li {
+    background-color: #fef8e7;
+    padding: 6px 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.listfilterwiki > li:hover {
-background-color: #4c7b47;
-color: white;
+.listfilterwiki>li:hover {
+    background-color: #4c7b47;
+    color: white;
 }
 
 hr {
-background-color: #9bae69;
-
-height: 6px;
-
-border: none;
-
-margin: 0 0 30px 0;
+    background-color: #9bae69;
+    height: 6px;
+    border: none;
+    margin: 0 0 30px 0;
 
 
 }
+
 .mainwiki {
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: center;
-align-items: center;
-
-gap: 20px;
-
-width: 100%;
-
-padding: 0 20px 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 0 20px 40px;
 
 
 }
 
 .containerArvoresWiki {
-display: flex;
-flex-direction: row;
-
-align-items: center;
-
-background-color: #4c7b47;
-
-border-radius: 37px;
-
-width: min(700px, 90vw);
-
-padding: 15px;
-
-gap: 20px;
-
-
-}
-
-.containerArvoresWiki > img {
-width: 180px;
-height: 180px;
-
-object-fit: cover;
-
-border-radius: 16px;
-
-flex-shrink: 0;
-
-
-}
-
-.containerArvoresWiki > div {
-text-align: center;
-
-width: 100%;
-
-padding: 5px;
-
-
-}
-
-.containerArvoresWiki > div > h3 {
-color: white;
-
-font-size: clamp(22px, 3vw, 30px);
-
-margin: 0;
-
-
-}
-
-.containerArvoresWiki > div > h4 {
-color: white;
-
-font-style: italic;
-
-font-size: clamp(14px, 2vw, 18px);
-
-margin: 5px 0;
-
-
-}
-
-.containerArvoresWiki > div > p {
-color: white;
-
-font-size: clamp(13px, 1.5vw, 16px);
-
-line-height: 1.4;
-
-margin: 10px 0 0;
-
-
-}
-.navegacaoFooter {
-background-color: #fef8e7;
-
-border-top-left-radius: 50px;
-border-top-right-radius: 50px;
-
-padding: 20px;
-
-margin: 0;
-
-display: flex;
-
-justify-content: center;
-align-items: center;
-
-
-}
-
-.listaNavegacaoFooter {
-display: flex;
-
-flex-direction: row;
-
-flex-wrap: wrap;
-
-list-style: none;
-
-justify-content: center;
-
-align-items: center;
-
-gap: 25px;
-
-padding: 0;
-margin: 0;
-
-
-}
-
-.listaNavegacaoFooter > li > a {
-color: #938a8a;
-
-text-decoration: none;
-
-font-size: 16px;
-
-transition: 0.2s;
-
-
-}
-
-.listaNavegacaoFooter > li > a:hover {
-color: #4c7b47;
-}
-
-@media (max-width: 768px) {
-
-.headerwiki {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #4c7b47;
+    border-radius: 37px;
+    width: min(700px, 90vw);
     padding: 15px;
-}
-
-.logowiki {
-    width: 95%;
-}
-
-.logowiki img {
-    max-width: 130px;
-}
-
-.logowiki2 img {
-    width: 75px;
-    height: 75px;
-}
-
-.logowiki2 > h1 {
-    font-size: clamp(45px, 10vw, 75px);
-}
-
-.containerArvoresWiki {
-    width: 95%;
-}
-
-.containerArvoresWiki > img {
-    width: 150px;
-    height: 150px;
-}
-
-.listaNavegacaoFooter {
     gap: 20px;
 }
+
+.containerArvoresWiki>img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 16px;
+    flex-shrink: 0;
+
+
+}
+
+.containerArvoresWiki>div {
+    text-align: center;
+    width: 100%;
+    padding: 5px;
+}
+
+.containerArvoresWiki>div>h3 {
+    color: white;
+    font-size: clamp(22px, 3vw, 30px);
+    margin: 0;
+}
+
+.containerArvoresWiki>div>h4 {
+    color: white;
+    font-style: italic;
+    font-size: clamp(14px, 2vw, 18px);
+    margin: 5px 0;
+}
+
+.containerArvoresWiki>div>p {
+    color: white;
+    font-size: clamp(13px, 1.5vw, 16px);
+    line-height: 1.4;
+    margin: 10px 0 0;
+
+
+}
+
+.navegacaoFooter {
+    background-color: #fef8e7;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.listaNavegacaoFooter {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+.listaNavegacaoFooter>li>a {
+    color: #938a8a;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.listaNavegacaoFooter>li>a:hover {
+    color: #4c7b47;
+}
+
+@media (max-width: 1200px) {
+
+    .headerwiki {
+        padding: 15px;
+    }
+
+    .logowiki {
+        width: 95%;
+    }
+
+    .logowiki img {
+        max-width: 130px;
+    }
+
+    .logowiki2 img {
+        width: 75px;
+        height: 75px;
+    }
+
+    .logowiki2>h1 {
+        font-size: clamp(45px, 10vw, 75px);
+    }
+
+    .containerArvoresWiki {
+        width: 95%;
+    }
+
+    .containerArvoresWiki>img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .listaNavegacaoFooter {
+        gap: 20px;
+    }
+
+    .navegacaoFooter {
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+    }
 
 
 }
 
 @media (max-width: 600px) {
 
-.headerwiki {
-    padding: 10px;
-    gap: 12px;
+    .headerwiki {
+        padding: 10px;
+        gap: 12px;
+    }
+
+    .logowiki {
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .logowiki img {
+        max-width: 90px;
+    }
+
+    .logowiki2 {
+        gap: 5px;
+    }
+
+    .logowiki2 img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .logowiki2>h1 {
+        font-size: 50px;
+    }
+
+    .barrapesquisawiki {
+        width: 95%;
+        padding: 8px 12px;
+    }
+
+    .barrapesquisawiki>input {
+        font-size: 14px;
+    }
+
+    .listfilterwiki {
+        width: 100%;
+        gap: 6px;
+    }
+
+    .listfilterwiki>li {
+        padding: 5px 9px;
+        font-size: 13px;
+    }
+
+    .mainwiki {
+        padding: 0 10px 30px;
+        gap: 15px;
+    }
+
+    .containerArvoresWiki {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        border-radius: 25px;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .containerArvoresWiki>img {
+        width: 130px;
+        height: 130px;
+        border-radius: 15px;
+    }
+
+    .containerArvoresWiki>div {
+        width: 100%;
+    }
+
+    .containerArvoresWiki>div>h3 {
+        font-size: 24px;
+    }
+
+    .containerArvoresWiki>div>h4 {
+        font-size: 15px;
+    }
+
+    .containerArvoresWiki>div>p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .navegacaoFooter {
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        padding: 20px 10px;
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+    }
+    
 }
 
-.logowiki {
-    width: 100%;
-
-    justify-content: center;
-
-    gap: 10px;
-}
-
-.logowiki img {
-    max-width: 90px;
-}
-
-.logowiki2 {
-    gap: 5px;
-}
-
-.logowiki2 img {
-    width: 55px;
-    height: 55px;
-}
-
-.logowiki2 > h1 {
-    font-size: 50px;
-}
-
-.barrapesquisawiki {
-    width: 95%;
-
-    padding: 8px 12px;
-}
-
-.barrapesquisawiki > input {
-    font-size: 14px;
-}
-
-.listfilterwiki {
-    width: 100%;
-
-    gap: 6px;
-}
-
-.listfilterwiki > li {
-    padding: 5px 9px;
-
-    font-size: 13px;
-}
-
-.mainwiki {
-    padding: 0 10px 30px;
-
-    gap: 15px;
-}
-
-.containerArvoresWiki {
-    width: 100%;
-
-    flex-direction: column;
-
-    text-align: center;
-
-    border-radius: 25px;
-
-    padding: 15px;
-
-    gap: 10px;
-}
-
-.containerArvoresWiki > img {
-    width: 130px;
-    height: 130px;
-
-    border-radius: 15px;
-}
-
-.containerArvoresWiki > div {
-    width: 100%;
-}
-
-.containerArvoresWiki > div > h3 {
-    font-size: 24px;
-}
-
-.containerArvoresWiki > div > h4 {
-    font-size: 15px;
-}
-
-.containerArvoresWiki > div > p {
-    font-size: 14px;
-
-    line-height: 1.4;
-}
-.navegacaoFooter {
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-
-    padding: 20px 10px;
-}
-
-.listaNavegacaoFooter {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 15px;
-
-    text-align: center;
-}
-
-.listaNavegacaoFooter > li > a {
-    font-size: 14px;
-}
-
-
-}
 @media (max-width: 400px) {
 
-.logowiki img {
-    max-width: 70px;
-}
+    .logowiki img {
+        max-width: 70px;
+    }
 
-.logowiki2 img {
-    width: 45px;
-    height: 45px;
-}
+    .logowiki2 img {
+        width: 45px;
+        height: 45px;
+    }
 
-.logowiki2 > h1 {
-    font-size: 42px;
-}
+    .logowiki2>h1 {
+        font-size: 42px;
+    }
 
-.listfilterwiki > li {
-    padding: 4px 7px;
+    .listfilterwiki>li {
+        padding: 4px 7px;
+        font-size: 12px;
+    }
 
-    font-size: 12px;
-}
+    .containerArvoresWiki>img {
+        width: 110px;
+        height: 110px;
+    }
 
-.containerArvoresWiki > img {
-    width: 110px;
-    height: 110px;
-}
+    .containerArvoresWiki>div>h3 {
+        font-size: 21px;
+    }
 
-.containerArvoresWiki > div > h3 {
-    font-size: 21px;
-}
-
-.containerArvoresWiki > div > p {
-    font-size: 13px;
-}
-
-.listaNavegacaoFooter {
-    gap: 10px;
-}
-
-.listaNavegacaoFooter > li > a {
-    font-size: 13px;
-}
-
-
+    .containerArvoresWiki>div>p {
+        font-size: 13px;
+    }
+    .navegacaoFooter {
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+    }
 }
