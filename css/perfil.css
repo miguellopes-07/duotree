@@ -18,6 +18,8 @@ body {
     font-family: "Nunito", sans-serif;
     width: 100%;
     overflow-x: hidden;
+
+    background-color: green; /*só pra logo aparecer no html*/
 }
 
 /*VOU COMEÇAR A MEXER EM BREVE!!!*/
