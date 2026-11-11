@@ -143,6 +143,11 @@ overflow-x: hidden;
     color: white;
 }
 
+.listfilterloja > li.ativo {
+    background-color: #4c7b47;
+    color: white;
+}
+
 
 .barrapesquisawiki {
     width: 95%;
@@ -264,6 +269,10 @@ section{
     flex-direction: column;
     width: 50%;
     
+}
+
+.textoarvore>.regiao{
+    display: none;
 }
 
 .textoarvore>h3{

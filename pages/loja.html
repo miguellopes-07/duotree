@@ -30,7 +30,7 @@
         <div class="headerregiao">
             <div class="select">
                 <label for="regiao">Sua Região: </label>
-                <select id="regiao" name="regiao" required>
+                <select id="idregiao" name="regiao" required>
                     <option value="" disabled selected>Selecione uma região...</option>
                     <option value="Norte">Norte</option>
                     <option value="Nordeste">Nordeste</option>
@@ -43,17 +43,20 @@
             <h5>Exibindo Somentes Espécies Nativas da Sua Região</h5>
         </div>
         <ul class="listfilterloja">
-            <li>Todas</li>
+            <li class="ativo">Todas</li>
             <li>Sementes</li>
             <li>Mudas</li>
         </ul>
 
-         <form action="" class="barrapesquisawiki">
-                <input type="text" placeholder="Buscar Árvores...">
-                <button>
-                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="20px" height="20px"><path d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"/></svg>
-                </button>
-            </form>
+        <form action="" class="barrapesquisawiki">
+            <input type="text" placeholder="Buscar Árvores...">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="20px" height="20px">
+                    <path
+                        d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z" />
+                </svg>
+            </button>
+        </form>
 
     </header>
     <hr>
@@ -65,6 +68,7 @@
                     <h3>Ipê Amarelo</h3>
                     <h6>Handroanthus chrysotrichus</h6>
                     <h5>Mudas</h5>
+                    <p class="regiao">Região: Sudeste, Centro-Oeste e Sul</p>
                     <div class="custo">
                         <h4>125</h4>
                         <img src="../assets/images/loja/folha.png" alt="">
@@ -72,13 +76,13 @@
                 </div>
             </div>
 
-
             <div class="listaarvore">
                 <div class="imgarvore"><img src="../assets/images/loja/Pau-Brasil.jpg" alt=""></div>
                 <div class="textoarvore">
                     <h3>Pau-brasil</h3>
                     <h6>Paubrasilia echinata</h6>
                     <h5>Sementes</h5>
+                    <p class="regiao">Região: Nordeste e Sudeste</p>
                     <div class="custo">
                         <h4>180</h4>
                         <img src="../assets/images/loja/folha.png" alt="">
@@ -86,14 +90,13 @@
                 </div>
             </div>
 
-
-
             <div class="listaarvore">
                 <div class="imgarvore"><img src="../assets/images/loja/jatobá.jpg" alt=""></div>
                 <div class="textoarvore">
                     <h3>Jatobá</h3>
                     <h6>Hymenaea courbaril</h6>
                     <h5>Mudas</h5>
+                    <p class="regiao">Região: Norte, Nordeste, Centro-Oeste e Sudeste</p>
                     <div class="custo">
                         <h4>150</h4>
                         <img src="../assets/images/loja/folha.png" alt="">
@@ -101,12 +104,13 @@
                 </div>
             </div>
 
-             <div class="listaarvore">
+            <div class="listaarvore">
                 <div class="imgarvore"><img src="../assets/images/loja/sumauma.jpg" alt=""></div>
                 <div class="textoarvore">
                     <h3>Sumaúma</h3>
                     <h6>Ceiba pentandra</h6>
                     <h5>Sementes</h5>
+                    <p class="regiao">Região: Norte</p>
                     <div class="custo">
                         <h4>200</h4>
                         <img src="../assets/images/loja/folha.png" alt="">
@@ -114,12 +118,13 @@
                 </div>
             </div>
 
-             <div class="listaarvore">
+            <div class="listaarvore">
                 <div class="imgarvore"><img src="../assets/images/loja/mandacaru.jpg" alt=""></div>
                 <div class="textoarvore">
                     <h3>Mandacaru</h3>
                     <h6>Cereus jamacaru</h6>
                     <h5>Mudas</h5>
+                    <p class="regiao">Região: Nordeste</p>
                     <div class="custo">
                         <h4>75</h4>
                         <img src="../assets/images/loja/folha.png" alt="">
@@ -127,12 +132,13 @@
                 </div>
             </div>
 
-             <div class="listaarvore">
+            <div class="listaarvore">
                 <div class="imgarvore"><img src="../assets/images/loja/jacarandá.jpg" alt=""></div>
                 <div class="textoarvore">
                     <h3>Jacarandá</h3>
-                    <h6> Jacaranda mimosifolia</h6>
+                    <h6>Jacaranda mimosifolia</h6>
                     <h5>Mudas</h5>
+                    <p class="regiao">Região: Sul e Sudeste</p>
                     <div class="custo">
                         <h4>175</h4>
                         <img src="../assets/images/loja/folha.png" alt="">
@@ -140,12 +146,13 @@
                 </div>
             </div>
 
-             <div class="listaarvore">
+            <div class="listaarvore">
                 <div class="imgarvore"><img src="../assets/images/loja/jabuticabeira.jpg" alt=""></div>
                 <div class="textoarvore">
                     <h3>Jabuticabeira</h3>
                     <h6>Plinia cauliflora</h6>
                     <h5>Mudas</h5>
+                    <p class="regiao">Região: Sudeste e Sul</p>
                     <div class="custo">
                         <h4>120</h4>
                         <img src="../assets/images/loja/folha.png" alt="">
@@ -153,12 +160,13 @@
                 </div>
             </div>
 
-             <div class="listaarvore">
+            <div class="listaarvore">
                 <div class="imgarvore"><img src="../assets/images/loja/pauferro.jpg" alt=""></div>
                 <div class="textoarvore">
                     <h3>Pau-ferro</h3>
                     <h6>Libidibia ferrea</h6>
                     <h5>Sementes</h5>
+                    <p class="regiao">Região: Nordeste, Centro-Oeste e Sudeste</p>
                     <div class="custo">
                         <h4>140</h4>
                         <img src="../assets/images/loja/folha.png" alt="">
@@ -166,12 +174,13 @@
                 </div>
             </div>
 
-             <div class="listaarvore">
+            <div class="listaarvore">
                 <div class="imgarvore"><img src="../assets/images/loja/araucaria.jpg" alt=""></div>
                 <div class="textoarvore">
                     <h3>Araucária</h3>
                     <h6>Araucaria angustifolia</h6>
                     <h5>Sementes</h5>
+                    <p class="regiao">Região: Sul e Sudeste</p>
                     <div class="custo">
                         <h4>220</h4>
                         <img src="../assets/images/loja/folha.png" alt="">
@@ -195,7 +204,7 @@
             </ul>
         </nav>
     </footer>
-
+    <script src="/js/loja.js"></script>
 </body>
 
 
