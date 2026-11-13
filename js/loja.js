@@ -1,68 +1,87 @@
-let nomearvore = ''
-let filtrotipo = ''
-let regiao = ''
+let arvores = [];
+let nomearvore = '';
+let filtrotipo = '';
+let regiao = '';
+
+const container = document.querySelector('#listaarvores');
+
+
+function formatarRegioes(lista) {
+    if (lista.length === 1) return lista[0];
+    return lista.slice(0, -1).join(', ') + ' e ' + lista[lista.length - 1];
+}
+
+function caminhoImagem(imagem) {
+    if (!imagem) return '../assets/images/loja/folha.png'; 
+    if (imagem.startsWith('http')) return imagem;          
+    return `../assets/images/loja/${imagem}`;             
+}
+
+function criarCard(a) {
+    return `
+    <div class="listaarvore">
+        <div class="imgarvore"><img src="${caminhoImagem(a.imagem)}" alt="${a.nome}"></div>
+        <div class="textoarvore">
+            <h3>${a.nome}</h3>
+            <h6>${a.cientifico}</h6>
+            <h5>${a.tipo}</h5>
+            <p class="regiao">Região: ${formatarRegioes(a.regioes)}</p>
+            <div class="custo">
+                <h4>${a.custo}</h4>
+                <img src="../assets/images/loja/folha.png" alt="">
+            </div>
+        </div>
+    </div>`;
+}
+
+function filtro() {
+    const filtradas = arvores.filter(a =>
+        a.nome.toLowerCase().includes(nomearvore) &&
+        (filtrotipo === '' || a.tipo.toLowerCase() === filtrotipo) &&
+        (regiao === '' || a.regioes.some(r => r.toLowerCase() === regiao))
+    );
+
+    container.innerHTML = filtradas.length
+        ? filtradas.map(criarCard).join('')
+        : '<p>Nenhuma árvore encontrada.</p>';
+}
 
 function filtroregiao() {
-    caixa = document.querySelector('#idregiao');
+    const caixa = document.querySelector('#idregiao');
     caixa.addEventListener('change', () => {
         regiao = caixa.value.trim().toLowerCase();
-        filtro()
+        filtro();
     });
 }
 
 function pesquisar() {
-    var barrapesquisa = document.getElementsByClassName('barrapesquisawiki')[0];
-    var input = barrapesquisa.children[0];
+    const input = document.querySelector('.barrapesquisawiki input');
     input.addEventListener('input', () => {
-
         nomearvore = input.value.trim().toLowerCase();
-        filtro()
+        filtro();
     });
 }
 
 function ativarfiltro() {
-    var tipos = document.getElementsByClassName('listfilterloja')[0];
-    var opcoes = Array.from(tipos.children)
+    const opcoes = Array.from(document.querySelectorAll('.listfilterloja li'));
     opcoes.forEach(opcao => {
         opcao.addEventListener('click', () => {
-            opcoes.forEach(opcao => {
-                opcao.classList.remove('ativo');
-            })
-            opcao.classList.add('ativo')
-            filtrotipo = opcao.textContent.trim().toLowerCase();
-            filtro()
-        })
-    })
-
-}
-
-function filtro() {
-    var cards = document.querySelectorAll('.listaarvore');
-    console.log(regiao)
-    if (filtrotipo == 'todas') {
-        filtrotipo = ''
-    }
-
-    cards.forEach(card => {
-
-        var titulo = card.children[1].children[0];
-        const tituloDoCard = titulo.textContent.toLowerCase();
-
-        var tipo = card.children[1].children[2];
-        const tipoDoCard = tipo.textContent.toLowerCase();
-
-        var local = card.children[1].children[3];
-        const regiaoDoCard = local.textContent.toLowerCase();
-
-        if (tituloDoCard.includes(nomearvore) && tipoDoCard.includes(filtrotipo) && regiaoDoCard.includes(regiao)) {
-            card.style.display = 'flex';
-        } else {
-            card.style.display = 'none';
-        }
+            opcoes.forEach(o => o.classList.remove('ativo'));
+            opcao.classList.add('ativo');
+            const valor = opcao.textContent.trim().toLowerCase();
+            filtrotipo = valor === 'todas' ? '' : valor;
+            filtro();
+        });
     });
 }
 
-filtroregiao()
-pesquisar()
-ativarfiltro()
+async function iniciar() {
+    const resposta = await fetch('../data/arvores.json');
+    arvores = await resposta.json();
+    filtroregiao();
+    pesquisar();
+    ativarfiltro();
+    filtro();
+}
 
+iniciar();
