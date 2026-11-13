@@ -1,0 +1,84 @@
+{
+  "avatares": [
+    {
+      "id": "dino",
+      "nome": "Dinozinho",
+      "imagem": "../assets/images/perfil/dino-removebg-preview.png"
+    },
+    {
+      "id": "mascote",
+      "nome": "Mascote DuoTree",
+      "imagem": "../assets/images/home/mascotepiscando100px.png"
+    },
+    {
+      "id": "folha",
+      "nome": "Guardião da Folha",
+      "imagem": "../assets/images/loja/3foia.png"
+    }
+  ],
+  "titulos": [
+    "Guardião das Sementes",
+    "Explorador dos Biomas",
+    "Amigo dos Polinizadores",
+    "Semeador do Futuro",
+    "Defensor do ODS 15"
+  ],
+  "conquistas": [
+    {
+      "id": "primeiro-broto",
+      "nome": "Primeiro Broto",
+      "descricao": "Iniciou sua jornada no DuoTree e deu os primeiros passos no cuidado com as árvores.",
+      "criterio": "Começar sua jornada no DuoTree",
+      "xpBonus": 50
+    },
+    {
+      "id": "amigo-polinizadores",
+      "nome": "Amigo dos Polinizadores",
+      "descricao": "Aprendeu sobre espécies floríferas essenciais para abelhas e pássaros.",
+      "criterio": "Concluir o primeiro quiz sobre árvores",
+      "xpBonus": 75
+    },
+    {
+      "id": "guardiao-floresta",
+      "nome": "Guardião da Floresta",
+      "descricao": "Cuidou da sua árvore central com dedicação e manteve sua floresta saudável.",
+      "criterio": "Regar sua árvore pela primeira vez",
+      "xpBonus": 80
+    },
+    {
+      "id": "explorador-biomas",
+      "nome": "Explorador dos Biomas",
+      "descricao": "Visitou a Wiki e conheceu árvores de diferentes biomas brasileiros.",
+      "criterio": "Explorar espécies nativas na Wiki",
+      "xpBonus": 60
+    },
+    {
+      "id": "colecionador-nativo",
+      "nome": "Colecionador Nativo",
+      "descricao": "Adquiriu 3 ou mais espécies diferentes na Loja DuoTree.",
+      "criterio": "Comprar 3 espécies na Loja",
+      "xpBonus": 120
+    },
+    {
+      "id": "mestre-quizzes",
+      "nome": "Mestre dos Quizzes",
+      "descricao": "Completou a missão Quiz 'Conhecendo as árvores' com aproveitamento máximo.",
+      "criterio": "Concluir a missão 'Conhecendo as árvores'",
+      "xpBonus": 150
+    },
+    {
+      "id": "leitor-ods15",
+      "nome": "Leitor do ODS 15",
+      "descricao": "Concluiu uma missão de Leitura sobre biodiversidade terrestre.",
+      "criterio": "Concluir a missão 'A importância das árvores'",
+      "xpBonus": 100
+    },
+    {
+      "id": "maos-na-terra",
+      "nome": "Mãos na Terra",
+      "descricao": "Registrou o plantio de 5 árvores na missão Prática.",
+      "criterio": "Concluir a missão 'Plante árvores'",
+      "xpBonus": 200
+    }
+  ]
+}

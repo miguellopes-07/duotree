@@ -1,0 +1,160 @@
+{
+  "missoes": [
+    {
+      "id": "conhecendo-arvores",
+      "tipo": "Quiz",
+      "titulo": "Conhecendo as árvores",
+      "descricao": "Responda 10 perguntas sobre árvores nativas.",
+      "recompensaFolhas": 25,
+      "recompensaXp": 120,
+      "meta": 10,
+      "imagem": "../assets/images/missao/tree (1).png",
+      "quizId": "quiz-arvores-nativas"
+    },
+    {
+      "id": "importancia-arvores",
+      "tipo": "Leitura",
+      "titulo": "A importância das árvores",
+      "descricao": "Leia o artigo completo na wiki e responda.",
+      "recompensaFolhas": 20,
+      "recompensaXp": 90,
+      "meta": 1,
+      "imagem": "../assets/images/missao/tree (2).png",
+      "leituraId": "artigo-ods15"
+    },
+    {
+      "id": "plante-arvores",
+      "tipo": "Prática",
+      "titulo": "Plante árvores",
+      "descricao": "Plante cinco árvores e registre sua ação.",
+      "recompensaFolhas": 25,
+      "recompensaXp": 150,
+      "meta": 5,
+      "imagem": "../assets/images/missao/tree (3).png"
+    },
+    {
+      "id": "regue-sua-arvore",
+      "tipo": "Diária",
+      "titulo": "Cuidado Diário",
+      "descricao": "Regue sua árvore na página Home ou registre o cuidado hoje.",
+      "recompensaFolhas": 15,
+      "recompensaXp": 60,
+      "meta": 1,
+      "imagem": "../assets/images/missao/tree (2).png"
+    },
+    {
+      "id": "arvores-do-brasil",
+      "tipo": "Quiz",
+      "titulo": "Árvores do Brasil",
+      "descricao": "Conheça as espécies brasileiras.",
+      "recompensaFolhas": 25,
+      "recompensaXp": 100,
+      "meta": 5,
+      "imagem": "../assets/images/missao/tree (1).png",
+      "quizId": "quiz-arvores-nativas"
+    }
+  ],
+  "quizzes": {
+    "quiz-arvores-nativas": [
+      {
+        "pergunta": "Qual árvore é símbolo do Cerrado e tem suas flores polinizadas por morcegos à noite?",
+        "alternativas": ["Pequi", "Araucária", "Ficus benjamina", "Pinheiro europeu"],
+        "correta": 0,
+        "explicacao": "O pequizeiro (Caryocar brasiliense) é típico do Cerrado e possui flores grandes noturnas polinizadas por morcegos."
+      },
+      {
+        "pergunta": "Qual ave ajuda a dispersar as sementes (pinhões) da Araucária no Sul do Brasil?",
+        "alternativas": ["Bem-te-vi", "Gralha-azul", "Pombo urbano", "Gaivota"],
+        "correta": 1,
+        "explicacao": "A gralha-azul enterra pinhões para armazenar alimento e muitos germinam, renovando a floresta."
+      },
+      {
+        "pergunta": "O que é o ODS 15 da ONU, base do projeto DuoTree?",
+        "alternativas": ["Energia Limpa", "Vida Terrestre", "Vida na Água", "Cidades Inteligentes"],
+        "correta": 1,
+        "explicacao": "O ODS 15 trata de proteger, recuperar e promover o uso sustentável dos ecossistemas terrestres e florestas."
+      },
+      {
+        "pergunta": "Por que devemos priorizar árvores nativas na arborização das cidades?",
+        "alternativas": [
+          "Porque não precisam de água nunca",
+          "Porque crescem só no inverno",
+          "Porque sustentam polinizadores e fauna locais e se adaptam melhor ao clima",
+          "Porque impedem qualquer inseto de viver na cidade"
+        ],
+        "correta": 2,
+        "explicacao": "Espécies nativas coevoluíram com o clima, solo e biodiversidade da região."
+      },
+      {
+        "pergunta": "Qual dessas árvores da Amazônia é conhecida como 'Rainha da Floresta'?",
+        "alternativas": ["Mandacaru", "Sumaúma", "Oiti", "Jabuticabeira"],
+        "correta": 1,
+        "explicacao": "A sumaúma (Ceiba pentandra) é uma das maiores árvores da Amazônia e ajuda a regular a umidade local."
+      },
+      {
+        "pergunta": "O Mandacaru é uma espécie símbolo de qual bioma brasileiro?",
+        "alternativas": ["Pampa", "Pantanal", "Caatinga", "Floresta Amazônica"],
+        "correta": 2,
+        "explicacao": "O mandacaru é adaptado ao semiárido da Caatinga, armazenando água em seu caule."
+      },
+      {
+        "pergunta": "Qual característica torna o Ipê Amarelo fácil de reconhecer na paisagem?",
+        "alternativas": [
+          "Frutos crescendo direto no tronco",
+          "Floração amarela intensa após perder as folhas no inverno",
+          "Espinhos em todo o caule",
+          "Raízes aéreas em manguezais"
+        ],
+        "correta": 1,
+        "explicacao": "No inverno/início da primavera, o ipê-amarelo perde as folhas e floresce intensamente."
+      },
+      {
+        "pergunta": "Qual árvore produz frutos diretamente no tronco (caulifloria)?",
+        "alternativas": ["Jabuticabeira", "Araucária", "Pau-ferro", "Jacarandá"],
+        "correta": 0,
+        "explicacao": "A jabuticabeira dá frutos colados ao tronco e galhos grossos."
+      },
+      {
+        "pergunta": "Por que o Ficus benjamina exige cuidado ao ser plantado em calçadas estreitas?",
+        "alternativas": [
+          "É uma espécie venenosa ao toque",
+          "É exótica e tem raízes agressivas que podem danificar pisos e tubulações",
+          "Atrai raios com frequência",
+          "Não produz sombra"
+        ],
+        "correta": 1,
+        "explicacao": "O ficus tem raízes superficiais muito vigorosas, não sendo indicado para calçadas estreitas."
+      },
+      {
+        "pergunta": "Como o Baru contribui para a sustentabilidade no Cerrado?",
+        "alternativas": [
+          "Secando nascentes",
+          "Substituindo todas as gramíneas",
+          "Protegendo o solo, atraindo fauna e gerando renda sustentável com suas castanhas",
+          "Crescendo apenas dentro de rios"
+        ],
+        "correta": 2,
+        "explicacao": "O baruzeiro une conservação do Cerrado e uso sustentável por comunidades locais."
+      }
+    ]
+  },
+  "leituras": {
+    "artigo-ods15": {
+      "titulo": "Por que cada árvore nativa importa para o ODS 15?",
+      "subtitulo": "Biodiversidade, microclima urbano e restauração de biomas brasileiros",
+      "paragrafos": [
+        "As árvores são muito mais do que elementos decorativos na paisagem. Cada espécie nativa participa de uma rede viva que conecta solo, água, polinizadores, aves e seres humanos.",
+        "Nas cidades, copas densas como a do Oiti ajudam a reduzir a temperatura do asfalto em vários graus, filtram poluentes e amortecem a água das chuvas, diminuindo enchentes.",
+        "Já nos biomas naturais — como Amazônia, Cerrado, Caatinga, Mata Atlântica, Pampa e Pantanal — plantar a espécie certa para cada região garante que abelhas nativas, morcegos, pássaros e mamíferos tenham alimento e abrigo durante todo o ano.",
+        "Por isso, antes de plantar, o primeiro passo é aprender: observar o espaço disponível, o tipo de solo, o clima da sua região e dar preferência às espécies nativas."
+      ],
+      "pergunta": "De acordo com o artigo, qual é o primeiro passo para um plantio verdadeiramente sustentável?",
+      "alternativas": [
+        "Plantar qualquer muda importada rapidamente",
+        "Conhecer a espécie, o espaço, o solo e priorizar árvores nativas da região",
+        "Plantar apenas árvores que não dão flores nem frutos"
+      ],
+      "correta": 1
+    }
+  }
+}

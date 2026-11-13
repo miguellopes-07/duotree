@@ -1,0 +1,6 @@
+{
+  "name": "DuoTree",
+  "description": "Plataforma gamificada de educação ambiental focada no ODS 15 (Vida Terrestre), com wiki de árvores brasileiras, loja de sementes e mudas nativas, missões interativas e perfil do jogador.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

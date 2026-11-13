@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiki</title>
+    <title>DuoTree — Wiki</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/duotree-ui.css">
 </head>
 
 <body class="bodywiki">
@@ -18,8 +19,7 @@
         </div>
         <img src="../assets/images/wiki/logowiki.png" alt="">
     </div>
-</div>
-        </div>
+    </div>
         <div >
             <form action="" class="barrapesquisawiki">
                 <input type="text" placeholder="Buscar Árvores...">
@@ -31,11 +31,11 @@
             <img src="" alt="">
         </div>
         <ul class="listfilterwiki">
-            <li>Todas</li>
-            <li>Nátivas</li>
+            <li class="ativo">Todas</li>
+            <li>Nativas</li>
             <li>Frutíferas</li>
             <li>Medicinais</li>
-            <li>...</li>
+            <li>Ornamentais</li>
         </ul>
     </header>
     <hr>
@@ -90,6 +90,8 @@
         </nav>
     </footer>
 
+    <script src="../js/duotree-state.js" defer></script>
+    <script src="../js/wiki.js" defer></script>
 </body>
 
 </html>

@@ -1,0 +1,18 @@
+{
+  "pilares": {
+    "Educação": "Entender qual espécie pertence a cada bioma evita erros comuns de arborização e fortalece o cuidado ambiental desde cedo.",
+    "Consciência": "Cada árvore conecta solo, água, clima e fauna. Cuidar do planeta começa por reconhecer o valor da biodiversidade local.",
+    "Ação": "Quizzes, leituras e registro de plantios transformam teoria em hábitos reais no seu bairro, escola ou quintal.",
+    "Impacto": "Juntos com o ODS 15 da ONU, pequenas ações individuais se multiplicam em mais áreas verdes e ecossistemas protegidos."
+  },
+  "metasODS15": [
+    "Conservar e restaurar ecossistemas terrestres e florestas brasileiras.",
+    "Combater a perda de biodiversidade valorizando espécies nativas regionais.",
+    "Tornar a educação ambiental acessível, prática e gamificada para jovens e comunidades."
+  ],
+  "equipe": [
+    { "nome": "Miguel Lopes", "papel": "Idealização, Desenvolvimento & Experiência DuoTree" },
+    { "nome": "Marcus Vinícius", "papel": "Conteúdo Ambiental, Pesquisa & Design" },
+    { "nome": "Brendon Kevin", "papel": "Estrutura Web, Layout & Colaboração" }
+  ]
+}

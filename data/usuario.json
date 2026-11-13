@@ -1,0 +1,92 @@
+{
+  "nome": "Dinozinho_67",
+  "titulo": "Guardião das Sementes",
+  "avatar": "../assets/images/perfil/dino-removebg-preview.png",
+  "bio": "",
+  "regiao": "",
+  "folhas": 1247,
+  "nivel": 67,
+  "xp": 1254,
+  "xpProximoNivel": 1500,
+  "arvoresPlantadas": 7,
+  "arvoreAtivaId": "ipe-amarelo",
+  "arvoresCompradas": [
+    {
+      "id": "ipe-amarelo",
+      "nome": "Ipê Amarelo",
+      "tipo": "Mudas",
+      "estagio": 3,
+      "regas": 4,
+      "compradaEm": "2026-11-10"
+    }
+  ],
+  "missoesConcluidas": [
+    "arvores-do-brasil"
+  ],
+  "progressoMissoes": {
+    "conhecendo-arvores": {
+      "atual": 0,
+      "meta": 10
+    },
+    "importancia-arvores": {
+      "atual": 0,
+      "meta": 1
+    },
+    "plante-arvores": {
+      "atual": 0,
+      "meta": 5,
+      "registros": []
+    },
+    "regue-sua-arvore": {
+      "atual": 0,
+      "meta": 1
+    }
+  },
+  "artigosLidos": [],
+  "conquistasDesbloqueadas": [
+    "primeiro-broto",
+    "amigo-polinizadores",
+    "guardiao-floresta",
+    "explorador-biomas"
+  ],
+  "amigos": [
+    {
+      "nome": "Flora_Cerrado",
+      "nivel": 72,
+      "folhas": 1580
+    },
+    {
+      "nome": "SementeViva",
+      "nivel": 54,
+      "folhas": 920
+    },
+    {
+      "nome": "AraucariaSul",
+      "nivel": 61,
+      "folhas": 1115
+    }
+  ],
+  "notificacoes": [
+    {
+      "id": "notif-1",
+      "titulo": "Bem-vindo ao DuoTree!",
+      "mensagem": "Complete a missão diária regando sua árvore para ganhar +15 folhas.",
+      "lida": false,
+      "data": "Hoje"
+    },
+    {
+      "id": "notif-2",
+      "titulo": "Nova espécie na Loja",
+      "mensagem": "O Baru do Cerrado chegou ao catálogo de sementes nativas!",
+      "lida": false,
+      "data": "Hoje"
+    },
+    {
+      "id": "notif-3",
+      "titulo": "ODS 15 em foco",
+      "mensagem": "Leia uma ficha na Wiki e avance na sua trilha de educação ambiental.",
+      "lida": true,
+      "data": "Ontem"
+    }
+  ]
+}
