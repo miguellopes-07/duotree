@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DuoTree — Entrar</title>
+  <link rel="stylesheet" href="../css/duotree-ui.css">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+
+<body class="bodyauth">
+  <header class="headerauth">
+    <a href="sobre.html" class="headerauth-marca">
+      <img src="../assets/images/loja/3foia.png" alt="Logo DuoTree">
+      <span>DuoTree</span>
+    </a>
+    <div class="headerauth-acoes">
+      <a href="sobre.html" class="link-topo-auth">Sobre</a>
+      <a href="cadastro.html" class="link-topo-auth">Cadastrar</a>
+      <button type="button" class="botao-tema" data-toggle-tema>🌙 Escuro</button>
+    </div>
+  </header>
+
+  <main class="mainauth">
+    <div class="auth-grade">
+      <section class="auth-apresentacao">
+        <img src="../assets/images/home/arvore-central-celular.png" alt="Árvore DuoTree">
+        <h1>Aprenda. Plante. Faça crescer.</h1>
+        <p>Entre na sua conta para acompanhar sua árvore, explorar a Wiki de espécies nativas e completar missões ambientais do ODS 15.</p>
+      </section>
+
+      <section class="auth-card">
+        <h2>Entrar no DuoTree</h2>
+        <p class="auth-subtitulo">Use seu e-mail e senha para acessar sua floresta.</p>
+
+        <div id="login-erro" class="auth-erro" role="alert"></div>
+
+        <form id="form-login">
+          <div class="duotree-form-group">
+            <label for="login-email">E-mail</label>
+            <input id="login-email" type="email" placeholder="seuemail@exemplo.com" required>
+          </div>
+
+          <div class="duotree-form-group">
+            <label for="login-senha">Senha</label>
+            <input id="login-senha" type="password" placeholder="Digite sua senha" required>
+          </div>
+
+          <button type="submit" class="duotree-btn auth-submit">Entrar</button>
+        </form>
+
+        <div class="auth-demo-box">
+          <span>Conta de teste: <strong>dino@duotree.com</strong> / <strong>123456</strong></span>
+          <button type="button" id="btn-preencher-demo" class="duotree-btn duotree-btn-sec">Preencher</button>
+        </div>
+
+        <p class="auth-rodape-card">
+          Ainda não tem conta? <a href="cadastro.html">Cadastre-se agora</a>
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footerauth">
+    DuoTree · Educação Ambiental Gamificada · ODS 15
+  </footer>
+
+  <script src="../js/duotree-state.js" defer></script>
+  <script src="../js/login.js" defer></script>
+</body>
+
+</html>

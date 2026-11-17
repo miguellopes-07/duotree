@@ -1,18 +1,45 @@
 {
   "avatares": [
     {
+      "id": "capivara",
+      "nome": "Capivara Guardiã",
+      "descricao": "Tranquila e amiga das matas ciliares",
+      "imagem": "../assets/images/perfil/capivara.png"
+    },
+    {
+      "id": "tucano",
+      "nome": "Tucano Explorador",
+      "descricao": "Dispersor alegre de sementes nativas",
+      "imagem": "../assets/images/perfil/tucano.png"
+    },
+    {
+      "id": "onca",
+      "nome": "Onça Protetora",
+      "descricao": "Guardiã valente da biodiversidade",
+      "imagem": "../assets/images/perfil/onca.png"
+    },
+    {
+      "id": "arara",
+      "nome": "Arara das Sementes",
+      "descricao": "Colorida e defensora das copas altas",
+      "imagem": "../assets/images/perfil/arara.png"
+    },
+    {
       "id": "dino",
       "nome": "Dinozinho",
+      "descricao": "Guardião curioso das florestas",
       "imagem": "../assets/images/perfil/dino-removebg-preview.png"
     },
     {
       "id": "mascote",
-      "nome": "Mascote DuoTree",
+      "nome": "Broto DuoTree",
+      "descricao": "Semente cheia de energia",
       "imagem": "../assets/images/home/mascotepiscando100px.png"
     },
     {
       "id": "folha",
-      "nome": "Guardião da Folha",
+      "nome": "Trio Folha",
+      "descricao": "Protetor da biodiversidade",
       "imagem": "../assets/images/loja/3foia.png"
     }
   ],
@@ -21,7 +48,8 @@
     "Explorador dos Biomas",
     "Amigo dos Polinizadores",
     "Semeador do Futuro",
-    "Defensor do ODS 15"
+    "Defensor do ODS 15",
+    "Botânico Urbano"
   ],
   "conquistas": [
     {
@@ -67,6 +95,13 @@
       "xpBonus": 150
     },
     {
+      "id": "especialista-biomas",
+      "nome": "Especialista em Biomas",
+      "descricao": "Dominou os biomas brasileiros no quiz 'Biomas do Brasil'.",
+      "criterio": "Concluir a missão 'Biomas do Brasil'",
+      "xpBonus": 110
+    },
+    {
       "id": "leitor-ods15",
       "nome": "Leitor do ODS 15",
       "descricao": "Concluiu uma missão de Leitura sobre biodiversidade terrestre.",
@@ -79,6 +114,13 @@
       "descricao": "Registrou o plantio de 5 árvores na missão Prática.",
       "criterio": "Concluir a missão 'Plante árvores'",
       "xpBonus": 200
+    },
+    {
+      "id": "olhar-ecologico",
+      "nome": "Olhar Ecológico",
+      "descricao": "Mapeou 3 árvores observadas no seu bairro ou escola.",
+      "criterio": "Concluir a missão 'Observador do Bairro'",
+      "xpBonus": 130
     }
   ]
 }

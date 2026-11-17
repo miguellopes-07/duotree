@@ -10,12 +10,17 @@
 
 html {
     width: 100%;
+    overflow-x: hidden;
 }
 
 body {
     margin: 0;
     font-family: "Nunito", sans-serif;
     width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
 }
 
 .bodywiki {
@@ -26,8 +31,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 14px;
     padding: 20px;
+    width: 100%;
 }
 
 .logowiki {
@@ -35,15 +41,20 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 960px;
+    flex-wrap: wrap;
+}
 
-    width: 90%;
-    max-width: 900px;
-
-
+.logowiki-direita {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .logowiki img {
-    max-width: 180px;
+    max-width: 160px;
     height: auto;
 }
 
@@ -55,26 +66,27 @@ body {
 }
 
 .logowiki2 img {
-    width: 100px;
-    height: 100px;
+    width: 78px;
+    height: 78px;
     object-fit: contain;
 }
 
 .logowiki2>h1 {
     color: white;
     font-variant-caps: all-petite-caps;
-    font-size: clamp(50px, 8vw, 100px);
+    font-size: clamp(42px, 7vw, 86px);
     margin: 0;
+    line-height: 1;
 }
 
 .barrapesquisawiki {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: min(90vw, 500px);
+    width: min(92vw, 520px);
     background-color: #fef8e7;
     border-radius: 20px;
-    padding: 10px 15px;
+    padding: 8px 14px;
 }
 
 .barrapesquisawiki>input {
@@ -85,19 +97,14 @@ body {
     width: 100%;
     font-family: "Nunito", sans-serif;
     font-size: 16px;
-    font-weight: bolder;
+    font-weight: 700;
     margin: 0;
-    padding: 8px;
+    padding: 6px;
 }
 
 .barrapesquisawiki>input::placeholder {
     color: #68a85b;
-    font-weight: 500;
-}
-
-.barrapesquisawiki>input:focus {
-    outline: none;
-    box-shadow: none;
+    font-weight: 600;
 }
 
 .barrapesquisawiki>button {
@@ -126,14 +133,13 @@ body {
     gap: 8px;
     padding: 0;
     margin: 0;
-
-
 }
 
 .listfilterwiki>li {
     background-color: #fef8e7;
-    padding: 6px 12px;
-    border-radius: 7px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-weight: 700;
     cursor: pointer;
     transition: 0.2s;
 }
@@ -147,9 +153,16 @@ hr {
     background-color: #9bae69;
     height: 6px;
     border: none;
-    margin: 0 0 30px 0;
+    width: 100%;
+    margin: 0 0 24px 0;
+}
 
-
+.mainwiki-wrap {
+    flex: 1;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px 28px;
 }
 
 .mainwiki {
@@ -157,12 +170,10 @@ hr {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    align-content: flex-start;
     gap: 20px;
     width: 100%;
-    padding: 0 20px 40px;
-
-
 }
 
 .containerArvoresWiki {
@@ -170,56 +181,52 @@ hr {
     flex-direction: row;
     align-items: center;
     background-color: #4c7b47;
-    border-radius: 37px;
-    width: min(700px, 90vw);
-    padding: 15px;
-    gap: 20px;
+    border-radius: 32px;
+    width: min(580px, 100%);
+    padding: 16px;
+    gap: 18px;
 }
 
 .containerArvoresWiki>img {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     object-fit: cover;
     border-radius: 16px;
     flex-shrink: 0;
-
-
 }
 
 .containerArvoresWiki>div {
-    text-align: center;
+    text-align: left;
     width: 100%;
-    padding: 5px;
+    padding: 4px;
 }
 
 .containerArvoresWiki>div>h3 {
     color: white;
-    font-size: clamp(22px, 3vw, 30px);
+    font-size: clamp(20px, 2.5vw, 28px);
     margin: 0;
 }
 
 .containerArvoresWiki>div>h4 {
-    color: white;
+    color: #e4f2d8;
     font-style: italic;
-    font-size: clamp(14px, 2vw, 18px);
-    margin: 5px 0;
+    font-size: clamp(14px, 1.8vw, 17px);
+    margin: 4px 0 8px;
 }
 
 .containerArvoresWiki>div>p {
     color: white;
-    font-size: clamp(13px, 1.5vw, 16px);
-    line-height: 1.4;
-    margin: 10px 0 0;
-
-
+    font-size: clamp(13px, 1.4vw, 15px);
+    line-height: 1.45;
+    margin: 0;
 }
 
 .navegacaoFooter {
     background-color: #fef8e7;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    padding: 20px;
-    margin: 0;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    padding: 18px 20px;
+    margin-top: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -232,15 +239,16 @@ hr {
     list-style: none;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 24px;
     padding: 0;
     margin: 0;
 }
 
 .listaNavegacaoFooter>li>a {
-    color: #938a8a;
+    color: #5c5656;
     text-decoration: none;
     font-size: 16px;
+    font-weight: 700;
     transition: 0.2s;
 }
 
@@ -248,40 +256,13 @@ hr {
     color: #4c7b47;
 }
 
-@media (max-width: 1200px) {
-
-    .headerwiki {
-        padding: 15px;
-    }
-
-    .logowiki {
-        width: 95%;
-    }
-
-    .logowiki img {
-        max-width: 130px;
-    }
-
-    .logowiki2 img {
-        width: 75px;
-        height: 75px;
-    }
-
-    .logowiki2>h1 {
-        font-size: clamp(45px, 10vw, 75px);
+@media (max-width: 1024px) {
+    .mainwiki-wrap {
+        padding: 0 16px 96px;
     }
 
     .containerArvoresWiki {
-        width: 95%;
-    }
-
-    .containerArvoresWiki>img {
-        width: 150px;
-        height: 150px;
-    }
-
-    .listaNavegacaoFooter {
-        gap: 20px;
+        width: min(640px, 100%);
     }
 
     .navegacaoFooter {
@@ -289,145 +270,65 @@ hr {
         bottom: 0px;
         right: 0px;
         left: 0px;
+        z-index: 6000;
     }
-
-
 }
 
 @media (max-width: 600px) {
-
     .headerwiki {
-        padding: 10px;
+        padding: 14px 12px;
         gap: 12px;
     }
 
-    .logowiki {
-        width: 100%;
-        justify-content: center;
-        gap: 10px;
-    }
-
     .logowiki img {
-        max-width: 90px;
-    }
-
-    .logowiki2 {
-        gap: 5px;
+        max-width: 88px;
     }
 
     .logowiki2 img {
-        width: 55px;
-        height: 55px;
-    }
-
-    .logowiki2>h1 {
-        font-size: 50px;
-    }
-
-    .barrapesquisawiki {
-        width: 95%;
-        padding: 8px 12px;
-    }
-
-    .barrapesquisawiki>input {
-        font-size: 14px;
-    }
-
-    .listfilterwiki {
-        width: 100%;
-        gap: 6px;
-    }
-
-    .listfilterwiki>li {
-        padding: 5px 9px;
-        font-size: 13px;
-    }
-
-    .mainwiki {
-        padding: 0 10px 30px;
-        gap: 15px;
-    }
-
-    .containerArvoresWiki {
-        width: 100%;
-        flex-direction: column;
-        text-align: center;
-        border-radius: 25px;
-        padding: 15px;
-        gap: 10px;
-    }
-
-    .containerArvoresWiki>img {
-        width: 130px;
-        height: 130px;
-        border-radius: 15px;
-    }
-
-    .containerArvoresWiki>div {
-        width: 100%;
-    }
-
-    .containerArvoresWiki>div>h3 {
-        font-size: 24px;
-    }
-
-    .containerArvoresWiki>div>h4 {
-        font-size: 15px;
-    }
-
-    .containerArvoresWiki>div>p {
-        font-size: 14px;
-        line-height: 1.4;
-    }
-
-    .navegacaoFooter {
-        border-top-left-radius: 30px;
-        border-top-right-radius: 30px;
-        padding: 20px 10px;
-        position: fixed;
-        bottom: 0px;
-        right: 0px;
-        left: 0px;
-    }
-    
-}
-
-@media (max-width: 400px) {
-
-    .logowiki img {
-        max-width: 70px;
-    }
-
-    .logowiki2 img {
-        width: 45px;
-        height: 45px;
+        width: 50px;
+        height: 50px;
     }
 
     .logowiki2>h1 {
         font-size: 42px;
     }
 
-    .listfilterwiki>li {
-        padding: 4px 7px;
-        font-size: 12px;
+    .mainwiki-wrap {
+        padding: 0 12px 92px;
+    }
+
+    .mainwiki {
+        gap: 14px;
+    }
+
+    .containerArvoresWiki {
+        flex-direction: column;
+        text-align: center;
+        border-radius: 24px;
+        padding: 14px;
+        gap: 10px;
+    }
+
+    .containerArvoresWiki>div {
+        text-align: center;
     }
 
     .containerArvoresWiki>img {
-        width: 110px;
-        height: 110px;
+        width: 140px;
+        height: 140px;
     }
 
-    .containerArvoresWiki>div>h3 {
-        font-size: 21px;
-    }
-
-    .containerArvoresWiki>div>p {
-        font-size: 13px;
-    }
     .navegacaoFooter {
-        position: fixed;
-        bottom: 0px;
-        right: 0px;
-        left: 0px;
+        border-top-left-radius: 26px;
+        border-top-right-radius: 26px;
+        padding: 14px 10px;
+    }
+
+    .listaNavegacaoFooter {
+        gap: 12px 16px;
+    }
+
+    .listaNavegacaoFooter>li>a {
+        font-size: 14px;
     }
 }

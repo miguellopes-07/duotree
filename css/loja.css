@@ -4,177 +4,177 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-
-*{
-box-sizing: border-box;
+* {
+    box-sizing: border-box;
 }
 
 html {
-width: 100%;
-overflow-x: hidden;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
-margin: 0;
-font-family: "Nunito", sans-serif;
-width: 100%;
-overflow-x: hidden;
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 8px 16px 32px;
 }
 
 .headerloja {
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 14px;
     padding: 20px;
 }
 
-.imagensheader{
+.imagensheader {
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
+.imagensheader img {
+    max-height: 52px;
+    width: auto;
+}
 
-.tituloloja{
+.tituloloja {
     display: flex;
     justify-content: space-between;
     width: 100%;
     flex-direction: row;
     align-items: center;
-    
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-.headerregiao{
-   
+.tituloloja h1 {
+    margin: 0;
+}
+
+.headerregiao {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-color:white;
-    padding: 10px;
-    border: 3px solid #bfbbbb ;
+    background-color: white;
+    padding: 12px 18px;
+    border: 2px solid #bfbbbb;
     border-radius: 16px;
-    
-    
+    gap: 6px;
+    text-align: center;
 }
 
-.headerregiao>h5{
+.headerregiao>h5 {
     margin: 0px;
 }
 
-
+.select select {
+    padding: 6px 10px;
+    border-radius: 10px;
+    border: 1px solid #938a8a;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+}
 
 .bodyloja {
     background-color: #fef8e7;
 }
 
-
-.listaNavegacaoFooter > li > a {
-    color: #938a8a;
-    
+.listaNavegacaoFooter>li>a {
+    color: #5c5656;
     text-decoration: none;
-    
     font-size: 16px;
-    
+    font-weight: 700;
     transition: 0.2s;
-    
-    
 }
 
-.listaNavegacaoFooter > li > a:hover {
+.listaNavegacaoFooter>li>a:hover {
     color: #4c7b47;
 }
 
-.pontos{
+.pontos {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-left: 15px;
-    padding-right: 15px;
+    gap: 6px;
+    padding: 6px 14px;
     border-radius: 50px;
     border: 2px solid #a9c5a0;
     background-color: #2c731f;
 }
-.pontos>h2{
+
+.pontos>h2 {
     color: white;
+    margin: 0;
+    font-size: 1.25rem;
 }
 
-.pontos>img{
-    height: 50%;
+.pontos>img {
+    height: 26px;
+    width: auto;
 }
 
 .listfilterloja {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    
     list-style: none;
-    
     justify-content: center;
     align-items: center;
-    
     gap: 8px;
-    
     padding: 0;
     margin: 0;
-    
-    
 }
 
-.listfilterloja > li {
+.listfilterloja>li {
     background-color: white;
     border: 1px solid #938a8a;
-    
-    padding: 6px 12px;
-    
-    border-radius: 7px;
-    
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-weight: 700;
     cursor: pointer;
-    
     transition: 0.2s;
-    
-    
 }
 
-.listfilterloja > li:hover {
+.listfilterloja>li:hover {
     background-color: #4c7b47;
     color: white;
 }
 
-.listfilterloja > li.ativo {
+.listfilterloja>li.ativo {
     background-color: #4c7b47;
     color: white;
-}
-
-
-.barrapesquisawiki {
-    width: 95%;
-    
-    padding: 8px 12px;
-}
-
-.barrapesquisawiki > input {
-    font-size: 14px;
 }
 
 .barrapesquisawiki {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
-    width: min(90vw, 500px);
-    border: 1px solid grey;
+    width: min(92vw, 500px);
+    border: 1px solid #938a8a;
     background-color: #ffffff;
     border-radius: 20px;
-    
-    padding: 10px 15px;
-    
-    
+    padding: 8px 14px;
 }
 
-.barrapesquisawiki > input {
+.barrapesquisawiki>input {
     border: none;
     outline: none;
     background-color: transparent;
@@ -182,165 +182,132 @@ overflow-x: hidden;
     width: 100%;
     font-family: "Nunito", sans-serif;
     font-size: 16px;
-    font-weight: bolder;
+    font-weight: 700;
     margin: 0;
-    padding: 8px;
+    padding: 6px;
 }
 
-.barrapesquisawiki > button {
+.barrapesquisawiki>button {
     border: none;
     background-color: transparent;
-    
     display: flex;
     align-items: center;
     justify-content: center;
-    
     cursor: pointer;
-    
     padding: 5px;
     margin: 0;
-    
-    
 }
 
-.barrapesquisawiki > button svg {
+.barrapesquisawiki>button svg {
     width: 22px;
     height: 22px;
 }
 
-hr{
+hr {
     background-color: #a9c5a0;
     height: 6px;
     border: none;
+    width: 100%;
 }
 
-section{
+section {
     display: flex;
     flex-direction: row;
     align-items: stretch;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-    
 }
 
-.listaarvore{
+.listaarvore {
     max-width: 100%;
-    width: 580px;
-    height: 400px;
-    min-height: 0;
+    width: 560px;
+    min-height: 320px;
     display: flex;
     flex-direction: row;
     background-color: white;
-    margin: 10px;
-    border-radius: 50px;
-    border: 2px solid gray ;
-    margin: 20px;
+    border-radius: 36px;
+    border: 2px solid #938a8a;
     overflow: hidden;
 }
-.listaarvore h2 { font-size: 1.2rem; }
-.listaarvore h3 { font-size: 0.85rem; }
-.listaarvore .custo { font-size: 1.3rem; }
 
-.imgarvore{
+.imgarvore {
     width: 45%;
-    height: 100%;
-    object-fit: cover;
-    aspect-ratio: 3 / 4;
+    min-height: 300px;
     display: flex;
-    border: 3px solid;
-    border-color: #938a8a;
-    border-radius: 50px;
+    flex-shrink: 0;
 }
-.imgarvore>img{
+
+.imgarvore>img {
     width: 100%;
     height: 100%;
-    border-radius: 50px;
-    
+    object-fit: cover;
 }
 
-.textoarvore{
+.textoarvore {
     display: flex;
     justify-content: space-between;
-    padding-left: 10px 14px;
+    padding: 18px 20px;
     gap: 8px;
-    align-items: start;
-    margin-left: 20px;
+    align-items: flex-start;
     flex-direction: column;
-    width: 50%;
-    
+    width: 55%;
 }
 
-.textoarvore>.regiao{
+.textoarvore>.regiao {
     display: none;
 }
 
-.textoarvore>h3{
-    font-size: 30px;
-    margin: 10px;
+.textoarvore>h3 {
+    font-size: 26px;
+    margin: 0;
 }
 
-.textoarvore>h6{
-    font-size: 20px;
+.textoarvore>h6 {
+    font-size: 16px;
     font-style: italic;
     margin: 0px;
-    
 }
 
-.textoarvore>h5{
+.textoarvore>h5 {
     background-color: burlywood;
-    padding: 5px;
-    border: 3px solid greenyellow;
+    padding: 6px 14px;
+    border: 2px solid #7db86b;
     border-radius: 50px;
-    font-size: 20px;
-    margin-top: 60px;
-    
+    font-size: 16px;
+    margin: 12px 0;
 }
 
-.textoarvore>h4{
-    margin: 0px;
-    font-size: 50px;
-    background-color: #4c7b47;
-    padding: 5px;
-    border: 1px solid grey;
-    border-radius: 50px;
-}
-
-.custo{
+.custo {
     background-color: #a9c5a0;
     border-radius: 50px;
-    display:flex;
-    border: 1px solid #4c7b47 ;
-    padding: 10px;
-    margin-bottom: 10px;
+    display: flex;
+    border: 1px solid #4c7b47;
+    padding: 8px 16px;
+    gap: 8px;
     flex-direction: row;
     align-items: center;
-    
 }
 
-.custo>img{
-    width: 35px;
-    height: 38px;
+.custo>img {
+    width: 28px;
+    height: 30px;
     object-fit: contain;
-    
 }
 
-.custo>h4{
-    font-size: 50px;
+.custo>h4 {
+    font-size: 32px;
     margin: 0;
     padding: 0;
     line-height: 1;
-    
 }
-
-
 
 .navegacaoFooterLoja {
     background-color: #dce8d2;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    padding: 20px;
-    margin: 0;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    padding: 18px 20px;
+    margin-top: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -348,130 +315,66 @@ section{
 
 .listaNavegacaoFooter {
     display: flex;
-    
     flex-direction: row;
-    
     flex-wrap: wrap;
-    
     list-style: none;
-    
     justify-content: center;
-    
     align-items: center;
-    
-    gap: 25px;
-    
+    gap: 24px;
     padding: 0;
     margin: 0;
-    
-    
 }
 
-/* ---------- Notebook pequeno / tablet na horizontal (até 1024px) ---------- */
 @media (max-width: 1024px) {
     .listaarvore {
-        width: 460px;
-        height: 340px;
-        margin: 10px;
-        border-radius: 40px;
+        width: calc(50% - 14px);
+        min-width: 320px;
+        min-height: 260px;
+        border-radius: 28px;
     }
- 
-    .imgarvore,
-    .imgarvore > img {
-        border-radius: 40px;
+
+    .imgarvore {
+        min-height: 240px;
     }
- 
-    .textoarvore {
-        margin-left: 12px;
+
+    .textoarvore>h3 {
+        font-size: 22px;
     }
- 
-    .textoarvore > h3 {
-        font-size: 24px;
-        margin: 6px 0;
-    }
- 
-    .textoarvore > h6 {
-        font-size: 16px;
-    }
- 
-    .textoarvore > h5 {
-        font-size: 16px;
-        margin-top: 30px;
-    }
- 
-    .custo > h4 {
-        font-size: 38px;
-    }
- 
-    .custo > img {
-        width: 28px;
-        height: 30px;
+
+    .custo>h4 {
+        font-size: 26px;
     }
 }
- 
-/* ---------- Tablet na vertical (até 768px) ---------- */
+
 @media (max-width: 768px) {
     .headerloja {
-        padding: 15px;
+        padding: 14px;
         gap: 12px;
     }
- 
+
     .tituloloja h1 {
-        font-size: 1.8rem;
+        font-size: 1.65rem;
     }
- 
-    .tituloloja h2 {
-        font-size: 1.4rem;
-    }
- 
-    .imagensheader {
-        gap: 8px;
-    }
- 
-    .imagensheader img {
-        max-height: 45px;
-        width: auto;
-    }
- 
+
     .headerregiao {
         width: 100%;
-        text-align: center;
     }
- 
-    .headerregiao h5 {
-        font-size: 0.9rem;
-    }
- 
-    section {
-        gap: 10px;
-    }
- 
+
     .listaarvore {
         width: 100%;
-        max-width: 520px;
-        height: 320px;
-        margin: 10px 15px;
-    }
- 
-    .listaNavegacaoFooter {
-        gap: 18px;
+        max-width: 560px;
     }
 }
- 
-/* ---------- Celular (até 600px): card vira vertical ---------- */
+
 @media (max-width: 600px) {
     .tituloloja h1 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
- 
-    .tituloloja h2 {
-        font-size: 1.2rem;
-    }
- 
+
     .imagensheader img {
-        max-height: 36px;
+        max-height: 38px;
     }
- 
+
     .select {
         display: flex;
         flex-direction: column;
@@ -479,145 +382,54 @@ section{
         gap: 6px;
         width: 100%;
     }
- 
+
     .select select {
         width: 100%;
-        padding: 6px;
-        font-family: "Nunito", sans-serif;
     }
- 
-    .headerregiao h5 {
-        font-size: 0.8rem;
-    }
- 
-    .listfilterloja > li {
-        font-size: 14px;
-        padding: 5px 10px;
-    }
- 
+
     .barrapesquisawiki {
         width: 100%;
-        padding: 6px 12px;
     }
- 
-    .barrapesquisawiki > input {
-        font-size: 14px;
-        padding: 6px;
-    }
- 
-    /* Card empilhado: imagem em cima, texto embaixo */
+
     .listaarvore {
         flex-direction: column;
         width: 100%;
-        max-width: 380px;
-        height: auto;
-        margin: 10px auto;
-        border-radius: 30px;
+        max-width: 360px;
+        min-width: 0;
+        min-height: 0;
+        border-radius: 26px;
     }
- 
+
     .imgarvore {
         width: 100%;
-        height: 220px;
-        aspect-ratio: auto;
-        border-radius: 30px;
+        height: 200px;
+        min-height: 0;
     }
- 
-    .imgarvore > img {
-        border-radius: 27px;
-        object-fit: cover;
-    }
- 
+
     .textoarvore {
         width: 100%;
-        margin-left: 0;
-        padding: 12px 16px 16px;
-        gap: 6px;
+        padding: 14px 16px 18px;
     }
- 
-    .textoarvore > h3 {
+
+    .textoarvore>h3 {
         font-size: 22px;
-        margin: 0;
     }
- 
-    .textoarvore > h6 {
-        font-size: 15px;
+
+    .custo>h4 {
+        font-size: 26px;
     }
- 
-    .textoarvore > h5 {
-        font-size: 15px;
-        margin: 6px 0;
-    }
- 
-    .custo > h4 {
-        font-size: 32px;
-        margin-bottom: 0;
-    }
- 
-    .custo > img {
-        width: 26px;
-        height: 28px;
-        margin-bottom: 0;
-    }
- 
-    /* Footer */
+
     .navegacaoFooterLoja {
-        padding: 15px 10px;
-        border-top-left-radius: 30px;
-        border-top-right-radius: 30px;
+        padding: 14px 10px;
+        border-top-left-radius: 26px;
+        border-top-right-radius: 26px;
     }
- 
+
     .listaNavegacaoFooter {
         gap: 12px 16px;
     }
- 
-    .listaNavegacaoFooter > li > a {
+
+    .listaNavegacaoFooter>li>a {
         font-size: 14px;
-    }
-}
- 
-/* ---------- Celulares pequenos (até 380px) ---------- */
-@media (max-width: 380px) {
-    .headerloja {
-        padding: 10px;
-    }
- 
-    .tituloloja h1 {
-        font-size: 1.3rem;
-    }
- 
-    .tituloloja h2 {
-        font-size: 1.05rem;
-    }
- 
-    .listaarvore {
-        border-radius: 24px;
-    }
- 
-    .imgarvore {
-        height: 190px;
-        border-radius: 24px;
-    }
- 
-    .imgarvore > img {
-        border-radius: 21px;
-    }
- 
-    .textoarvore > h3 {
-        font-size: 20px;
-    }
- 
-    .custo > h4 {
-        font-size: 28px;
-    }
- 
-    .listaNavegacaoFooter > li > a {
-        font-size: 13px;
-    }
-}
- 
-/* ---------- Celular deitado (pouca altura) ---------- */
-@media (max-height: 500px) and (orientation: landscape) {
-    .listaarvore {
-        height: 300px;
     }
 }

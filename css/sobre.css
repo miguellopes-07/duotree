@@ -18,10 +18,9 @@ body {
     font-family: "Nunito", sans-serif;
     width: 100%;
     overflow-x: hidden;
-}
-
-body {
     padding: 20px;
+    background-color: #ffffff;
+    color: #223121;
 }
 
 .galho {
@@ -32,6 +31,17 @@ body {
     z-index: -1;
 }
 
+.barra-topo-sobre {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 12px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
 header {
     display: flex;
     flex-direction: column;
@@ -40,7 +50,9 @@ header {
 }
 
 .logo {
-    width: 250px;
+    width: 240px;
+    max-width: 72vw;
+    height: auto;
 }
 
 .header-subtitulo {
@@ -55,13 +67,14 @@ main {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 600px;
+    max-width: 680px;
     margin: 0 auto;
 }
 
 .paragrafo {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
+    line-height: 1.6;
 }
 
 .caixa-img-texto {
@@ -71,17 +84,19 @@ main {
     flex-direction: row;
     align-items: center;
     width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 34px;
+    padding: 12px;
 }
 
 .caixa-img {
-    width: 35%;
+    width: 34%;
+    max-width: 190px;
     height: auto;
 }
 
 .caixa-texto {
-    width: 60%;
-    padding: 20px;
+    flex: 1;
+    padding: 16px;
 }
 
 .caixa-texto h2,
@@ -97,15 +112,23 @@ main {
 .caixa-bolas {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 28px;
     width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 28px;
 }
 
 .bola {
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.bola:hover {
+    transform: translateY(-4px);
 }
 
 .bola h4 {
@@ -113,17 +136,17 @@ main {
 }
 
 .circulo-bola {
-    font-size: 2rem;
+    font-size: 1.9rem;
     color: #054c17;
     background-color: #fdf6e3;
     border: 2px solid #054c17;
-    width: 70px;
-    height: 70px;
+    width: 68px;
+    height: 68px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .secoes {
@@ -132,7 +155,7 @@ main {
 
 section {
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 }
 
 section h2 {
@@ -160,8 +183,9 @@ section p {
 }
 
 .lista-passos li,
-.lista-crencas li {
-    margin-bottom: 15px;
+.lista-crencas li,
+.lista-equipe li {
+    margin-bottom: 12px;
 }
 
 .lista-passos h3,
@@ -174,13 +198,15 @@ section p {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 12px;
 }
 
 .frase-final {
     font-weight: 700;
+    margin: 0;
 }
 
-button {
+.final .btn-jornada {
     background-color: #4cb038;
     color: white;
     border: none;
@@ -189,41 +215,73 @@ button {
     font-weight: 700;
     border-radius: 30px;
     cursor: pointer;
+    font-family: "Nunito", sans-serif;
 }
 
-footer{
-    border-top: 1px solid#ccc;
-    padding: 20px 0;
-    margin-top: 40px;
+footer {
+    border-top: 1px solid #ccc;
+    padding: 20px 0 8px;
+    margin-top: 36px;
 }
+
 footer ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px 24px;
     list-style: none;
     margin: 0 auto;
     padding: 0;
-    max-width: 600px;
+    max-width: 680px;
 }
+
 footer a {
     text-decoration: none;
     color: #333;
     font-weight: 700;
 }
 
+@media (max-width: 540px) {
+    body {
+        padding: 14px;
+    }
+
+    .caixa-img-texto {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .caixa-img {
+        width: 120px;
+    }
+
+    .caixa-texto {
+        padding: 12px 8px 6px;
+    }
+
+    footer ul {
+        gap: 12px 16px;
+    }
+
+    footer a {
+        font-size: 14px;
+    }
+}
+
 @media only screen and (min-width: 768px) {
     .galho {
-        width: 220px;
+        width: 210px;
     }
 }
 
 @media only screen and (min-width: 992px) {
     .galho {
-        width: 300px;
+        width: 280px;
     }
 
     main {
-        max-width: 700px;
+        max-width: 960px;
     }
 
     .secoes {
@@ -240,26 +298,26 @@ footer a {
 
 @media only screen and (min-width: 1200px) {
     body {
-        font-size: 1.15rem;
-        padding: 30px 60px;
+        font-size: 1.08rem;
+        padding: 24px 48px;
     }
 
     .logo {
-        width: 350px;
+        width: 310px;
     }
 
     .galho {
-        width: 380px;
+        width: 340px;
     }
 
     main {
-        max-width: 1400px;
+        max-width: 1240px;
     }
 
     .paragrafo,
     .caixa-img-texto,
     .caixa-bolas {
-        max-width: 800px;
+        max-width: 820px;
     }
 
     section {

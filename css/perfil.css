@@ -18,78 +18,104 @@ body {
     font-family: "Nunito", sans-serif;
     width: 100%;
     overflow-x: hidden;
-}
-body{
-background-color: #4c7b47;
-color: white;
-padding: 15px;
-display: flex;
-flex-direction: column;
-min-height: 100vh;
+    background-color: #4c7b47;
+    color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-header{
+header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
     width: 100%;
-    max-width: 600px;
+    max-width: 680px;
     margin: 0 auto;
 }
 
-.logo{
-    width: 140px;
+.logo {
+    width: 130px;
+    height: auto;
 }
 
-.nivel-xp{
-    width: 55%;
+.nivel-xp {
+    flex: 1;
+    min-width: 180px;
     text-align: center;
 }
-.nivel-xp h1{
-    margin: 0 0 5px 0;
-    font-size: 1.5rem;
+
+.nivel-xp h1 {
+    margin: 0 0 6px 0;
+    font-size: 1.4rem;
 }
 
-.barra-xp{
+.barra-xp {
     background-color: #f5f1e6;
     border-radius: 20px;
+    overflow: hidden;
 }
 
-.xp-preenchido{
+.xp-preenchido {
     background-color: #4c9a1f;
     width: 84%;
     padding: 5px 10px;
     border-radius: 20px;
     font-weight: 700;
+    font-size: 0.9rem;
+    white-space: nowrap;
 }
 
-main{
+.acoes-perfil-topo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+main {
     width: 100%;
     flex: 1;
-    max-width: 600px;
+    max-width: 680px;
     margin: 0 auto;
 }
 
-.card-perfil{
+.card-perfil {
     position: relative;
     background-color: #fdf6e3;
     color: #222;
-    border-radius: 40px;
-    padding: 15px;
-    margin-top: 25px;
+    border-radius: 36px;
+    padding: 18px 16px;
+    margin-top: 20px;
     text-align: center;
 }
-.card-perfil h2{
-    margin: 0 0 10px 0;
-    font-size: 1.2rem;
+
+.card-perfil h2 {
+    margin: 0 0 4px 0;
+    font-size: 1.3rem;
 }
 
-.dino{
-    width: 40%;
+.card-perfil .perfil-subtitulo {
+    margin: 0 0 12px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #4c7b47;
 }
 
-.botao-redondo{
+.dino {
+    width: 42%;
+    max-width: 185px;
+    max-height: 185px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 6px auto 4px;
+}
+
+.botao-redondo {
     position: absolute;
     width: 45px;
     height: 45px;
@@ -97,59 +123,65 @@ main{
     border-radius: 50%;
     background-color: #9ab972;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     cursor: pointer;
 }
 
-.botao-amigo{
-    top: 12px;
-    right: 12px;
+.botao-amigo {
+    top: 14px;
+    right: 14px;
 }
 
-.botao-editar{
-    bottom: 12px;
-    right: 12px;
+.botao-editar {
+    bottom: 14px;
+    right: 14px;
 }
 
-.estatisticas{
+.estatisticas {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     list-style: none;
-    margin: 20px 0 0 0;
-    padding: 12px 0;
+    margin: 18px 0 0 0;
+    padding: 14px 8px;
     background-color: #fdf6e3;
     color: #054c17;
-    border-radius: 40px;
+    border-radius: 32px;
     text-align: center;
+    gap: 8px;
 }
-.estatisticas h3{
+
+.estatisticas h3 {
     margin: 0;
     font-size: 1.1rem;
 }
-.estatisticas p{
+
+.estatisticas p {
     margin: 0;
     font-size: 0.8rem;
     font-weight: 700;
 }
 
-section h2{
+section h2 {
     margin-bottom: 8px;
 }
 
-input{
+.bio-input {
     width: 100%;
-    height: 80px;
-    padding: 0 20px;
+    min-height: 68px;
+    padding: 12px 18px;
     border: none;
-    border-radius: 30px;
+    border-radius: 24px;
     font-family: "Nunito", sans-serif;
     font-size: 1rem;
+    background-color: #fdf6e3;
+    color: #223121;
 }
 
-.contador{
-    margin: 5px 10px 0 0;
+.contador {
+    margin: 6px 10px 0 0;
     text-align: right;
+    font-size: 0.88rem;
 }
 
 .titulo-conquistas {
@@ -158,48 +190,115 @@ input{
     justify-content: space-between;
     align-items: center;
 }
-.titulo-conquistas a{
+
+.titulo-conquistas a {
     color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
-}
-
-.conquistas{
-    display: block;
-    width: 80%;
-    margin: 0 auto;
-}
-
-.nomes-conquistas{
-    display: flex;
-    flex-direction: row;
-    width: 80%;
-    list-style: none;
-    margin: 0 auto;
-    padding: 0;
-}
-.nomes-conquistas li{
-    flex: 1;
-    text-align: center;
-    font-size: 0.8rem;
+    text-decoration: underline;
+    font-size: 0.92rem;
     font-weight: 700;
 }
 
-footer{
-    width: 100%;
-    max-width: 600px;
-    border-top: 1px solid #ccc;
-    padding: 20px 0;
-    margin: 40px auto 0 auto;
+.conquistas {
+    display: block;
+    width: 86%;
+    max-width: 360px;
+    margin: 0 auto;
 }
+
+.nomes-conquistas {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    list-style: none;
+    margin: 6px auto 0;
+    padding: 0;
+    gap: 6px;
+}
+
+.nomes-conquistas li {
+    flex: 1;
+    text-align: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.bloco-plantios {
+    background-color: #fdf6e3;
+    color: #223121;
+    border-radius: 28px;
+    padding: 18px;
+    margin-top: 20px;
+}
+
+.bloco-plantios-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.bloco-plantios-topo h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.lista-plantios-perfil {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-plantio-perfil {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: rgba(76, 123, 71, 0.12);
+    border-radius: 16px;
+    padding: 10px 14px;
+    flex-wrap: wrap;
+}
+
+.btn-remover-item {
+    border: none;
+    background-color: #b83b36;
+    color: #ffffff;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.btn-remover-item:hover {
+    background-color: #8f2925;
+}
+
+footer {
+    width: 100%;
+    max-width: 680px;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 18px 0 8px;
+    margin: 32px auto 0 auto;
+}
+
 footer ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 22px;
     list-style: none;
     margin: 0;
     padding: 0;
 }
+
 footer a {
     text-decoration: none;
     color: white;
@@ -209,18 +308,16 @@ footer a {
 @media only screen and (min-width: 768px) {
     header,
     main,
-    footer{
-        max-width: 700px;
+    footer {
+        max-width: 740px;
     }
-.logo{
-    width: 180px;
-}
-.dino{
-    width: 40%;
+
+    .logo {
+        width: 160px;
     }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1100px) {
     header,
     main,
     footer {
@@ -231,17 +328,37 @@ footer a {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        gap: 32px;
     }
 
     .coluna-esquerda {
-        width: 45%;
+        width: 44%;
     }
 
     .coluna-direita {
-        width: 50%;
+        width: 52%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
     }
 
-    .dino {
-        width: 45%;
+    .logo {
+        width: 110px;
+    }
+
+    .nivel-xp {
+        order: 3;
+        width: 100%;
+    }
+
+    footer ul {
+        gap: 12px 16px;
+    }
+
+    footer a {
+        font-size: 14px;
     }
 }

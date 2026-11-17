@@ -1,142 +1,188 @@
-document.addEventListener('DOMContentLoaded', async () => {
-  const state = await window.DuoTree.init();
-  const arvores = await window.DuoTree.fetchData('wiki.json');
+document.addEventListener('DOMContentLoaded', async function () {
+  const usuario = await window.DuoTree.iniciar({ exigirLogin: true });
+  if (!usuario) {
+    return;
+  }
 
+  const arvores = await window.DuoTree.carregarDados('wiki.json');
   const mainWiki = document.querySelector('.mainwiki');
-  const searchForm = document.querySelector('.barrapesquisawiki');
-  const searchInput = searchForm ? searchForm.querySelector('input') : null;
-  const filterList = document.querySelector('.listfilterwiki');
+  const paginacaoEl = document.querySelector('#paginacao-wiki');
+  const formBusca = document.querySelector('.barrapesquisawiki');
+  const inputBusca = formBusca ? formBusca.querySelector('input') : null;
+  const listaFiltros = document.querySelector('.listfilterwiki');
 
+  const ITENS_POR_PAGINA = 6;
   const categorias = ['Todas', 'Nativas', 'Frutíferas', 'Medicinais', 'Ornamentais'];
+  let paginaAtual = 1;
   let categoriaAtiva = 'Todas';
   let termoBusca = '';
 
-  if (filterList) {
-    filterList.innerHTML = categorias
-      .map(
-        (cat, idx) =>
-          `<li class="${idx === 0 ? 'ativo' : ''}" data-cat="${cat}">${cat}</li>`
-      )
+  if (listaFiltros) {
+    listaFiltros.innerHTML = categorias
+      .map(function (cat, idx) {
+        return '<li class="' + (idx === 0 ? 'ativo' : '') + '" data-cat="' + cat + '">' + cat + '</li>';
+      })
       .join('');
 
-    filterList.querySelectorAll('li').forEach((li) => {
-      li.addEventListener('click', () => {
-        filterList.querySelectorAll('li').forEach((el) => el.classList.remove('ativo'));
+    listaFiltros.querySelectorAll('li').forEach(function (li) {
+      li.addEventListener('click', function () {
+        listaFiltros.querySelectorAll('li').forEach(function (item) {
+          item.classList.remove('ativo');
+        });
         li.classList.add('ativo');
         categoriaAtiva = li.getAttribute('data-cat') || 'Todas';
-        renderWiki();
+        paginaAtual = 1;
+        renderizarWiki();
       });
     });
   }
 
-  function openTreeModal(tree) {
-    const jaLido = state.artigosLidos.includes(tree.id);
+  function abrirDetalhesArvore(arvore) {
+    const jaLido = usuario.artigosLidos.includes(arvore.id);
 
-    window.DuoTree.openModal({
-      title: tree.nome,
-      subtitle: tree.nomeCientifico,
-      html: `
-        <img class="duotree-modal-img" src="${window.DuoTree.escapeHtml(window.DuoTree.resolveAssetPath(tree.imagem))}" alt="${window.DuoTree.escapeHtml(tree.nome)}">
-        <div>
-          ${tree.categorias
-            .map((c) => `<span class="duotree-badge">${window.DuoTree.escapeHtml(c)}</span>`)
-            .join('')}
-          <span class="duotree-badge">${window.DuoTree.escapeHtml(tree.bioma)}</span>
-        </div>
-        <p><strong>Porte:</strong> ${window.DuoTree.escapeHtml(tree.porte)}</p>
-        <p><strong>Regiões:</strong> ${window.DuoTree.escapeHtml(tree.regioes.join(', '))}</p>
-        <p>${window.DuoTree.escapeHtml(tree.descricaoCompleta)}</p>
-        <p><strong>Curiosidade:</strong> ${window.DuoTree.escapeHtml(tree.curiosidade)}</p>
-        <p><strong>Como plantar e cuidar:</strong> ${window.DuoTree.escapeHtml(tree.comoPlantar)}</p>
-        <div class="duotree-modal-actions">
-          <button type="button" class="duotree-btn duotree-btn-sec" id="btn-fechar-wiki">Fechar</button>
-          <button type="button" class="duotree-btn" id="btn-marcar-lido" ${jaLido ? 'disabled' : ''}>
-            ${jaLido ? '✅ Ficha já lida' : 'Marcar como lida (+10 XP)'}
-          </button>
-        </div>
-      `,
-      onMount: (body) => {
-        body.querySelector('#btn-fechar-wiki').addEventListener('click', window.DuoTree.closeModal);
-        body.querySelector('#btn-marcar-lido').addEventListener('click', (e) => {
-          if (!state.artigosLidos.includes(tree.id)) {
-            state.artigosLidos.push(tree.id);
-            window.DuoTree.addXp(10);
-            window.DuoTree.unlockAchievement('explorador-biomas', 'Explorador dos Biomas', 60);
-            window.DuoTree.saveState();
-            e.target.textContent = '✅ Ficha já lida';
-            e.target.disabled = true;
-            window.DuoTree.showToast(`📖 Você leu a ficha de ${tree.nome} (+10 XP)!`);
+    window.DuoTree.abrirModal({
+      titulo: arvore.nome,
+      subtitulo: arvore.nomeCientifico,
+      html:
+        '<img class="duotree-modal-img" src="' + window.DuoTree.escaparHtml(window.DuoTree.resolverImagem(arvore.imagem)) + '" alt="' + window.DuoTree.escaparHtml(arvore.nome) + '">' +
+        '<div class="duotree-meta-linha">' +
+          window.DuoTree.escaparHtml(arvore.categorias.join(' · ')) + ' · ' + window.DuoTree.escaparHtml(arvore.bioma) +
+        '</div>' +
+        '<p><strong>Porte:</strong> ' + window.DuoTree.escaparHtml(arvore.porte) + '</p>' +
+        '<p><strong>Regiões:</strong> ' + window.DuoTree.escaparHtml(arvore.regioes.join(', ')) + '</p>' +
+        '<p>' + window.DuoTree.escaparHtml(arvore.descricaoCompleta) + '</p>' +
+        '<p><strong>Curiosidade:</strong> ' + window.DuoTree.escaparHtml(arvore.curiosidade) + '</p>' +
+        '<p><strong>Como plantar e cuidar:</strong> ' + window.DuoTree.escaparHtml(arvore.comoPlantar) + '</p>' +
+        '<div class="duotree-modal-actions">' +
+          '<button type="button" class="duotree-btn duotree-btn-sec" id="btn-fechar-wiki">Fechar</button>' +
+          '<button type="button" class="duotree-btn" id="btn-marcar-lido" ' + (jaLido ? 'disabled' : '') + '>' +
+            (jaLido ? '✅ Ficha já lida' : 'Marcar como lida (+10 XP)') +
+          '</button>' +
+        '</div>',
+      aoAbrir: function (corpo) {
+        corpo.querySelector('#btn-fechar-wiki').addEventListener('click', window.DuoTree.fecharModal);
+        corpo.querySelector('#btn-marcar-lido').addEventListener('click', function (evento) {
+          if (!usuario.artigosLidos.includes(arvore.id)) {
+            usuario.artigosLidos.push(arvore.id);
+            window.DuoTree.adicionarXp(10);
+            window.DuoTree.desbloquearConquista('explorador-biomas', 'Explorador dos Biomas', 60);
+            window.DuoTree.salvarEstado();
+            evento.target.textContent = '✅ Ficha já lida';
+            evento.target.disabled = true;
+            window.DuoTree.mostrarAviso('📖 Você leu a ficha de ' + arvore.nome + ' (+10 XP)!');
           }
         });
       }
     });
   }
 
-  function renderWiki() {
-    if (!mainWiki) return;
+  function renderizarWiki() {
+    if (!mainWiki) {
+      return;
+    }
 
-    const filtradas = arvores.filter((tree) => {
-      const matchCat =
+    const filtradas = arvores.filter(function (arvore) {
+      const bateCategoria =
         categoriaAtiva === 'Todas' ||
-        tree.categorias.some((c) => c.toLowerCase() === categoriaAtiva.toLowerCase());
+        arvore.categorias.some(function (c) {
+          return c.toLowerCase() === categoriaAtiva.toLowerCase();
+        });
 
-      const matchBusca =
+      const bateBusca =
         !termoBusca ||
-        tree.nome.toLowerCase().includes(termoBusca) ||
-        tree.nomeCientifico.toLowerCase().includes(termoBusca) ||
-        tree.bioma.toLowerCase().includes(termoBusca) ||
-        tree.resumo.toLowerCase().includes(termoBusca);
+        arvore.nome.toLowerCase().includes(termoBusca) ||
+        arvore.nomeCientifico.toLowerCase().includes(termoBusca) ||
+        arvore.bioma.toLowerCase().includes(termoBusca) ||
+        arvore.resumo.toLowerCase().includes(termoBusca);
 
-      return matchCat && matchBusca;
+      return bateCategoria && bateBusca;
     });
 
     if (!filtradas.length) {
-      mainWiki.innerHTML = `
-        <div class="duotree-empty">
-          Nenhuma árvore encontrada para essa busca ou categoria.<br><br>
-          <button type="button" class="duotree-btn" id="btn-reset-wiki">Mostrar todas</button>
-        </div>
-      `;
-      mainWiki.querySelector('#btn-reset-wiki').addEventListener('click', () => {
+      if (paginacaoEl) {
+        paginacaoEl.innerHTML = '';
+      }
+      mainWiki.innerHTML =
+        '<div class="duotree-empty">' +
+          'Lista vazia — nenhuma árvore encontrada.<br><br>' +
+          '<button type="button" class="duotree-btn" id="btn-reset-wiki">Mostrar todas</button>' +
+        '</div>';
+
+      mainWiki.querySelector('#btn-reset-wiki').addEventListener('click', function () {
         termoBusca = '';
         categoriaAtiva = 'Todas';
-        if (searchInput) searchInput.value = '';
-        if (filterList) {
-          filterList.querySelectorAll('li').forEach((el, i) => el.classList.toggle('ativo', i === 0));
+        paginaAtual = 1;
+        if (inputBusca) {
+          inputBusca.value = '';
         }
-        renderWiki();
+        if (listaFiltros) {
+          listaFiltros.querySelectorAll('li').forEach(function (el, i) {
+            el.classList.toggle('ativo', i === 0);
+          });
+        }
+        renderizarWiki();
       });
       return;
     }
 
+    const totalPaginas = Math.max(1, Math.ceil(filtradas.length / ITENS_POR_PAGINA));
+    if (paginaAtual > totalPaginas) {
+      paginaAtual = totalPaginas;
+    }
+
+    const inicio = (paginaAtual - 1) * ITENS_POR_PAGINA;
+    const itensPagina = filtradas.slice(inicio, inicio + ITENS_POR_PAGINA);
+
     mainWiki.innerHTML = '';
-    filtradas.forEach((tree) => {
+    itensPagina.forEach(function (arvore) {
       const card = document.createElement('div');
       card.className = 'containerArvoresWiki';
-      card.innerHTML = `
-        <img src="${window.DuoTree.escapeHtml(window.DuoTree.resolveAssetPath(tree.imagem))}" alt="${window.DuoTree.escapeHtml(tree.nome)}">
-        <div>
-          <h3>${window.DuoTree.escapeHtml(tree.nome)}</h3>
-          <h4>${window.DuoTree.escapeHtml(tree.nomeCientifico)}</h4>
-          <p>${window.DuoTree.escapeHtml(tree.resumo)}</p>
-        </div>
-      `;
-      card.addEventListener('click', () => openTreeModal(tree));
+      card.innerHTML =
+        '<img src="' + window.DuoTree.escaparHtml(window.DuoTree.resolverImagem(arvore.imagem)) + '" alt="' + window.DuoTree.escaparHtml(arvore.nome) + '">' +
+        '<div>' +
+          '<h3>' + window.DuoTree.escaparHtml(arvore.nome) + '</h3>' +
+          '<h4>' + window.DuoTree.escaparHtml(arvore.nomeCientifico) + '</h4>' +
+          '<p>' + window.DuoTree.escaparHtml(arvore.resumo) + '</p>' +
+        '</div>';
+
+      card.addEventListener('click', function () {
+        abrirDetalhesArvore(arvore);
+      });
       mainWiki.appendChild(card);
     });
+
+    if (paginacaoEl) {
+      paginacaoEl.innerHTML = '';
+      paginacaoEl.appendChild(
+        window.DuoTree.criarPaginacao({
+          totalItens: filtradas.length,
+          itensPorPagina: ITENS_POR_PAGINA,
+          paginaAtual: paginaAtual,
+          rotulo: 'fichas',
+          aoMudarPagina: function (novaPagina) {
+            paginaAtual = novaPagina;
+            renderizarWiki();
+            mainWiki.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        })
+      );
+    }
   }
 
-  if (searchForm && searchInput) {
-    searchForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      termoBusca = searchInput.value.trim().toLowerCase();
-      renderWiki();
+  if (formBusca && inputBusca) {
+    formBusca.addEventListener('submit', function (evento) {
+      evento.preventDefault();
+      termoBusca = inputBusca.value.trim().toLowerCase();
+      paginaAtual = 1;
+      renderizarWiki();
     });
-    searchInput.addEventListener('input', () => {
-      termoBusca = searchInput.value.trim().toLowerCase();
-      renderWiki();
+
+    inputBusca.addEventListener('input', function () {
+      termoBusca = inputBusca.value.trim().toLowerCase();
+      paginaAtual = 1;
+      renderizarWiki();
     });
   }
 
-  renderWiki();
+  renderizarWiki();
 });

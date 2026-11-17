@@ -4,18 +4,40 @@
       "id": "conhecendo-arvores",
       "tipo": "Quiz",
       "titulo": "Conhecendo as árvores",
-      "descricao": "Responda 10 perguntas sobre árvores nativas.",
-      "recompensaFolhas": 25,
+      "descricao": "Responda 10 perguntas sobre árvores nativas do Brasil.",
+      "recompensaFolhas": 30,
       "recompensaXp": 120,
       "meta": 10,
       "imagem": "../assets/images/missao/tree (1).png",
       "quizId": "quiz-arvores-nativas"
     },
     {
+      "id": "biomas-do-brasil",
+      "tipo": "Quiz",
+      "titulo": "Biomas do Brasil",
+      "descricao": "Acerte 5 perguntas conectando espécies aos biomas brasileiros.",
+      "recompensaFolhas": 25,
+      "recompensaXp": 110,
+      "meta": 5,
+      "imagem": "../assets/images/missao/tree (1).png",
+      "quizId": "quiz-biomas"
+    },
+    {
+      "id": "polinizadores-sementes",
+      "tipo": "Quiz",
+      "titulo": "Polinizadores e Sementes",
+      "descricao": "Descubra como abelhas, aves e vento espalham novas florestas.",
+      "recompensaFolhas": 25,
+      "recompensaXp": 105,
+      "meta": 5,
+      "imagem": "../assets/images/missao/tree (1).png",
+      "quizId": "quiz-polinizadores"
+    },
+    {
       "id": "importancia-arvores",
       "tipo": "Leitura",
       "titulo": "A importância das árvores",
-      "descricao": "Leia o artigo completo na wiki e responda.",
+      "descricao": "Leia o artigo completo sobre o ODS 15 e responda à pergunta final.",
       "recompensaFolhas": 20,
       "recompensaXp": 90,
       "meta": 1,
@@ -23,14 +45,48 @@
       "leituraId": "artigo-ods15"
     },
     {
+      "id": "nativas-vs-exoticas",
+      "tipo": "Leitura",
+      "titulo": "Nativas vs. Exóticas nas Cidades",
+      "descricao": "Entenda como escolher a árvore certa para calçadas e praças.",
+      "recompensaFolhas": 22,
+      "recompensaXp": 95,
+      "meta": 1,
+      "imagem": "../assets/images/missao/tree (2).png",
+      "leituraId": "artigo-nativas-cidades"
+    },
+    {
+      "id": "dispersao-sementes",
+      "tipo": "Leitura",
+      "titulo": "Como as sementes viajam?",
+      "descricao": "Leia sobre vento, água e fauna na regeneração das matas.",
+      "recompensaFolhas": 22,
+      "recompensaXp": 95,
+      "meta": 1,
+      "imagem": "../assets/images/missao/tree (2).png",
+      "leituraId": "artigo-dispersao"
+    },
+    {
       "id": "plante-arvores",
       "tipo": "Prática",
       "titulo": "Plante árvores",
-      "descricao": "Plante cinco árvores e registre sua ação.",
-      "recompensaFolhas": 25,
+      "descricao": "Plante cinco árvores e registre cada ação no seu diário.",
+      "recompensaFolhas": 40,
       "recompensaXp": 150,
       "meta": 5,
-      "imagem": "../assets/images/missao/tree (3).png"
+      "imagem": "../assets/images/missao/tree (3).png",
+      "acaoPratica": "plantio"
+    },
+    {
+      "id": "observador-bairro",
+      "tipo": "Prática",
+      "titulo": "Observador do Bairro",
+      "descricao": "Identifique e registre 3 árvores que existem perto da sua casa ou escola.",
+      "recompensaFolhas": 30,
+      "recompensaXp": 130,
+      "meta": 3,
+      "imagem": "../assets/images/missao/tree (3).png",
+      "acaoPratica": "observacao"
     },
     {
       "id": "regue-sua-arvore",
@@ -40,7 +96,41 @@
       "recompensaFolhas": 15,
       "recompensaXp": 60,
       "meta": 1,
-      "imagem": "../assets/images/missao/tree (2).png"
+      "imagem": "../assets/images/missao/tree (2).png",
+      "acaoDiaria": "regar"
+    },
+    {
+      "id": "leitor-curioso",
+      "tipo": "Diária",
+      "titulo": "Leitor Curioso da Wiki",
+      "descricao": "Leia pelo menos 2 fichas de espécies na Wiki e resgate sua recompensa.",
+      "recompensaFolhas": 20,
+      "recompensaXp": 75,
+      "meta": 2,
+      "imagem": "../assets/images/missao/tree (2).png",
+      "acaoDiaria": "wiki"
+    },
+    {
+      "id": "colecionador-regional",
+      "tipo": "Desafio",
+      "titulo": "Colecionador Regional",
+      "descricao": "Tenha 2 ou mais espécies nativas diferentes na sua floresta via Loja.",
+      "recompensaFolhas": 45,
+      "recompensaXp": 160,
+      "meta": 2,
+      "imagem": "../assets/images/missao/tree (3).png",
+      "regraDesafio": "arvores"
+    },
+    {
+      "id": "guardiao-diario",
+      "tipo": "Desafio",
+      "titulo": "Diário do Guardião",
+      "descricao": "Mantenha ao menos 2 registros salvos no seu Diário de Plantios.",
+      "recompensaFolhas": 35,
+      "recompensaXp": 140,
+      "meta": 2,
+      "imagem": "../assets/images/missao/tree (3).png",
+      "regraDesafio": "plantios"
     },
     {
       "id": "arvores-do-brasil",
@@ -136,6 +226,90 @@
         "correta": 2,
         "explicacao": "O baruzeiro une conservação do Cerrado e uso sustentável por comunidades locais."
       }
+    ],
+    "quiz-biomas": [
+      {
+        "pergunta": "Em qual bioma o Açaizeiro cresce naturalmente em áreas de várzea e margens de rios?",
+        "alternativas": ["Caatinga", "Amazônia", "Pampa", "Cerrado seco"],
+        "correta": 1,
+        "explicacao": "O açaizeiro (Euterpe oleracea) é típico de várzeas úmidas da Amazônia."
+      },
+      {
+        "pergunta": "Qual espécie nativa da Mata Atlântica possui raízes bem comportadas e flores roxas na Quaresma?",
+        "alternativas": ["Quaresmeira", "Ficus benjamina", "Mandacaru", "Sumaúma"],
+        "correta": 0,
+        "explicacao": "A quaresmeira é uma das nativas mais recomendadas para arborização urbana na Mata Atlântica."
+      },
+      {
+        "pergunta": "Qual dupla de espécies é típica do bioma Cerrado?",
+        "alternativas": [
+          "Araucária e Açaizeiro",
+          "Pequi e Baru",
+          "Sumaúma e Mandacaru",
+          "Oiti e Pinheiro"
+        ],
+        "correta": 1,
+        "explicacao": "Tanto o pequizeiro quanto o baruzeiro são árvores emblemáticas do Cerrado brasileiro."
+      },
+      {
+        "pergunta": "Onde encontramos naturalmente as Florestas com Araucárias no Brasil?",
+        "alternativas": [
+          "Principalmente no Sul e áreas serranas do Sudeste",
+          "Exclusivamente no semiárido do Nordeste",
+          "Apenas no litoral norte amazônico",
+          "Somente em manguezais"
+        ],
+        "correta": 0,
+        "explicacao": "A araucária prefere climas amenos e altitudes mais elevadas do Sul e Sudeste."
+      },
+      {
+        "pergunta": "Qual árvore histórica deu nome ao Brasil e ocorre originalmente na Mata Atlântica?",
+        "alternativas": ["Jatobá", "Pau-brasil", "Jacarandá", "Pitangueira"],
+        "correta": 1,
+        "explicacao": "O pau-brasil (Paubrasilia echinata) é nativo da faixa costeira da Mata Atlântica."
+      }
+    ],
+    "quiz-polinizadores": [
+      {
+        "pergunta": "Como as sementes do Ipê Amarelo e do Ipê Roxo se espalham pela natureza?",
+        "alternativas": [
+          "São carregadas pelo vento graças às suas finas asas naturais",
+          "Flutuam apenas no oceano",
+          "Precisam de fogo intenso para voar",
+          "Não possuem sementes"
+        ],
+        "correta": 0,
+        "explicacao": "Os ipês possuem sementes aladas (anemocoria), facilmente transportadas pelo vento."
+      },
+      {
+        "pergunta": "O que significa o termo 'pitanga' na língua tupi?",
+        "alternativas": ["Sombra fria", "Vermelho", "Raiz funda", "Folha larga"],
+        "correta": 1,
+        "explicacao": "Pitanga vem do tupi e significa vermelho, cor dos frutos maduros muito procurados por sabiás."
+      },
+      {
+        "pergunta": "Qual árvore nativa abre vagens com um estalo para lançar suas sementes para longe?",
+        "alternativas": ["Pau-brasil", "Araucária", "Açaizeiro", "Oiti"],
+        "correta": 0,
+        "explicacao": "A vagem do pau-brasil realiza dispersão explosiva ao secar sob o sol."
+      },
+      {
+        "pergunta": "Por que árvores como o Ipê Roxo são tão importantes para abelhas no inverno?",
+        "alternativas": [
+          "Porque florescem em época seca, quando há menos néctar disponível",
+          "Porque não têm flores",
+          "Porque produzem gelo nas folhas",
+          "Porque afastam os pássaros"
+        ],
+        "correta": 0,
+        "explicacao": "A floração de inverno do ipê-roxo garante pólen e néctar vitais na estação seca."
+      },
+      {
+        "pergunta": "Qual animal silvestre atua diretamente na polinização noturna do Pequi e do Mandacaru?",
+        "alternativas": ["Peixe-boi", "Morcego polinizador", "Tartaruga-marinha", "Jacaré"],
+        "correta": 1,
+        "explicacao": "Morcegos nectarívoros polinizam flores brancas que se abrem à noite no Cerrado e na Caatinga."
+      }
     ]
   },
   "leituras": {
@@ -155,6 +329,38 @@
         "Plantar apenas árvores que não dão flores nem frutos"
       ],
       "correta": 1
+    },
+    "artigo-nativas-cidades": {
+      "titulo": "Nativas vs. Exóticas na Arborização Urbana",
+      "subtitulo": "Como planejar calçadas mais frescas, seguras e cheias de vida",
+      "paragrafos": [
+        "Durante muitas décadas, cidades brasileiras plantaram espécies exóticas como o Ficus benjamina em calçadas estreitas. Com o tempo, suas raízes agressivas levantam pisos e atingem encanamentos.",
+        "Hoje, planos de arborização urbana recomendam priorizar árvores nativas compatíveis com o espaço disponível, como Quaresmeira, Ipê, Pitangueira e Oiti.",
+        "Além de respeitarem melhor a infraestrutura urbana quando bem posicionadas, essas árvores atraem pássaros e abelhas sem ferrão, transformando ruas em verdadeiros corredores ecológicos."
+      ],
+      "pergunta": "Qual vantagem principal as árvores nativas bem escolhidas trazem para as cidades?",
+      "alternativas": [
+        "Eliminam completamente a presença de aves urbanas",
+        "Oferecem sombra, protegem calçadas e formam corredores ecológicos para a fauna local",
+        "Crescem sem precisar de luz solar"
+      ],
+      "correta": 1
+    },
+    "artigo-dispersao": {
+      "titulo": "Como as sementes viajam para criar novas florestas?",
+      "subtitulo": "Vento, animais e estratégias inteligentes da natureza",
+      "paragrafos": [
+        "Uma floresta inteira começa com sementes que conseguiram viajar para longe da árvore-mãe, evitando competição por luz e nutrientes.",
+        "Espécies como Ipê e Jacarandá apostam no vento com sementes leves e aladas. Já frutíferas como Pitangueira, Jabuticabeira, Pequi e Açaizeiro oferecem frutos deliciosos para que aves e mamíferos levem as sementes a novos territórios.",
+        "Quando protegemos tanto as árvores quanto os animais dispersores, mantemos viva a capacidade natural de regeneração das florestas brasileiras."
+      ],
+      "pergunta": "Por que preservar aves e mamíferos silvestres ajuda diretamente as árvores?",
+      "alternativas": [
+        "Porque eles dispersam sementes de frutas nativas para novas áreas",
+        "Porque eles impedem as árvores de florescer",
+        "Porque eles substituem a chuva"
+      ],
+      "correta": 0
     }
   }
 }

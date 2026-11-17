@@ -1,222 +1,349 @@
-document.addEventListener('DOMContentLoaded', async () => {
-  let state = await window.DuoTree.init();
-  const catalogo = await window.DuoTree.fetchData('perfil.json');
+document.addEventListener('DOMContentLoaded', async function () {
+  const usuario = await window.DuoTree.iniciar({ exigirLogin: true });
+  if (!usuario) {
+    return;
+  }
+
+  const catalogo = await window.DuoTree.carregarDados('perfil.json');
 
   const nivelHeading = document.querySelector('.nivel-xp h1');
   const xpBar = document.querySelector('.xp-preenchido');
-  const userNameEl = document.querySelector('.card-perfil h2');
+  const nomeUsuarioEl = document.querySelector('.card-perfil h2');
+  const subtituloPerfilEl = document.querySelector('.perfil-subtitulo');
   const avatarImg = document.querySelector('.card-perfil .dino');
   const statsItems = document.querySelectorAll('.estatisticas li h3');
-  const bioInput = document.querySelector('.coluna-direita input');
+  const bioInput = document.querySelector('.bio-input');
   const contadorEl = document.querySelector('.contador');
   const btnEditar = document.querySelector('.botao-editar');
   const btnAmigo = document.querySelector('.botao-amigo');
+  const btnSair = document.querySelector('#btn-sair-conta');
   const linkVerTodas = document.querySelector('.titulo-conquistas a');
   const conquistasImg = document.querySelector('.conquistas');
   const nomesConquistas = document.querySelector('.nomes-conquistas');
+  const listaPlantiosEl = document.querySelector('#lista-plantios-perfil');
+  const btnNovoPlantio = document.querySelector('#btn-novo-plantio');
 
-  function renderProfile() {
+  function renderizarPerfil() {
     if (nivelHeading) {
-      nivelHeading.textContent = `Nível ${state.nivel}`;
+      nivelHeading.textContent = 'Nível ' + usuario.nivel;
     }
     if (xpBar) {
-      const pct = Math.min(100, Math.round((state.xp / state.xpProximoNivel) * 100));
-      xpBar.style.width = `${Math.max(pct, 18)}%`;
-      xpBar.textContent = `XP ${state.xp}/${state.xpProximoNivel}`;
+      const pct = Math.min(100, Math.round((usuario.xp / usuario.xpProximoNivel) * 100));
+      xpBar.style.width = Math.max(pct, 22) + '%';
+      xpBar.textContent = 'XP ' + usuario.xp + '/' + usuario.xpProximoNivel;
     }
-    if (userNameEl) {
-      userNameEl.textContent = state.nome;
+    if (nomeUsuarioEl) {
+      nomeUsuarioEl.textContent = usuario.nome;
     }
-    if (avatarImg && state.avatar) {
-      avatarImg.src = window.DuoTree.resolveAssetPath(state.avatar);
+    if (subtituloPerfilEl) {
+      const regiaoTexto = usuario.regiao ? ' · Região ' + usuario.regiao : '';
+      subtituloPerfilEl.textContent = (usuario.titulo || 'Guardião das Sementes') + regiaoTexto;
+    }
+    if (avatarImg && usuario.avatar) {
+      avatarImg.src = window.DuoTree.resolverImagem(usuario.avatar);
     }
 
     if (statsItems.length >= 4) {
-      statsItems[0].innerHTML = `<i class="fa-solid fa-leaf"></i> ${state.folhas}`;
-      statsItems[1].textContent = String(state.missoesConcluidas.length);
-      statsItems[2].textContent = String(state.conquistasDesbloqueadas.length);
-      statsItems[3].textContent = String(state.arvoresPlantadas);
+      statsItems[0].innerHTML = '<i class="fa-solid fa-leaf"></i> ' + usuario.folhas;
+      statsItems[1].textContent = String(usuario.missoesConcluidas.length);
+      statsItems[2].textContent = String(usuario.conquistasDesbloqueadas.length);
+      statsItems[3].textContent = String(usuario.arvoresPlantadas);
     }
 
     if (bioInput && contadorEl) {
-      bioInput.value = state.bio || '';
-      contadorEl.textContent = `${bioInput.value.length}/120`;
+      bioInput.value = usuario.bio || '';
+      contadorEl.textContent = bioInput.value.length + '/120';
     }
+
+    renderizarPlantios();
+  }
+
+  function renderizarPlantios() {
+    if (!listaPlantiosEl) {
+      return;
+    }
+    const lista = usuario.plantiosPessoais || [];
+    if (!lista.length) {
+      listaPlantiosEl.innerHTML = '<li class="duotree-empty" style="margin:0;">Lista vazia</li>';
+      return;
+    }
+
+    listaPlantiosEl.innerHTML = '';
+    lista.forEach(function (item) {
+      const li = document.createElement('li');
+      li.className = 'item-plantio-perfil';
+      li.innerHTML =
+        '<div>' +
+          '<strong>🌱 ' + window.DuoTree.escaparHtml(item.especie) + '</strong>' +
+          '<div style="font-size:0.86rem;">' + window.DuoTree.escaparHtml(item.local) + ' · ' + window.DuoTree.escaparHtml(item.data) + '</div>' +
+        '</div>' +
+        '<button type="button" class="btn-remover-item">Remover</button>';
+
+      li.querySelector('.btn-remover-item').addEventListener('click', function () {
+        usuario.plantiosPessoais = usuario.plantiosPessoais.filter(function (p) {
+          return p.id !== item.id;
+        });
+        window.DuoTree.salvarEstado();
+        renderizarPerfil();
+        window.DuoTree.mostrarAviso('Registro removido da lista.', 'info');
+      });
+
+      listaPlantiosEl.appendChild(li);
+    });
+  }
+
+  function abrirModalNovoPlantio() {
+    window.DuoTree.abrirModal({
+      titulo: 'Registrar novo plantio',
+      subtitulo: 'Adicione uma árvore plantada ao seu diário',
+      html:
+        '<form id="form-novo-plantio-perfil">' +
+          '<div class="duotree-form-group">' +
+            '<label for="plantio-especie">Nome da espécie</label>' +
+            '<input id="plantio-especie" type="text" placeholder="Ex.: Ipê Amarelo, Oiti, Pau-brasil" required>' +
+          '</div>' +
+          '<div class="duotree-form-group">' +
+            '<label for="plantio-local">Local do plantio</label>' +
+            '<input id="plantio-local" type="text" placeholder="Ex.: Parque da cidade, escola, quintal" required>' +
+          '</div>' +
+          '<div class="duotree-modal-actions">' +
+            '<button type="button" class="duotree-btn duotree-btn-sec" id="btn-cancelar-plantio">Cancelar</button>' +
+            '<button type="submit" class="duotree-btn">Salvar na lista</button>' +
+          '</div>' +
+        '</form>',
+      aoAbrir: function (corpo) {
+        corpo.querySelector('#btn-cancelar-plantio').addEventListener('click', window.DuoTree.fecharModal);
+        corpo.querySelector('#form-novo-plantio-perfil').addEventListener('submit', function (evento) {
+          evento.preventDefault();
+          const especie = corpo.querySelector('#plantio-especie').value.trim();
+          const local = corpo.querySelector('#plantio-local').value.trim();
+          if (!especie || !local) {
+            return;
+          }
+
+          usuario.plantiosPessoais.unshift({
+            id: 'plantio-' + Date.now(),
+            especie: especie,
+            local: local,
+            data: new Date().toLocaleDateString('pt-BR')
+          });
+          usuario.arvoresPlantadas += 1;
+          window.DuoTree.adicionarXp(25);
+          window.DuoTree.salvarEstado();
+          window.DuoTree.fecharModal();
+          renderizarPerfil();
+          window.DuoTree.mostrarAviso('🌱 Plantio adicionado ao seu diário (+25 XP)!');
+        });
+      }
+    });
   }
 
   if (bioInput && contadorEl) {
-    bioInput.addEventListener('input', () => {
-      state.bio = bioInput.value.slice(0, 120);
-      contadorEl.textContent = `${state.bio.length}/120`;
-      window.DuoTree.saveState();
+    bioInput.addEventListener('input', function () {
+      usuario.bio = bioInput.value.slice(0, 120);
+      contadorEl.textContent = usuario.bio.length + '/120';
+      window.DuoTree.salvarEstado();
     });
   }
 
-  function openEditModal() {
+  function abrirModalEditar() {
     const regioes = ['', 'Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'];
-    window.DuoTree.openModal({
-      title: 'Editar Perfil',
-      subtitle: 'Personalize seu nome, avatar e região',
-      html: `
-        <form id="form-editar-perfil">
-          <div class="duotree-form-group">
-            <label for="edit-nome">Nome de usuário</label>
-            <input id="edit-nome" type="text" maxlength="24" value="${window.DuoTree.escapeHtml(state.nome)}" required>
-          </div>
-          <div class="duotree-form-group">
-            <label for="edit-titulo">Título</label>
-            <select id="edit-titulo">
-              ${catalogo.titulos
-                .map(
-                  (t) =>
-                    `<option value="${window.DuoTree.escapeHtml(t)}" ${state.titulo === t ? 'selected' : ''}>${window.DuoTree.escapeHtml(t)}</option>`
-                )
-                .join('')}
-            </select>
-          </div>
-          <div class="duotree-form-group">
-            <label for="edit-avatar">Avatar</label>
-            <select id="edit-avatar">
-              ${catalogo.avatares
-                .map(
-                  (av) =>
-                    `<option value="${window.DuoTree.escapeHtml(av.imagem)}" ${state.avatar === av.imagem ? 'selected' : ''}>${window.DuoTree.escapeHtml(av.nome)}</option>`
-                )
-                .join('')}
-            </select>
-          </div>
-          <div class="duotree-form-group">
-            <label for="edit-regiao">Sua região no Brasil</label>
-            <select id="edit-regiao">
-              ${regioes
-                .map(
-                  (r) =>
-                    `<option value="${r}" ${state.regiao === r ? 'selected' : ''}>${r || 'Todas as regiões'}</option>`
-                )
-                .join('')}
-            </select>
-          </div>
-          <div class="duotree-modal-actions" style="justify-content:space-between;">
-            <button type="button" class="duotree-btn duotree-btn-sec" id="btn-resetar-progresso">Restaurar dados iniciais</button>
-            <button type="submit" class="duotree-btn">Salvar alterações</button>
-          </div>
-        </form>
-      `,
-      onMount: (body) => {
-        body.querySelector('#form-editar-perfil').addEventListener('submit', (e) => {
-          e.preventDefault();
-          state.nome = body.querySelector('#edit-nome').value.trim() || state.nome;
-          state.titulo = body.querySelector('#edit-titulo').value;
-          state.avatar = body.querySelector('#edit-avatar').value;
-          state.regiao = body.querySelector('#edit-regiao').value;
-          window.DuoTree.saveState();
-          renderProfile();
-          window.DuoTree.closeModal();
-          window.DuoTree.showToast('Perfil atualizado com sucesso!');
+    let avatarSelecionado = usuario.avatar;
+
+    window.DuoTree.abrirModal({
+      titulo: 'Editar Perfil',
+      subtitulo: 'Personalize seu nome, personagem e região',
+      html:
+        '<form id="form-editar-perfil">' +
+          '<div class="duotree-form-group">' +
+            '<label for="edit-nome">Nome do personagem</label>' +
+            '<input id="edit-nome" type="text" maxlength="24" value="' + window.DuoTree.escaparHtml(usuario.nome) + '" required>' +
+          '</div>' +
+          '<div class="duotree-form-group">' +
+            '<label for="edit-titulo">Título</label>' +
+            '<select id="edit-titulo">' +
+              catalogo.titulos
+                .map(function (t) {
+                  return '<option value="' + window.DuoTree.escaparHtml(t) + '" ' + (usuario.titulo === t ? 'selected' : '') + '>' + window.DuoTree.escaparHtml(t) + '</option>';
+                })
+                .join('') +
+            '</select>' +
+          '</div>' +
+          '<div class="duotree-form-group">' +
+            '<label>Escolha seu personagem</label>' +
+            '<div class="duotree-grid-avatares" id="grid-avatares-perfil">' +
+              catalogo.avatares
+                .map(function (av) {
+                  const ativo = usuario.avatar === av.imagem ? ' selecionado' : '';
+                  return (
+                    '<button type="button" class="duotree-opcao-avatar' + ativo + '" data-avatar="' + window.DuoTree.escaparHtml(av.imagem) + '">' +
+                      '<img src="' + window.DuoTree.escaparHtml(window.DuoTree.resolverImagem(av.imagem)) + '" alt="' + window.DuoTree.escaparHtml(av.nome) + '">' +
+                      '<span>' + window.DuoTree.escaparHtml(av.nome) + '</span>' +
+                    '</button>'
+                  );
+                })
+                .join('') +
+            '</div>' +
+          '</div>' +
+          '<div class="duotree-form-group">' +
+            '<label for="edit-regiao">Sua região no Brasil</label>' +
+            '<select id="edit-regiao">' +
+              regioes
+                .map(function (r) {
+                  return '<option value="' + r + '" ' + (usuario.regiao === r ? 'selected' : '') + '>' + (r || 'Todas as regiões') + '</option>';
+                })
+                .join('') +
+            '</select>' +
+          '</div>' +
+          '<div class="duotree-modal-actions">' +
+            '<button type="button" class="duotree-btn duotree-btn-sec" id="btn-fechar-edit">Cancelar</button>' +
+            '<button type="submit" class="duotree-btn">Salvar alterações</button>' +
+          '</div>' +
+        '</form>',
+      aoAbrir: function (corpo) {
+        const botoesAvatar = corpo.querySelectorAll('.duotree-opcao-avatar');
+        botoesAvatar.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            avatarSelecionado = btn.getAttribute('data-avatar');
+            botoesAvatar.forEach(function (b) {
+              b.classList.remove('selecionado');
+            });
+            btn.classList.add('selecionado');
+          });
         });
 
-        body.querySelector('#btn-resetar-progresso').addEventListener('click', async () => {
-          state = await window.DuoTree.resetState();
-          renderProfile();
-          window.DuoTree.closeModal();
-          window.DuoTree.showToast('Progresso restaurado para os dados iniciais.', 'info');
+        corpo.querySelector('#btn-fechar-edit').addEventListener('click', window.DuoTree.fecharModal);
+        corpo.querySelector('#form-editar-perfil').addEventListener('submit', function (evento) {
+          evento.preventDefault();
+          usuario.nome = corpo.querySelector('#edit-nome').value.trim() || usuario.nome;
+          usuario.titulo = corpo.querySelector('#edit-titulo').value;
+          usuario.avatar = avatarSelecionado || usuario.avatar;
+          usuario.regiao = corpo.querySelector('#edit-regiao').value;
+          window.DuoTree.salvarEstado();
+          renderizarPerfil();
+          window.DuoTree.fecharModal();
+          window.DuoTree.mostrarAviso('Perfil atualizado com sucesso!');
         });
       }
     });
   }
 
-  function openFriendsModal() {
-    const friendsHtml = state.amigos.length
-      ? state.amigos
-          .map(
-            (a) => `
-          <div class="duotree-list-item">
-            <div>
-              <strong>🌿 ${window.DuoTree.escapeHtml(a.nome)}</strong>
-              <div style="font-size:0.85rem;color:#4c7b47;">Nível ${a.nivel} • ${a.folhas} folhas</div>
-            </div>
-            <span class="duotree-badge">Amigo</span>
-          </div>
-        `
-          )
+  function abrirModalAmigos() {
+    const htmlAmigos = usuario.amigos.length
+      ? usuario.amigos
+          .map(function (a, indice) {
+            return (
+              '<div class="duotree-list-item">' +
+                '<div>' +
+                  '<strong>🌿 ' + window.DuoTree.escaparHtml(a.nome) + '</strong>' +
+                  '<div class="duotree-meta-linha" style="margin:4px 0 0;">Nível ' + a.nivel + ' · ' + a.folhas + ' folhas</div>' +
+                '</div>' +
+                '<button type="button" class="btn-remover-item" data-remover-amigo="' + indice + '">Remover</button>' +
+              '</div>'
+            );
+          })
           .join('')
-      : '<p>Você ainda não adicionou amigos.</p>';
+      : '<div class="duotree-empty">Lista vazia</div>';
 
-    window.DuoTree.openModal({
-      title: 'Amigos no DuoTree',
-      subtitle: `${state.amigos.length} conexões verdes`,
-      html: `
-        <form id="form-add-amigo" style="margin-bottom:14px;">
-          <div class="duotree-form-group">
-            <label for="novo-amigo">Adicionar amigo pelo nome de usuário</label>
-            <input id="novo-amigo" type="text" placeholder="Ex.: Guardiao_MataAtlantica" required>
-          </div>
-          <button type="submit" class="duotree-btn">Adicionar amigo</button>
-        </form>
-        <div>${friendsHtml}</div>
-      `,
-      onMount: (body) => {
-        body.querySelector('#form-add-amigo').addEventListener('submit', (e) => {
-          e.preventDefault();
-          const nome = body.querySelector('#novo-amigo').value.trim();
-          if (!nome) return;
-          if (state.amigos.some((a) => a.nome.toLowerCase() === nome.toLowerCase())) {
-            window.DuoTree.showToast('Esse amigo já está na sua lista.', 'aviso');
+    window.DuoTree.abrirModal({
+      titulo: 'Amigos no DuoTree',
+      subtitulo: usuario.amigos.length + ' conexões verdes',
+      html:
+        '<form id="form-add-amigo" style="margin-bottom:14px;">' +
+          '<div class="duotree-form-group">' +
+            '<label for="novo-amigo">Adicionar amigo pelo nome</label>' +
+            '<input id="novo-amigo" type="text" placeholder="Ex.: Guardiao_MataAtlantica" required>' +
+          '</div>' +
+          '<button type="submit" class="duotree-btn">Adicionar amigo</button>' +
+        '</form>' +
+        '<div>' + htmlAmigos + '</div>',
+      aoAbrir: function (corpo) {
+        corpo.querySelector('#form-add-amigo').addEventListener('submit', function (evento) {
+          evento.preventDefault();
+          const nome = corpo.querySelector('#novo-amigo').value.trim();
+          if (!nome) {
             return;
           }
-          state.amigos.unshift({
-            nome,
-            nivel: Math.floor(Math.random() * 40) + 20,
-            folhas: Math.floor(Math.random() * 900) + 300
+          const duplicado = usuario.amigos.some(function (a) {
+            return a.nome.toLowerCase() === nome.toLowerCase();
           });
-          window.DuoTree.saveState();
-          window.DuoTree.showToast(`${nome} adicionado aos seus amigos!`);
-          openFriendsModal();
+          if (duplicado) {
+            window.DuoTree.mostrarAviso('Esse amigo já está na sua lista.', 'aviso');
+            return;
+          }
+          usuario.amigos.unshift({
+            nome: nome,
+            nivel: Math.floor(Math.random() * 40) + 15,
+            folhas: Math.floor(Math.random() * 800) + 250
+          });
+          window.DuoTree.salvarEstado();
+          window.DuoTree.mostrarAviso(nome + ' adicionado aos seus amigos!');
+          abrirModalAmigos();
+        });
+
+        corpo.querySelectorAll('[data-remover-amigo]').forEach(function (botao) {
+          botao.addEventListener('click', function () {
+            const idx = Number(botao.getAttribute('data-remover-amigo'));
+            usuario.amigos.splice(idx, 1);
+            window.DuoTree.salvarEstado();
+            abrirModalAmigos();
+          });
         });
       }
     });
   }
 
-  function openAchievementsModal() {
-    const listHtml = catalogo.conquistas
-      .map((c) => {
-        const unlocked = state.conquistasDesbloqueadas.includes(c.id);
-        return `
-          <div class="duotree-list-item ${unlocked ? '' : 'bloqueado'}">
-            <div>
-              <strong>${unlocked ? '🏆' : '🔒'} ${window.DuoTree.escapeHtml(c.nome)}</strong>
-              <div style="font-size:0.86rem;">${window.DuoTree.escapeHtml(c.descricao)}</div>
-              <small style="color:#4c7b47;">Como desbloquear: ${window.DuoTree.escapeHtml(c.criterio)}</small>
-            </div>
-            <span class="duotree-badge">${unlocked ? 'Desbloqueada' : `+${c.xpBonus} XP`}</span>
-          </div>
-        `;
+  function abrirModalConquistas() {
+    const htmlLista = catalogo.conquistas
+      .map(function (c) {
+        const desbloqueada = usuario.conquistasDesbloqueadas.includes(c.id);
+        return (
+          '<div class="duotree-list-item ' + (desbloqueada ? '' : 'bloqueado') + '">' +
+            '<div>' +
+              '<strong>' + (desbloqueada ? '🏆 ' : '🔒 ') + window.DuoTree.escaparHtml(c.nome) + '</strong>' +
+              '<div style="font-size:0.86rem;">' + window.DuoTree.escaparHtml(c.descricao) + '</div>' +
+              '<div class="duotree-meta-linha" style="margin:4px 0 0;">Critério: ' + window.DuoTree.escaparHtml(c.criterio) + ' · ' + (desbloqueada ? 'Desbloqueada' : '+' + c.xpBonus + ' XP') + '</div>' +
+            '</div>' +
+          '</div>'
+        );
       })
       .join('');
 
-    window.DuoTree.openModal({
-      title: 'Todas as Conquistas',
-      subtitle: `${state.conquistasDesbloqueadas.length} de ${catalogo.conquistas.length} desbloqueadas`,
-      html: `<div>${listHtml}</div>`
+    window.DuoTree.abrirModal({
+      titulo: 'Todas as Conquistas',
+      subtitulo: usuario.conquistasDesbloqueadas.length + ' de ' + catalogo.conquistas.length + ' desbloqueadas',
+      html: '<div>' + htmlLista + '</div>'
     });
   }
 
-  if (btnEditar) btnEditar.addEventListener('click', openEditModal);
-  if (btnAmigo) btnAmigo.addEventListener('click', openFriendsModal);
+  if (btnEditar) {
+    btnEditar.addEventListener('click', abrirModalEditar);
+  }
+  if (btnAmigo) {
+    btnAmigo.addEventListener('click', abrirModalAmigos);
+  }
+  if (btnNovoPlantio) {
+    btnNovoPlantio.addEventListener('click', abrirModalNovoPlantio);
+  }
+  if (btnSair) {
+    btnSair.addEventListener('click', function () {
+      window.DuoTree.fazerLogout();
+    });
+  }
   if (linkVerTodas) {
-    linkVerTodas.addEventListener('click', (e) => {
-      e.preventDefault();
-      openAchievementsModal();
+    linkVerTodas.addEventListener('click', function (evento) {
+      evento.preventDefault();
+      abrirModalConquistas();
     });
   }
   if (conquistasImg) {
     conquistasImg.style.cursor = 'pointer';
-    conquistasImg.addEventListener('click', openAchievementsModal);
+    conquistasImg.addEventListener('click', abrirModalConquistas);
   }
   if (nomesConquistas) {
     nomesConquistas.style.cursor = 'pointer';
-    nomesConquistas.addEventListener('click', openAchievementsModal);
+    nomesConquistas.addEventListener('click', abrirModalConquistas);
   }
 
-  renderProfile();
+  renderizarPerfil();
 });

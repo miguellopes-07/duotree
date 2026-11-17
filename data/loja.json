@@ -13,6 +13,19 @@
     "descricao": "Árvore símbolo do Brasil, muito valorizada na arborização e na recuperação de áreas degradadas por sua resistência."
   },
   {
+    "id": "ipe-roxo",
+    "nome": "Ipê Roxo",
+    "nomeCientifico": "Handroanthus impetiginosus",
+    "tipo": "Mudas",
+    "regioes": ["Norte", "Nordeste", "Centro-Oeste", "Sudeste", "Sul"],
+    "regiaoTexto": "Região: Todo o Brasil",
+    "preco": 135,
+    "imagem": "../assets/images/loja/ipe-roxo.jpg",
+    "bioma": "Cerrado, Mata Atlântica e Pantanal",
+    "beneficio": "Floração roxo-magenta no inverno que oferece néctar quando poucas árvores estão em flor.",
+    "descricao": "Espécie imponente de crescimento vigoroso, famosa por colorir parques e estradas nos meses mais secos do ano."
+  },
+  {
     "id": "pau-brasil",
     "nome": "Pau-brasil",
     "nomeCientifico": "Paubrasilia echinata",
@@ -52,6 +65,19 @@
     "descricao": "Gigante amazônica com sapopemas impressionantes que capturam umidade e sustentam ecossistemas inteiros."
   },
   {
+    "id": "acai",
+    "nome": "Açaizeiro",
+    "nomeCientifico": "Euterpe oleracea",
+    "tipo": "Mudas",
+    "regioes": ["Norte", "Nordeste"],
+    "regiaoTexto": "Região: Norte e Nordeste",
+    "preco": 145,
+    "imagem": "../assets/images/loja/acai.jpg",
+    "bioma": "Amazônia",
+    "beneficio": "Palmeira nativa que protege margens de rios e garante alimento nutritivo para fauna e comunidades.",
+    "descricao": "Símbolo da Amazônia, cresce em touceiras elegantes em áreas úmidas e sustenta a bioeconomia florestal."
+  },
+  {
     "id": "mandacaru",
     "nome": "Mandacaru",
     "nomeCientifico": "Cereus jamacaru",
@@ -78,6 +104,19 @@
     "descricao": "Espécie ornamental e ecológica de copa delicada, muito apreciada em parques e corredores verdes urbanos."
   },
   {
+    "id": "quaresmeira",
+    "nome": "Quaresmeira",
+    "nomeCientifico": "Pleroma granulosum",
+    "tipo": "Mudas",
+    "regioes": ["Sudeste", "Sul", "Nordeste"],
+    "regiaoTexto": "Região: Sudeste, Sul e Nordeste",
+    "preco": 115,
+    "imagem": "../assets/images/loja/quaresmeira.jpg",
+    "bioma": "Mata Atlântica",
+    "beneficio": "Raízes não agressivas ideais para calçadas urbanas e floração roxa intensa duas vezes ao ano.",
+    "descricao": "Uma das melhores árvores nativas para cidades brasileiras, cresce rápido e enche as ruas de cor e abelhas."
+  },
+  {
     "id": "jabuticabeira",
     "nome": "Jabuticabeira",
     "nomeCientifico": "Plinia cauliflora",
@@ -89,6 +128,45 @@
     "bioma": "Mata Atlântica",
     "beneficio": "Frutos que crescem direto no tronco alimentam pássaros, saguis e pessoas.",
     "descricao": "Árvore frutífera nativa bastante adaptável a quintais e pomares agroflorestais."
+  },
+  {
+    "id": "pitangueira",
+    "nome": "Pitangueira",
+    "nomeCientifico": "Eugenia uniflora",
+    "tipo": "Mudas",
+    "regioes": ["Nordeste", "Centro-Oeste", "Sudeste", "Sul"],
+    "regiaoTexto": "Região: Nordeste, Centro-Oeste, Sudeste e Sul",
+    "preco": 95,
+    "imagem": "../assets/images/loja/pitangueira.jpg",
+    "bioma": "Mata Atlântica, Cerrado e Pampa",
+    "beneficio": "Atrai sabiás, sanhaços e abelhas sem ferrão com seus frutos vermelhos perfumados.",
+    "descricao": "Árvore frutífera nativa de porte compacto, excelente para quintais, escolas e projetos de recuperação de nascentes."
+  },
+  {
+    "id": "oiti",
+    "nome": "Oiti",
+    "nomeCientifico": "Licania tomentosa",
+    "tipo": "Mudas",
+    "regioes": ["Nordeste", "Sudeste", "Centro-Oeste"],
+    "regiaoTexto": "Região: Nordeste, Sudeste e Centro-Oeste",
+    "preco": 110,
+    "imagem": "../assets/images/wiki/oiti.jpg",
+    "bioma": "Mata Atlântica e Restinga",
+    "beneficio": "Copa densa e sempre verde que reduz o calor nas calçadas e abriga pássaros urbanos.",
+    "descricao": "Espécie brasileira muito resistente à poluição e ao sol forte, perfeita para sombra refrescante em vias públicas."
+  },
+  {
+    "id": "pequi",
+    "nome": "Pequi",
+    "nomeCientifico": "Caryocar brasiliense",
+    "tipo": "Sementes",
+    "regioes": ["Centro-Oeste", "Sudeste", "Nordeste", "Norte"],
+    "regiaoTexto": "Região: Centro-Oeste, Sudeste, Nordeste e Norte",
+    "preco": 155,
+    "imagem": "../assets/images/wiki/image001.jpg",
+    "bioma": "Cerrado",
+    "beneficio": "Espécie-chave do Cerrado cujas flores noturnas alimentam morcegos e frutos sustentam a fauna.",
+    "descricao": "Ouro do Cerrado brasileiro, valorizado pela gastronomia regional, medicina tradicional e conservação do solo."
   },
   {
     "id": "pau-ferro",

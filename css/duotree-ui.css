@@ -1,4 +1,75 @@
-/* Componentes dinâmicos compartilhados do DuoTree (modais, notificações, toasts, quiz) */
+:root {
+  --dt-bg-modal: #fef8e7;
+  --dt-text: #223121;
+  --dt-text-muted: #4c7b47;
+  --dt-primary: #4c7b47;
+  --dt-primary-dark: #27552a;
+  --dt-border: #a9c5a0;
+  --dt-card: #ffffff;
+  --dt-surface-soft: #deceae;
+}
+
+body.tema-escuro {
+  --dt-bg-modal: #1a291e;
+  --dt-text: #edf3e8;
+  --dt-text-muted: #9bd68b;
+  --dt-primary: #5e9c56;
+  --dt-primary-dark: #2f6b32;
+  --dt-border: #3c5b42;
+  --dt-card: #223427;
+  --dt-surface-soft: #2a4030;
+}
+
+body.modal-aberta {
+  overflow: hidden;
+}
+
+.botao-tema {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 2px solid #4c7b47;
+  background-color: #fef8e7;
+  color: #27552a;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 800;
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.botao-tema:hover {
+  background-color: #4c7b47;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.botao-tema:focus-visible,
+.duotree-btn:focus-visible,
+.duotree-modal-close:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #7db86b;
+  outline-offset: 2px;
+}
+
+body.tema-escuro .botao-tema {
+  background-color: #223427;
+  color: #f3f7ef;
+  border-color: #7db86b;
+}
+
+body.tema-escuro .botao-tema:hover {
+  background-color: #4c7b47;
+  color: #ffffff;
+}
 
 .duotree-toast-container {
   position: fixed;
@@ -21,13 +92,13 @@
   font-family: "Nunito", sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.24);
   display: flex;
   align-items: center;
   gap: 10px;
   opacity: 0;
   transform: translateY(-10px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
   pointer-events: auto;
 }
 
@@ -46,13 +117,12 @@
   border-color: #dde5b3;
 }
 
-/* Modal DuoTree */
 .duotree-modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(17, 36, 18, 0.62);
-  backdrop-filter: blur(3px);
-  z-index: 9000;
+  background: rgba(12, 24, 14, 0.72);
+  backdrop-filter: blur(4px);
+  z-index: 9500;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,16 +130,16 @@
 }
 
 .duotree-modal {
-  background-color: #fef8e7;
-  color: #223121;
-  border: 3px solid #4c7b47;
-  border-radius: 32px;
+  background-color: var(--dt-bg-modal);
+  color: var(--dt-text);
+  border: 3px solid var(--dt-primary);
+  border-radius: 28px;
   width: 100%;
   max-width: 560px;
   max-height: 88vh;
   overflow-y: auto;
   padding: 24px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
   font-family: "Nunito", sans-serif;
   position: relative;
 }
@@ -84,26 +154,30 @@
 
 .duotree-modal-header h2 {
   margin: 0;
-  font-size: 1.45rem;
-  color: #27552a;
+  font-size: 1.4rem;
+  color: var(--dt-primary-dark);
+}
+
+body.tema-escuro .duotree-modal-header h2 {
+  color: #9bd68b;
 }
 
 .duotree-modal-sub {
   margin: 4px 0 0 0;
   font-size: 0.92rem;
-  color: #4c7b47;
+  color: var(--dt-text-muted);
   font-style: italic;
 }
 
 .duotree-modal-close {
-  background-color: #deceae;
-  color: #223121;
-  border: 1px solid #bfbbbb;
+  background-color: var(--dt-surface-soft);
+  color: var(--dt-text);
+  border: 1px solid var(--dt-border);
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  min-width: 36px;
-  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  font-size: 1.3rem;
   font-weight: 800;
   cursor: pointer;
   display: inline-flex;
@@ -114,41 +188,41 @@
 
 .duotree-modal-close:hover {
   background-color: #4c7b47;
-  color: #fff;
+  color: #ffffff;
 }
 
 .duotree-modal-img {
   width: 100%;
   max-height: 220px;
   object-fit: cover;
-  border-radius: 22px;
-  border: 2px solid #a9c5a0;
+  border-radius: 20px;
+  border: 2px solid var(--dt-border);
   margin-bottom: 14px;
 }
 
-.duotree-badge {
-  display: inline-block;
-  background-color: #dde5b3;
-  color: #27552a;
-  border: 1px solid #a9c5a0;
-  border-radius: 999px;
-  padding: 4px 12px;
-  font-size: 0.82rem;
-  font-weight: 800;
-  margin-right: 6px;
-  margin-bottom: 6px;
+.duotree-meta-linha {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--dt-text-muted);
+  margin-bottom: 10px;
 }
 
 .duotree-btn {
   background-color: #4c7b47;
-  color: #fff;
+  color: #ffffff;
   border: none;
   border-radius: 999px;
-  padding: 11px 22px;
+  min-height: 44px;
+  padding: 10px 22px;
   font-family: "Nunito", sans-serif;
-  font-size: 0.98rem;
+  font-size: 0.96rem;
   font-weight: 800;
   cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   transition: transform 0.15s ease, background-color 0.2s ease;
 }
 
@@ -163,12 +237,22 @@
 }
 
 .duotree-btn-sec {
-  background-color: #deceae;
-  color: #223121;
+  background-color: var(--dt-surface-soft);
+  color: var(--dt-text);
 }
 
 .duotree-btn-sec:hover:not(:disabled) {
-  background-color: #cbba97;
+  background-color: #c8b691;
+  color: #1f2e1e;
+}
+
+.duotree-btn-perigo {
+  background-color: #b83b36;
+  color: #ffffff;
+}
+
+.duotree-btn-perigo:hover:not(:disabled) {
+  background-color: #8f2925;
 }
 
 .duotree-modal-actions {
@@ -179,20 +263,23 @@
   margin-top: 18px;
 }
 
-/* Estados interativos compartilhados */
 .listaNavegacaoFooter a.pagina-ativa,
 footer a.pagina-ativa {
-  color: #27552a !important;
+  color: #27552a;
   font-weight: 900;
   text-decoration: underline;
   text-underline-offset: 5px;
 }
 
-body[class=""] footer a.pagina-ativa {
-  color: #f6c685 !important;
+body.bodyperfil footer a.pagina-ativa {
+  color: #f6c685;
 }
 
-/* Badges e interatividade na Home */
+body.tema-escuro .listaNavegacaoFooter a.pagina-ativa,
+body.tema-escuro footer a.pagina-ativa {
+  color: #9bd68b;
+}
+
 .mascote_notificacao,
 .mascote_notificacaocelular {
   position: relative;
@@ -220,7 +307,7 @@ main .arvorepc:hover {
   top: -4px;
   right: -6px;
   background-color: #d9534f;
-  color: #fff;
+  color: #ffffff;
   font-size: 0.72rem;
   font-weight: 900;
   min-width: 20px;
@@ -236,46 +323,50 @@ main .arvorepc:hover {
 
 .duotree-speech-bubble {
   position: fixed;
-  top: 145px;
-  right: 24px;
-  max-width: 290px;
-  background-color: #fef8e7;
-  color: #27552a;
-  border: 2px solid #4c7b47;
+  top: 130px;
+  right: 20px;
+  max-width: min(290px, calc(100vw - 32px));
+  background-color: var(--dt-bg-modal);
+  color: var(--dt-text);
+  border: 2px solid var(--dt-primary);
   border-radius: 22px;
   padding: 12px 16px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
   z-index: 8000;
   font-size: 0.92rem;
   font-weight: 700;
 }
 
 .duotree-home-hud {
-  position: fixed;
-  bottom: 92px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(254, 248, 231, 0.94);
+  margin: 12px auto 16px;
+  background-color: rgba(254, 248, 231, 0.95);
   border: 2px solid #4c7b47;
-  border-radius: 999px;
-  padding: 8px 16px;
+  border-radius: 28px;
+  padding: 10px 18px;
   display: flex;
   align-items: center;
   gap: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
-  z-index: 7000;
   max-width: calc(100vw - 24px);
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .duotree-home-hud span {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   font-weight: 800;
   color: #27552a;
 }
 
-/* Loja, Wiki, Missões interativos */
+body.tema-escuro .duotree-home-hud {
+  background-color: rgba(26, 41, 30, 0.95);
+  border-color: #7db86b;
+}
+
+body.tema-escuro .duotree-home-hud span {
+  color: #edf3e8;
+}
+
 .listaarvore,
 .containerArvoresWiki,
 .listaquest > li {
@@ -287,39 +378,40 @@ main .arvorepc:hover {
 .containerArvoresWiki:hover,
 .listaquest > li:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 22px rgba(39, 85, 42, 0.16);
+  box-shadow: 0 10px 22px rgba(39, 85, 42, 0.18);
 }
 
 .duotree-owned-tag {
   display: inline-block;
-  background-color: #2c731f;
-  color: #fff;
-  border-radius: 999px;
-  padding: 3px 10px;
-  font-size: 0.78rem;
+  color: #2c731f;
+  font-size: 0.85rem;
   font-weight: 800;
   margin-left: 8px;
 }
 
+body.tema-escuro .duotree-owned-tag {
+  color: #9bd68b;
+}
+
 .listfilterwiki > li.ativo,
 .navquest > a.ativo {
-  background-color: #4c7b47 !important;
-  color: #fff !important;
+  background-color: #4c7b47;
+  color: #ffffff;
 }
 
 .duotree-empty {
-  background-color: #fef8e7;
-  border: 2px dashed #4c7b47;
-  color: #27552a;
-  border-radius: 28px;
-  padding: 28px 20px;
+  background-color: var(--dt-bg-modal);
+  border: 2px dashed var(--dt-primary);
+  color: var(--dt-text);
+  border-radius: 24px;
+  padding: 24px 20px;
   text-align: center;
+  width: 100%;
   max-width: 520px;
-  margin: 20px auto;
+  margin: 16px auto;
   font-weight: 700;
 }
 
-/* Quiz e formulários internos em modais */
 .duotree-quiz-opcoes {
   display: flex;
   flex-direction: column;
@@ -329,9 +421,9 @@ main .arvorepc:hover {
 
 .duotree-quiz-opcao {
   text-align: left;
-  background-color: #fff;
-  color: #223121;
-  border: 2px solid #cbba97;
+  background-color: var(--dt-card);
+  color: var(--dt-text);
+  border: 2px solid var(--dt-border);
   border-radius: 16px;
   padding: 12px 15px;
   font-family: "Nunito", sans-serif;
@@ -344,6 +436,7 @@ main .arvorepc:hover {
 .duotree-quiz-opcao:hover:not(:disabled) {
   border-color: #4c7b47;
   background-color: #eef5e4;
+  color: #1f331e;
 }
 
 .duotree-quiz-opcao.correta {
@@ -367,27 +460,28 @@ main .arvorepc:hover {
 
 .duotree-form-group label {
   font-weight: 800;
-  color: #27552a;
-  font-size: 0.9rem;
+  color: var(--dt-text);
+  font-size: 0.92rem;
 }
 
 .duotree-form-group input,
 .duotree-form-group select,
 .duotree-form-group textarea {
   width: 100%;
+  min-height: 44px;
   height: auto;
   padding: 10px 14px;
-  border: 2px solid #cbba97;
+  border: 2px solid var(--dt-border);
   border-radius: 14px;
   font-family: "Nunito", sans-serif;
   font-size: 0.95rem;
-  background-color: #fff;
-  color: #223121;
+  background-color: var(--dt-card);
+  color: var(--dt-text);
 }
 
 .duotree-list-item {
-  background-color: #fff;
-  border: 1px solid #d5cab2;
+  background-color: var(--dt-card);
+  border: 1px solid var(--dt-border);
   border-radius: 16px;
   padding: 12px 14px;
   margin-bottom: 10px;
@@ -395,43 +489,359 @@ main .arvorepc:hover {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .duotree-list-item.bloqueado {
   opacity: 0.65;
-  background-color: #f3ede0;
+}
+
+.duotree-grid-avatares {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.duotree-opcao-avatar {
+  border: 2px solid var(--dt-border);
+  background-color: var(--dt-card);
+  color: var(--dt-text);
+  border-radius: 16px;
+  padding: 8px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+  transition: transform 0.15s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.duotree-opcao-avatar img {
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+}
+
+.duotree-opcao-avatar span {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.duotree-opcao-avatar.selecionado {
+  border-color: #2c731f;
+  background-color: #dcedcc;
+  color: #1f331e;
+  transform: translateY(-2px);
+}
+
+body.tema-escuro .duotree-opcao-avatar.selecionado {
+  border-color: #8ed47c;
+  background-color: #2e4d34;
+  color: #edf3e8;
 }
 
 .duotree-notif-item {
-  background-color: #fff;
-  border: 1px solid #d5cab2;
-  border-left: 5px solid #4c7b47;
+  background-color: var(--dt-card);
+  border: 1px solid var(--dt-border);
   border-radius: 14px;
-  padding: 10px 14px;
+  padding: 12px 14px;
   margin-bottom: 10px;
 }
 
 .duotree-notif-item.lida {
   opacity: 0.72;
-  border-left-color: #bfbbbb;
 }
 
 .sobre-card-dinamico {
-  background-color: #fef8e7;
-  border: 2px solid #4c7b47;
-  border-radius: 22px;
+  background-color: var(--dt-bg-modal);
+  border: 2px solid var(--dt-primary);
+  border-radius: 20px;
   padding: 16px 20px;
-  margin: 16px auto;
+  margin: 0 auto 30px;
   max-width: 720px;
-  color: #27552a;
+  width: 100%;
+  color: var(--dt-text);
   text-align: center;
 }
 
-.bola {
-  cursor: pointer;
-  transition: transform 0.2s ease;
+body.tema-escuro.bodyhome {
+  background-color: #132016;
+  background-blend-mode: multiply;
 }
 
-.bola:hover {
-  transform: translateY(-4px);
+body.tema-escuro.bodyhome .navegacaoFooter,
+body.tema-escuro.bodywiki .navegacaoFooter {
+  background-color: #1a281e;
+}
+
+body.tema-escuro .listaNavegacaoFooter > li > a {
+  color: #cfe0c8;
+}
+
+body.tema-escuro .listaNavegacaoFooter > li > a:hover {
+  color: #9bd68b;
+}
+
+body.tema-escuro.bodyloja {
+  background-color: #131d16;
+  color: #edf3e8;
+}
+
+body.tema-escuro.bodyloja .headerregiao,
+body.tema-escuro.bodyloja .listaarvore,
+body.tema-escuro.bodyloja .barrapesquisawiki,
+body.tema-escuro.bodyloja .listfilterloja > li {
+  background-color: #1c2b20;
+  border-color: #3a5740;
+  color: #edf3e8;
+}
+
+body.tema-escuro.bodyloja .listfilterloja > li.ativo,
+body.tema-escuro.bodyloja .listfilterloja > li:hover {
+  background-color: #4c7b47;
+  color: #ffffff;
+}
+
+body.tema-escuro.bodyloja .barrapesquisawiki > input,
+body.tema-escuro.bodyloja .select select {
+  background-color: #1c2b20;
+  color: #edf3e8;
+}
+
+body.tema-escuro.bodyloja .barrapesquisawiki svg path {
+  fill: #edf3e8;
+}
+
+body.tema-escuro.bodyloja .textoarvore > h5 {
+  background-color: #2c4630;
+  border-color: #7db86b;
+  color: #edf3e8;
+}
+
+body.tema-escuro.bodyloja .custo {
+  background-color: #243f27;
+  border-color: #7db86b;
+  color: #edf3e8;
+}
+
+body.tema-escuro.bodyloja .navegacaoFooterLoja {
+  background-color: #1a281e;
+}
+
+body.tema-escuro.bodywiki {
+  background-color: #152118;
+  color: #edf3e8;
+}
+
+body.tema-escuro.bodywiki .barrapesquisawiki,
+body.tema-escuro.bodywiki .listfilterwiki > li {
+  background-color: #1f3023;
+  color: #edf3e8;
+}
+
+body.tema-escuro.bodywiki .listfilterwiki > li.ativo,
+body.tema-escuro.bodywiki .listfilterwiki > li:hover {
+  background-color: #4c7b47;
+  color: #ffffff;
+}
+
+body.tema-escuro.bodywiki .barrapesquisawiki > input {
+  color: #edf3e8;
+}
+
+body.tema-escuro.bodywiki .barrapesquisawiki svg path {
+  fill: #edf3e8;
+}
+
+body.tema-escuro.bodywiki .containerArvoresWiki {
+  background-color: #213726;
+  border: 1px solid #3c5c42;
+}
+
+body.tema-escuro.bodywiki hr {
+  background-color: #35503b;
+}
+
+body.tema-escuro.bodyquest {
+  background-color: #141e16;
+  color: #edf3e8;
+}
+
+body.tema-escuro.bodyquest h3 {
+  background-color: #273e2b;
+  color: #edf3e8;
+}
+
+body.tema-escuro.bodyquest hr {
+  background-color: #35503b;
+}
+
+body.tema-escuro.bodyquest .navquest > a {
+  background-color: #1f3023;
+  border-color: #3c5b42;
+  color: #edf3e8;
+}
+
+body.tema-escuro.bodyquest .navquest > a.ativo,
+body.tema-escuro.bodyquest .navquest > a:hover {
+  background-color: #4c7b47;
+  color: #ffffff;
+}
+
+body.tema-escuro.bodyquest .listaquest > li {
+  background-color: #1d2d21;
+  border-color: #3a5740;
+  color: #edf3e8;
+}
+
+body.tema-escuro.bodyquest .progresso {
+  color: #c3d4be;
+}
+
+body.tema-escuro.bodyquest .premio {
+  background-color: #2d5932;
+  color: #ffffff;
+}
+
+body.tema-escuro.bodyquest .navegacaoFooterquest {
+  background-color: #1a281e;
+}
+
+body.tema-escuro.bodyperfil {
+  background-color: #132016;
+  color: #edf3e8;
+}
+
+body.tema-escuro.bodyperfil .card-perfil,
+body.tema-escuro.bodyperfil .estatisticas,
+body.tema-escuro.bodyperfil .bio-input,
+body.tema-escuro.bodyperfil .bloco-plantios {
+  background-color: #1d2e21;
+  color: #edf3e8;
+}
+
+body.tema-escuro.bodyperfil .estatisticas {
+  color: #b8e3ab;
+}
+
+body.tema-escuro.bodyperfil .barra-xp {
+  background-color: #283d2c;
+}
+
+body.tema-escuro.bodysobre {
+  background-color: #131d16;
+  color: #edf3e8;
+}
+
+body.tema-escuro.bodysobre .caixa-img-texto {
+  background-color: #1e3123;
+}
+
+body.tema-escuro.bodysobre .caixa-texto h2,
+body.tema-escuro.bodysobre .caixa-texto h3,
+body.tema-escuro.bodysobre section h2 {
+  color: #9bd68b;
+}
+
+body.tema-escuro.bodysobre .circulo-bola {
+  background-color: #1e3123;
+  border-color: #9bd68b;
+  color: #9bd68b;
+}
+
+body.tema-escuro.bodysobre footer {
+  border-top-color: #35503b;
+}
+
+body.tema-escuro.bodysobre footer a {
+  color: #d6e2d0;
+}
+
+.duotree-paginacao {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin: 16px auto 8px;
+  padding: 6px 10px;
+}
+
+.duotree-paginacao-info {
+  width: 100%;
+  text-align: center;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--dt-text-muted);
+  margin-bottom: 2px;
+}
+
+.duotree-pag-btn {
+  min-width: 42px;
+  min-height: 42px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 2px solid var(--dt-border);
+  background-color: var(--dt-card);
+  color: var(--dt-text);
+  font-family: "Nunito", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.duotree-pag-btn:hover:not(:disabled) {
+  background-color: #4c7b47;
+  border-color: #4c7b47;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.duotree-pag-btn.ativo {
+  background-color: #4c7b47;
+  border-color: #27552a;
+  color: #ffffff;
+}
+
+.duotree-pag-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+body.tema-escuro .duotree-pag-btn {
+  background-color: #1f3023;
+  border-color: #3c5b42;
+  color: #edf3e8;
+}
+
+body.tema-escuro .duotree-pag-btn.ativo,
+body.tema-escuro .duotree-pag-btn:hover:not(:disabled) {
+  background-color: #5e9c56;
+  border-color: #8ed47c;
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .botao-tema {
+    padding: 8px 12px;
+    font-size: 0.84rem;
+  }
+
+  .duotree-modal {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .duotree-pag-btn {
+    min-width: 38px;
+    min-height: 38px;
+    padding: 6px 12px;
+    font-size: 0.86rem;
+  }
 }

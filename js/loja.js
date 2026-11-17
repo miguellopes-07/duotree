@@ -1,163 +1,217 @@
-document.addEventListener('DOMContentLoaded', async () => {
-  const state = await window.DuoTree.init();
-  const especies = await window.DuoTree.fetchData('loja.json');
+document.addEventListener('DOMContentLoaded', async function () {
+  const usuario = await window.DuoTree.iniciar({ exigirLogin: true });
+  if (!usuario) {
+    return;
+  }
 
-  const sectionCards = document.querySelector('main > section');
+  const especies = await window.DuoTree.carregarDados('loja.json');
+  const secaoCards = document.querySelector('main > section');
+  const paginacaoEl = document.querySelector('#paginacao-loja');
   const selectRegiao = document.querySelector('#idregiao');
-  const searchForm = document.querySelector('.barrapesquisawiki');
-  const searchInput = searchForm ? searchForm.querySelector('input') : null;
-  const filterTabs = Array.from(document.querySelectorAll('.listfilterloja > li'));
+  const formBusca = document.querySelector('.barrapesquisawiki');
+  const inputBusca = formBusca ? formBusca.querySelector('input') : null;
+  const abasFiltro = Array.from(document.querySelectorAll('.listfilterloja > li'));
 
+  const ITENS_POR_PAGINA = 6;
+  let paginaAtual = 1;
   let filtroNome = '';
   let filtroTipo = 'todas';
-  let filtroRegiao = (state.regiao || '').toLowerCase();
+  let filtroRegiao = (usuario.regiao || '').toLowerCase();
 
-  if (selectRegiao && state.regiao) {
-    selectRegiao.value = state.regiao;
+  if (selectRegiao && usuario.regiao) {
+    selectRegiao.value = usuario.regiao;
   }
 
-  function isOwned(id) {
-    return state.arvoresCompradas.some((a) => a.id === id);
+  function possuiEspecie(id) {
+    return usuario.arvoresCompradas.some(function (a) {
+      return a.id === id;
+    });
   }
 
-  function getOwnedCount(id) {
-    const found = state.arvoresCompradas.find((a) => a.id === id);
-    return found ? found.quantidade || 1 : 0;
+  function quantidadePossuida(id) {
+    const item = usuario.arvoresCompradas.find(function (a) {
+      return a.id === id;
+    });
+    return item ? item.quantidade || 1 : 0;
   }
 
-  function openSpeciesModal(item) {
-    const ownedCount = getOwnedCount(item.id);
-    const podeComprar = state.folhas >= item.preco;
+  function abrirDetalhesEspecie(item) {
+    const qtd = quantidadePossuida(item.id);
+    const podeComprar = usuario.folhas >= item.preco;
 
-    window.DuoTree.openModal({
-      title: item.nome,
-      subtitle: item.nomeCientifico,
-      html: `
-        <img class="duotree-modal-img" src="${window.DuoTree.escapeHtml(window.DuoTree.resolveAssetPath(item.imagem))}" alt="${window.DuoTree.escapeHtml(item.nome)}">
-        <div>
-          <span class="duotree-badge">${window.DuoTree.escapeHtml(item.tipo)}</span>
-          <span class="duotree-badge">${window.DuoTree.escapeHtml(item.bioma)}</span>
-          ${ownedCount > 0 ? `<span class="duotree-badge">Na sua floresta (${ownedCount}x)</span>` : ''}
-        </div>
-        <p><strong>${window.DuoTree.escapeHtml(item.regiaoTexto)}</strong></p>
-        <p>${window.DuoTree.escapeHtml(item.descricao)}</p>
-        <p><strong>Benefício ecológico:</strong> ${window.DuoTree.escapeHtml(item.beneficio)}</p>
-        <div class="duotree-modal-actions">
-          <button type="button" class="duotree-btn duotree-btn-sec" id="btn-fechar-loja">Fechar</button>
-          <button type="button" class="duotree-btn" id="btn-comprar-arvore" ${podeComprar ? '' : 'disabled'}>
-            ${podeComprar ? `Adquirir por ${item.preco} 🍃` : `Faltam ${item.preco - state.folhas} 🍃`}
-          </button>
-        </div>
-      `,
-      onMount: (body) => {
-        body.querySelector('#btn-fechar-loja').addEventListener('click', window.DuoTree.closeModal);
-        body.querySelector('#btn-comprar-arvore').addEventListener('click', () => {
-          const result = window.DuoTree.buySpecies(item);
-          if (!result.ok) {
-            window.DuoTree.showToast(result.motivo, 'aviso');
+    window.DuoTree.abrirModal({
+      titulo: item.nome,
+      subtitulo: item.nomeCientifico,
+      html:
+        '<img class="duotree-modal-img" src="' + window.DuoTree.escaparHtml(window.DuoTree.resolverImagem(item.imagem)) + '" alt="' + window.DuoTree.escaparHtml(item.nome) + '">' +
+        '<div class="duotree-meta-linha">' +
+          window.DuoTree.escaparHtml(item.tipo) + ' · ' + window.DuoTree.escaparHtml(item.bioma) +
+          (qtd > 0 ? ' · Na sua floresta (' + qtd + 'x)' : '') +
+        '</div>' +
+        '<p><strong>' + window.DuoTree.escaparHtml(item.regiaoTexto) + '</strong></p>' +
+        '<p>' + window.DuoTree.escaparHtml(item.descricao) + '</p>' +
+        '<p><strong>Benefício ecológico:</strong> ' + window.DuoTree.escaparHtml(item.beneficio) + '</p>' +
+        '<div class="duotree-modal-actions">' +
+          '<button type="button" class="duotree-btn duotree-btn-sec" id="btn-fechar-loja">Fechar</button>' +
+          '<button type="button" class="duotree-btn" id="btn-comprar-arvore" ' + (podeComprar ? '' : 'disabled') + '>' +
+            (podeComprar ? 'Adquirir por ' + item.preco + ' 🍃' : 'Faltam ' + (item.preco - usuario.folhas) + ' 🍃') +
+          '</button>' +
+        '</div>',
+      aoAbrir: function (corpo) {
+        corpo.querySelector('#btn-fechar-loja').addEventListener('click', window.DuoTree.fecharModal);
+        corpo.querySelector('#btn-comprar-arvore').addEventListener('click', function () {
+          const resultado = window.DuoTree.comprarEspecie(item);
+          if (!resultado.ok) {
+            window.DuoTree.mostrarAviso(resultado.motivo, 'aviso');
             return;
           }
-          window.DuoTree.closeModal();
-          renderCards();
-          window.DuoTree.showToast(`🌱 Você adquiriu ${item.nome} (+35 XP)!`);
+          window.DuoTree.fecharModal();
+          renderizarCards();
+          window.DuoTree.mostrarAviso('🌱 Você adquiriu ' + item.nome + ' (+35 XP)!');
         });
       }
     });
   }
 
-  function renderCards() {
-    if (!sectionCards) return;
+  function renderizarCards() {
+    if (!secaoCards) {
+      return;
+    }
 
-    const filtrados = especies.filter((item) => {
-      const matchNome =
+    const filtrados = especies.filter(function (item) {
+      const bateNome =
         item.nome.toLowerCase().includes(filtroNome) ||
         item.nomeCientifico.toLowerCase().includes(filtroNome) ||
         item.bioma.toLowerCase().includes(filtroNome);
 
-      const matchTipo =
-        filtroTipo === 'todas' || item.tipo.toLowerCase() === filtroTipo;
+      const bateTipo = filtroTipo === 'todas' || item.tipo.toLowerCase() === filtroTipo;
 
-      const matchRegiao =
+      const bateRegiao =
         !filtroRegiao ||
-        item.regioes.some((reg) => reg.toLowerCase() === filtroRegiao) ||
+        item.regioes.some(function (r) {
+          return r.toLowerCase() === filtroRegiao;
+        }) ||
         item.regiaoTexto.toLowerCase().includes(filtroRegiao);
 
-      return matchNome && matchTipo && matchRegiao;
+      return bateNome && bateTipo && bateRegiao;
     });
 
     if (!filtrados.length) {
-      sectionCards.innerHTML = `
-        <div class="duotree-empty">
-          Nenhuma espécie encontrada com esses filtros.<br><br>
-          <button type="button" class="duotree-btn" id="btn-limpar-filtros-loja">Limpar filtros</button>
-        </div>
-      `;
-      sectionCards
-        .querySelector('#btn-limpar-filtros-loja')
-        .addEventListener('click', () => {
-          filtroNome = '';
-          filtroTipo = 'todas';
-          filtroRegiao = '';
-          if (searchInput) searchInput.value = '';
-          if (selectRegiao) selectRegiao.value = '';
-          filterTabs.forEach((li, idx) => li.classList.toggle('ativo', idx === 0));
-          renderCards();
+      if (paginacaoEl) {
+        paginacaoEl.innerHTML = '';
+      }
+      secaoCards.innerHTML =
+        '<div class="duotree-empty">' +
+          'Lista vazia — nenhuma espécie encontrada para esse filtro.<br><br>' +
+          '<button type="button" class="duotree-btn" id="btn-limpar-filtros-loja">Limpar filtros</button>' +
+        '</div>';
+
+      secaoCards.querySelector('#btn-limpar-filtros-loja').addEventListener('click', function () {
+        filtroNome = '';
+        filtroTipo = 'todas';
+        filtroRegiao = '';
+        paginaAtual = 1;
+        if (inputBusca) {
+          inputBusca.value = '';
+        }
+        if (selectRegiao) {
+          selectRegiao.value = '';
+        }
+        abasFiltro.forEach(function (li, i) {
+          li.classList.toggle('ativo', i === 0);
         });
+        renderizarCards();
+      });
       return;
     }
 
-    sectionCards.innerHTML = '';
-    filtrados.forEach((item) => {
+    const totalPaginas = Math.max(1, Math.ceil(filtrados.length / ITENS_POR_PAGINA));
+    if (paginaAtual > totalPaginas) {
+      paginaAtual = totalPaginas;
+    }
+
+    const inicio = (paginaAtual - 1) * ITENS_POR_PAGINA;
+    const itensPagina = filtrados.slice(inicio, inicio + ITENS_POR_PAGINA);
+
+    secaoCards.innerHTML = '';
+    itensPagina.forEach(function (item) {
       const card = document.createElement('div');
       card.className = 'listaarvore';
-      const owned = isOwned(item.id);
-      card.innerHTML = `
-        <div class="imgarvore"><img src="${window.DuoTree.escapeHtml(window.DuoTree.resolveAssetPath(item.imagem))}" alt="${window.DuoTree.escapeHtml(item.nome)}"></div>
-        <div class="textoarvore">
-          <h3>${window.DuoTree.escapeHtml(item.nome)}${owned ? '<span class="duotree-owned-tag">Na floresta</span>' : ''}</h3>
-          <h6>${window.DuoTree.escapeHtml(item.nomeCientifico)}</h6>
-          <h5>${window.DuoTree.escapeHtml(item.tipo)}</h5>
-          <p class="regiao">${window.DuoTree.escapeHtml(item.regiaoTexto)}</p>
-          <div class="custo">
-            <h4>${item.preco}</h4>
-            <img src="../assets/images/loja/folha.png" alt="Folhas">
-          </div>
-        </div>
-      `;
-      card.addEventListener('click', () => openSpeciesModal(item));
-      sectionCards.appendChild(card);
+      const jaPossui = possuiEspecie(item.id);
+
+      card.innerHTML =
+        '<div class="imgarvore"><img src="' + window.DuoTree.escaparHtml(window.DuoTree.resolverImagem(item.imagem)) + '" alt="' + window.DuoTree.escaparHtml(item.nome) + '"></div>' +
+        '<div class="textoarvore">' +
+          '<h3>' + window.DuoTree.escaparHtml(item.nome) + (jaPossui ? '<span class="duotree-owned-tag">· Na floresta</span>' : '') + '</h3>' +
+          '<h6>' + window.DuoTree.escaparHtml(item.nomeCientifico) + '</h6>' +
+          '<h5>' + window.DuoTree.escaparHtml(item.tipo) + '</h5>' +
+          '<p class="regiao">' + window.DuoTree.escaparHtml(item.regiaoTexto) + '</p>' +
+          '<div class="custo">' +
+            '<h4>' + item.preco + '</h4>' +
+            '<img src="../assets/images/loja/folha.png" alt="Folhas">' +
+          '</div>' +
+        '</div>';
+
+      card.addEventListener('click', function () {
+        abrirDetalhesEspecie(item);
+      });
+      secaoCards.appendChild(card);
     });
+
+    if (paginacaoEl) {
+      paginacaoEl.innerHTML = '';
+      paginacaoEl.appendChild(
+        window.DuoTree.criarPaginacao({
+          totalItens: filtrados.length,
+          itensPorPagina: ITENS_POR_PAGINA,
+          paginaAtual: paginaAtual,
+          rotulo: 'espécies',
+          aoMudarPagina: function (novaPagina) {
+            paginaAtual = novaPagina;
+            renderizarCards();
+            secaoCards.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        })
+      );
+    }
   }
 
   if (selectRegiao) {
-    selectRegiao.addEventListener('change', () => {
-      state.regiao = selectRegiao.value;
-      window.DuoTree.saveState();
+    selectRegiao.addEventListener('change', function () {
+      usuario.regiao = selectRegiao.value;
+      window.DuoTree.salvarEstado();
       filtroRegiao = selectRegiao.value.trim().toLowerCase();
-      renderCards();
+      paginaAtual = 1;
+      renderizarCards();
     });
   }
 
-  if (searchForm && searchInput) {
-    searchForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      filtroNome = searchInput.value.trim().toLowerCase();
-      renderCards();
+  if (formBusca && inputBusca) {
+    formBusca.addEventListener('submit', function (evento) {
+      evento.preventDefault();
+      filtroNome = inputBusca.value.trim().toLowerCase();
+      paginaAtual = 1;
+      renderizarCards();
     });
-    searchInput.addEventListener('input', () => {
-      filtroNome = searchInput.value.trim().toLowerCase();
-      renderCards();
+
+    inputBusca.addEventListener('input', function () {
+      filtroNome = inputBusca.value.trim().toLowerCase();
+      paginaAtual = 1;
+      renderizarCards();
     });
   }
 
-  filterTabs.forEach((opcao) => {
-    opcao.addEventListener('click', () => {
-      filterTabs.forEach((li) => li.classList.remove('ativo'));
+  abasFiltro.forEach(function (opcao) {
+    opcao.addEventListener('click', function () {
+      abasFiltro.forEach(function (li) {
+        li.classList.remove('ativo');
+      });
       opcao.classList.add('ativo');
       filtroTipo = opcao.textContent.trim().toLowerCase();
-      renderCards();
+      paginaAtual = 1;
+      renderizarCards();
     });
   });
 
-  renderCards();
+  renderizarCards();
 });

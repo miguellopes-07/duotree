@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,68 +10,79 @@
     <link rel="stylesheet" href="../css/duotree-ui.css">
 </head>
 
-<body>
+<body class="bodyperfil">
     <header>
         <a href="../index.html"><img class="logo" src="../assets/images/perfil/DuoTreebranco-removebg-preview (1).png" alt="Logo DuoTree"></a>
         <div class="nivel-xp">
-            <h1>Nível 67</h1>
+            <h1>Nível 1</h1>
             <div class="barra-xp">
-                <div class="xp-preenchido">XP 1254/1500</div>
+                <div class="xp-preenchido">XP 0/200</div>
             </div>
+        </div>
+        <div class="acoes-perfil-topo">
+            <button type="button" class="botao-tema" data-toggle-tema>🌙 Escuro</button>
+            <button type="button" id="btn-sair-conta" class="duotree-btn duotree-btn-perigo">Sair</button>
         </div>
     </header>
 
     <main>
         <div class="coluna-esquerda">
-        <section class="card-perfil">
-            <h2>Dinozinho_67</h2>
-            <button class="botao-redondo botao-amigo"><i class="fa-solid fa-user-plus"></i></button>
-            <img class="dino" src="../assets/images/perfil/dino-removebg-preview.png" alt="Avatar dino">
-            <button class="botao-redondo botao-editar"><i class="fa-solid fa-pencil"></i></button>
-        </section>
+            <section class="card-perfil">
+                <h2>Carregando...</h2>
+                <p class="perfil-subtitulo">Guardião das Sementes</p>
+                <button type="button" class="botao-redondo botao-amigo" aria-label="Amigos"><i class="fa-solid fa-user-plus"></i></button>
+                <img class="dino" src="../assets/images/perfil/dino-removebg-preview.png" alt="Avatar do personagem">
+                <button type="button" class="botao-redondo botao-editar" aria-label="Editar perfil"><i class="fa-solid fa-pencil"></i></button>
+            </section>
 
-        <ul class="estatisticas">
-            <li>
-                <h3>
-                    <i class="fa-solid fa-leaf"></i>
-                    1240
-                </h3>
-                <p>Folhas</p>
-            </li>
-            <li>
-                <h3>48</h3>
-                <p>Missões</p>
-            </li>
-            <li>
-                <h3>12</h3>
-                <p>Conquistas</p>
-            </li>
-            <li>
-                <h3>7</h3>
-                <p>Árvores</p>
-            </li>
-        </ul>
-        </div>
-        <div class="coluna-direita">
-        <section>
-            <h2>Sobre você</h2>
-            <input type="text" placeholder="Adicione uma descrição..." maxlength="120">
-            <p class="contador">0/120</p>
-        </section>
-
-        <section>
-            <div class="titulo-conquistas">
-                <h2>Conquistas</h2>
-                <a href="#">Ver todas</a>
-            </div>
-            <img class="conquistas" src="../assets/images/perfil/conquistas-removebg-preview.png" alt="Conquistas: Primeiro Broto, Amigo dos Polinizadores, Guardião da Floresta e Explorador dos Biomas">
-            <ul class="nomes-conquistas">
-                <li>Primeiro Broto</li>
-                <li>Amigo dos Polinizadores</li>
-                <li>Guardião da Floresta</li>
-                <li>Explorador dos Biomas</li>
+            <ul class="estatisticas">
+                <li>
+                    <h3><i class="fa-solid fa-leaf"></i> 0</h3>
+                    <p>Folhas</p>
+                </li>
+                <li>
+                    <h3>0</h3>
+                    <p>Missões</p>
+                </li>
+                <li>
+                    <h3>0</h3>
+                    <p>Conquistas</p>
+                </li>
+                <li>
+                    <h3>0</h3>
+                    <p>Árvores</p>
+                </li>
             </ul>
-        </section>
+        </div>
+
+        <div class="coluna-direita">
+            <section>
+                <h2>Sobre você</h2>
+                <input type="text" class="bio-input" placeholder="Adicione uma descrição..." maxlength="120">
+                <p class="contador">0/120</p>
+            </section>
+
+            <section>
+                <div class="titulo-conquistas">
+                    <h2>Conquistas</h2>
+                    <a href="#">Ver todas</a>
+                </div>
+                <img class="conquistas" src="../assets/images/perfil/conquistas-removebg-preview.png" alt="Conquistas do DuoTree">
+                <ul class="nomes-conquistas">
+                    <li>Primeiro Broto</li>
+                    <li>Amigo dos Polinizadores</li>
+                    <li>Guardião da Floresta</li>
+                    <li>Explorador dos Biomas</li>
+                </ul>
+            </section>
+
+            <section class="bloco-plantios">
+                <div class="bloco-plantios-topo">
+                    <h2>Meus Plantios</h2>
+                    <button type="button" id="btn-novo-plantio" class="duotree-btn">+ Novo plantio</button>
+                </div>
+                <ul id="lista-plantios-perfil" class="lista-plantios-perfil"></ul>
+            </section>
         </div>
     </main>
 
@@ -84,7 +96,9 @@
             <li><a href="perfil.html">Perfil</a></li>
         </ul>
     </footer>
+
     <script src="../js/duotree-state.js" defer></script>
     <script src="../js/perfil.js" defer></script>
 </body>
+
 </html>

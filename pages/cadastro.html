@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DuoTree — Cadastro</title>
+  <link rel="stylesheet" href="../css/duotree-ui.css">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+
+<body class="bodyauth">
+  <header class="headerauth">
+    <a href="sobre.html" class="headerauth-marca">
+      <img src="../assets/images/loja/3foia.png" alt="Logo DuoTree">
+      <span>DuoTree</span>
+    </a>
+    <div class="headerauth-acoes">
+      <a href="sobre.html" class="link-topo-auth">Sobre</a>
+      <a href="login.html" class="link-topo-auth">Entrar</a>
+      <button type="button" class="botao-tema" data-toggle-tema>🌙 Escuro</button>
+    </div>
+  </header>
+
+  <main class="mainauth">
+    <div class="auth-grade">
+      <section class="auth-apresentacao">
+        <img src="../assets/images/perfil/dino-removebg-preview.png" alt="Personagem DuoTree">
+        <h1>Comece sua floresta hoje</h1>
+        <p>Escolha seu personagem, informe sua região do Brasil e descubra árvores nativas ideais para o seu bioma.</p>
+      </section>
+
+      <section class="auth-card">
+        <h2>Criar conta</h2>
+        <p class="auth-subtitulo">Preencha os dados abaixo para começar sua jornada.</p>
+
+        <div id="cadastro-erro" class="auth-erro" role="alert"></div>
+
+        <form id="form-cadastro">
+          <div class="duotree-form-group">
+            <label for="cadastro-nome">Nome do personagem</label>
+            <input id="cadastro-nome" type="text" maxlength="24" placeholder="Ex.: GuardiaoVerde" required>
+          </div>
+
+          <div class="duotree-form-group">
+            <label for="cadastro-email">E-mail</label>
+            <input id="cadastro-email" type="email" placeholder="voce@exemplo.com" required>
+          </div>
+
+          <div class="duotree-form-group">
+            <label for="cadastro-regiao">Sua região do Brasil</label>
+            <select id="cadastro-regiao" required>
+              <option value="" disabled selected>Selecione uma região...</option>
+              <option value="Norte">Norte</option>
+              <option value="Nordeste">Nordeste</option>
+              <option value="Centro-Oeste">Centro-Oeste</option>
+              <option value="Sudeste">Sudeste</option>
+              <option value="Sul">Sul</option>
+            </select>
+          </div>
+
+          <div class="duotree-form-group">
+            <label>Escolha seu personagem</label>
+            <div id="seletor-personagens" class="seletor-personagens"></div>
+          </div>
+
+          <div class="duotree-form-group">
+            <label for="cadastro-senha">Senha</label>
+            <input id="cadastro-senha" type="password" placeholder="Mínimo 4 caracteres" required>
+          </div>
+
+          <div class="duotree-form-group">
+            <label for="cadastro-confirmar">Confirmar senha</label>
+            <input id="cadastro-confirmar" type="password" placeholder="Repita sua senha" required>
+          </div>
+
+          <button type="submit" class="duotree-btn auth-submit">Cadastrar e entrar</button>
+        </form>
+
+        <p class="auth-rodape-card">
+          Já possui uma conta? <a href="login.html">Fazer login</a>
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footerauth">
+    DuoTree · Educação Ambiental Gamificada · ODS 15
+  </footer>
+
+  <script src="../js/duotree-state.js" defer></script>
+  <script src="../js/cadastro.js" defer></script>
+</body>
+
+</html>
