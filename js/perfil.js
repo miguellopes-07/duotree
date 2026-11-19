@@ -18,8 +18,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   const btnAmigo = document.querySelector('.botao-amigo');
   const btnSair = document.querySelector('#btn-sair-conta');
   const linkVerTodas = document.querySelector('.titulo-conquistas a');
-  const conquistasImg = document.querySelector('.conquistas');
-  const nomesConquistas = document.querySelector('.nomes-conquistas');
+  const gradeConquistas = document.querySelector('.grade-conquistas');
   const listaPlantiosEl = document.querySelector('#lista-plantios-perfil');
   const btnNovoPlantio = document.querySelector('#btn-novo-plantio');
 
@@ -55,7 +54,25 @@ document.addEventListener('DOMContentLoaded', async function () {
       contadorEl.textContent = bioInput.value.length + '/120';
     }
 
+    renderizarConquistas();
     renderizarPlantios();
+  }
+
+  function renderizarConquistas() {
+    if (!gradeConquistas || !Array.isArray(catalogo.conquistas)) {
+      return;
+    }
+    const principais = catalogo.conquistas.slice(0, 4);
+    gradeConquistas.innerHTML = '';
+    principais.forEach(function (c) {
+      const desbloqueada = usuario.conquistasDesbloqueadas.includes(c.id);
+      const li = document.createElement('li');
+      li.className = 'item-conquista' + (desbloqueada ? '' : ' bloqueada');
+      li.innerHTML =
+        '<img src="' + window.DuoTree.escaparHtml(window.DuoTree.resolverImagem(c.imagem)) + '" alt="' + window.DuoTree.escaparHtml(c.nome) + '">' +
+        '<span>' + window.DuoTree.escaparHtml(c.nome) + '</span>';
+      gradeConquistas.appendChild(li);
+    });
   }
 
   function renderizarPlantios() {
@@ -299,10 +316,15 @@ document.addEventListener('DOMContentLoaded', async function () {
         const desbloqueada = usuario.conquistasDesbloqueadas.includes(c.id);
         return (
           '<div class="duotree-list-item ' + (desbloqueada ? '' : 'bloqueado') + '">' +
-            '<div>' +
-              '<strong>' + (desbloqueada ? '🏆 ' : '🔒 ') + window.DuoTree.escaparHtml(c.nome) + '</strong>' +
-              '<div style="font-size:0.86rem;">' + window.DuoTree.escaparHtml(c.descricao) + '</div>' +
-              '<div class="duotree-meta-linha" style="margin:4px 0 0;">Critério: ' + window.DuoTree.escaparHtml(c.criterio) + ' · ' + (desbloqueada ? 'Desbloqueada' : '+' + c.xpBonus + ' XP') + '</div>' +
+            '<div style="display:flex;align-items:center;gap:12px;">' +
+              (c.imagem
+                ? '<img src="' + window.DuoTree.escaparHtml(window.DuoTree.resolverImagem(c.imagem)) + '" alt="' + window.DuoTree.escaparHtml(c.nome) + '" style="width:46px;height:46px;object-fit:contain;flex-shrink:0;">'
+                : '') +
+              '<div>' +
+                '<strong>' + (desbloqueada ? '🏆 ' : '🔒 ') + window.DuoTree.escaparHtml(c.nome) + '</strong>' +
+                '<div style="font-size:0.86rem;">' + window.DuoTree.escaparHtml(c.descricao) + '</div>' +
+                '<div class="duotree-meta-linha" style="margin:4px 0 0;">Critério: ' + window.DuoTree.escaparHtml(c.criterio) + ' · ' + (desbloqueada ? 'Desbloqueada' : '+' + c.xpBonus + ' XP') + '</div>' +
+              '</div>' +
             '</div>' +
           '</div>'
         );
@@ -336,13 +358,8 @@ document.addEventListener('DOMContentLoaded', async function () {
       abrirModalConquistas();
     });
   }
-  if (conquistasImg) {
-    conquistasImg.style.cursor = 'pointer';
-    conquistasImg.addEventListener('click', abrirModalConquistas);
-  }
-  if (nomesConquistas) {
-    nomesConquistas.style.cursor = 'pointer';
-    nomesConquistas.addEventListener('click', abrirModalConquistas);
+  if (gradeConquistas) {
+    gradeConquistas.addEventListener('click', abrirModalConquistas);
   }
 
   renderizarPerfil();

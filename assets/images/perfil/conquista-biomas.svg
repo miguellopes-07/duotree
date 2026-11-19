@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <defs>
+    <linearGradient id="ocean4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#48b8ff"/>
+      <stop offset="100%" stop-color="#1877c9"/>
+    </linearGradient>
+    <linearGradient id="wood4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d49348"/>
+      <stop offset="100%" stop-color="#8b4d1b"/>
+    </linearGradient>
+    <clipPath id="clip4">
+      <circle cx="78" cy="80" r="46"/>
+    </clipPath>
+  </defs>
+  <circle cx="78" cy="80" r="58" fill="url(#wood4)" stroke="#4c260a" stroke-width="4"/>
+  <g stroke="#235b14" stroke-width="2.5" stroke-linejoin="round">
+    <path d="M36 44 Q18 28 30 14 Q46 22 44 40 Z" fill="#62bc38"/>
+    <path d="M116 42 Q128 16 144 20 Q138 40 124 48 Z" fill="#62bc38"/>
+    <path d="M24 94 Q8 76 18 58 Q34 70 30 88 Z" fill="#4fa82e"/>
+    <path d="M40 130 Q18 124 20 104 Q38 110 48 124 Z" fill="#74c943"/>
+  </g>
+  <circle cx="78" cy="80" r="46" fill="url(#ocean4)" stroke="#124a7d" stroke-width="3"/>
+  <g clip-path="url(#clip4)">
+    <path d="M44 44 Q62 36 74 52 Q84 62 66 70 Q50 74 44 58 Z" fill="#68c942" stroke="#2c6f1d" stroke-width="2.2"/>
+    <path d="M72 72 Q96 68 106 88 Q98 112 82 122 Q70 112 72 90 Z" fill="#68c942" stroke="#2c6f1d" stroke-width="2.2"/>
+    <path d="M36 86 Q56 96 64 114 Q44 118 32 100 Z" fill="#56b834" stroke="#2c6f1d" stroke-width="2"/>
+    <path d="M62 68 Q78 82 96 92" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="4 4" stroke-linecap="round"/>
+  </g>
+  <path d="M62 48 C54 48 48 54 48 62 C48 73 62 84 62 84 C62 84 76 73 76 62 C76 54 70 48 62 48 Z" fill="#ef4b3f" stroke="#7d1912" stroke-width="2.8" stroke-linejoin="round"/>
+  <circle cx="62" cy="61" r="5" fill="#fff2e8"/>
+  <g transform="translate(114 114)">
+    <circle cx="0" cy="-22" r="5" fill="none" stroke="#a66914" stroke-width="3"/>
+    <circle cx="0" cy="0" r="22" fill="#e8ab36" stroke="#5d3808" stroke-width="3"/>
+    <circle cx="0" cy="0" r="16" fill="#fef8e7" stroke="#b97b1e" stroke-width="2"/>
+    <polygon points="0,-12 4,0 0,2 -4,0" fill="#e23d31"/>
+    <polygon points="0,12 4,0 0,-2 -4,0" fill="#2b5f8f"/>
+    <circle cx="0" cy="0" r="3" fill="#5d3808"/>
+  </g>
+</svg>

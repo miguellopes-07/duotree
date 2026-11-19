@@ -39,7 +39,14 @@ document.addEventListener('DOMContentLoaded', async function () {
   if (listaEquipe && Array.isArray(sobreData.equipe)) {
     listaEquipe.innerHTML = sobreData.equipe
       .map(function (membro) {
-        return '<li><strong>' + window.DuoTree.escaparHtml(membro.nome) + '</strong> — <small>' + window.DuoTree.escaparHtml(membro.papel) + '</small></li>';
+        const fotoUrl = window.DuoTree.resolverImagem(membro.foto || '../assets/images/perfil/dino-removebg-preview.png');
+        return (
+          '<li class="card-equipe">' +
+            '<img class="foto-equipe" src="' + window.DuoTree.escaparHtml(fotoUrl) + '" alt="' + window.DuoTree.escaparHtml(membro.nome) + '">' +
+            '<h4>' + window.DuoTree.escaparHtml(membro.nome) + '</h4>' +
+            '<p>' + window.DuoTree.escaparHtml(membro.papel) + '</p>' +
+          '</li>'
+        );
       })
       .join('');
   }

@@ -198,28 +198,49 @@ section h2 {
     font-weight: 700;
 }
 
-.conquistas {
-    display: block;
-    width: 86%;
-    max-width: 360px;
-    margin: 0 auto;
-}
-
-.nomes-conquistas {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+.grade-conquistas {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
     list-style: none;
-    margin: 6px auto 0;
+    margin: 10px auto 0;
     padding: 0;
-    gap: 6px;
+    width: 100%;
+    cursor: pointer;
 }
 
-.nomes-conquistas li {
-    flex: 1;
+.item-conquista {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     text-align: center;
+    gap: 6px;
+    transition: transform 0.18s ease, opacity 0.2s ease;
+}
+
+.item-conquista:hover {
+    transform: translateY(-2px);
+}
+
+.item-conquista.bloqueada {
+    opacity: 0.48;
+    filter: grayscale(0.75);
+}
+
+.item-conquista img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    display: block;
+}
+
+.item-conquista span {
     font-size: 0.78rem;
     font-weight: 700;
+    line-height: 1.25;
+    text-align: center;
+    word-break: break-word;
 }
 
 .bloco-plantios {
@@ -352,6 +373,20 @@ footer a {
     .nivel-xp {
         order: 3;
         width: 100%;
+    }
+
+    .grade-conquistas {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    .item-conquista img {
+        width: 56px;
+        height: 56px;
+    }
+
+    .item-conquista span {
+        font-size: 0.7rem;
     }
 
     footer ul {

@@ -11,8 +11,20 @@
     "Tornar a educação ambiental acessível, prática e gamificada para jovens e comunidades."
   ],
   "equipe": [
-    { "nome": "Miguel Lopes", "papel": "Idealização, Desenvolvimento & Experiência DuoTree" },
-    { "nome": "Marcus Vinícius", "papel": "Conteúdo Ambiental, Pesquisa & Design" },
-    { "nome": "Brendon Kevin", "papel": "Estrutura Web, Layout & Colaboração" }
+    {
+      "nome": "Miguel Lopes",
+      "papel": "Idealização, Desenvolvimento & Experiência DuoTree",
+      "foto": "../assets/images/equipe/miguel-lopes.jpg"
+    },
+    {
+      "nome": "Marcus Vinícius",
+      "papel": "Conteúdo Ambiental, Pesquisa & Design",
+      "foto": "../assets/images/equipe/marcus-vinicius.jpg"
+    },
+    {
+      "nome": "Brendon Kevin",
+      "papel": "Estrutura Web, Layout & Colaboração",
+      "foto": "../assets/images/equipe/brendon-kevin.jpg"
+    }
   ]
 }

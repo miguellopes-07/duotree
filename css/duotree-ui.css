@@ -753,6 +753,41 @@ body.tema-escuro.bodysobre .circulo-bola {
   color: #9bd68b;
 }
 
+body.tema-escuro.bodysobre .secao-bloco {
+  background-color: #1b2c20;
+  border-color: #35503b;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+}
+
+body.tema-escuro.bodysobre section h3 {
+  color: #cfe8c4;
+}
+
+body.tema-escuro.bodysobre .lista-passos li,
+body.tema-escuro.bodysobre .lista-crencas li {
+  border-bottom-color: rgba(155, 214, 139, 0.16);
+}
+
+body.tema-escuro.bodysobre .card-equipe {
+  background-color: #1e3123;
+  border-color: #3c5c42;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.tema-escuro.bodysobre .foto-equipe {
+  border-color: #7db86b;
+  background-color: #283f2e;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+body.tema-escuro.bodysobre .card-equipe h4 {
+  color: #9bd68b;
+}
+
+body.tema-escuro.bodysobre .card-equipe p {
+  color: #d6e2d0;
+}
+
 body.tema-escuro.bodysobre footer {
   border-top-color: #35503b;
 }
